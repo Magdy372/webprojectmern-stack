@@ -16,6 +16,10 @@ app.get('/smartphones', (req, res) => {
     res.render("smartphones");
 });
 
+app.get('/labtops', (req, res) => {
+    res.render("labtops");
+});
+
 
 // listen for requests
 app.listen(8050);
