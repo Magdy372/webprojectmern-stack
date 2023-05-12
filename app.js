@@ -20,6 +20,10 @@ app.get('/labtops', (req, res) => {
     res.render("labtops");
 });
 
+app.get('/discount', (req, res) => {
+    res.render("discount");
+});
+
 
 // listen for requests
 app.listen(8050);
