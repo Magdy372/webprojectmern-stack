@@ -89,6 +89,9 @@ app.get('/profile', (req, res) => {
 app.get('/login', (req, res) => {
     res.render("login");
 });
+app.get('/map', (req, res) => {
+    res.render("map");
+});
 
 
 
