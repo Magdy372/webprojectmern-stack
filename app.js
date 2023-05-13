@@ -25,6 +25,40 @@ app.get('/discount', (req, res) => {
 app.get('/dashborad', (req, res) => {
     res.render("dashborad");
 });
+app.get('/customers', (req, res) => {
+    res.render("customers");
+});
+app.get('/ordes', (req, res) => {
+    res.render("ordes");
+});
+app.get('/inventory', (req, res) => {
+    res.render("inventory");
+});
+app.get('/task', (req, res) => {
+    res.render("task");
+});
+app.get('/offers', (req, res) => {
+    res.render("offers");
+});
+app.get('/addoffer', (req, res) => {
+    res.render("addoffer");
+});
+app.get('/customersupport', (req, res) => {
+    res.render("customersupport");
+});
+app.get('/chattab', (req, res) => {
+    res.render("chattab");
+});
+app.get('/ADMIN-ADD', (req, res) => {
+    res.render("ADMIN-ADD");
+});
+app.get('/profile', (req, res) => {
+    res.render("profile");
+});
+app.get('/login', (req, res) => {
+    res.render("login");
+});
+
 
 
 // listen for requests
