@@ -3,14 +3,12 @@ import express from 'express';
 // express app
 const app = express();
 
-
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render("homepage");
 });
-
 
 app.get('/smartphones', (req, res) => {
     res.render("smartphones");
@@ -28,6 +26,10 @@ app.get('/sign', (req, res) => {
 });
 app.get('/item', (req, res) => {
     res.render("item");
+});
+
+app.get('/dashborad', (req, res) => {
+    res.render("dashborad");
 });
 
 
