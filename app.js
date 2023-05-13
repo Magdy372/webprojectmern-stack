@@ -24,6 +24,10 @@ app.get('/discount', (req, res) => {
     res.render("discount");
 });
 
+app.get('/dashborad', (req, res) => {
+    res.render("dashborad");
+});
+
 
 // listen for requests
 app.listen(8050);
