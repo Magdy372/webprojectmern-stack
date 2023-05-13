@@ -30,61 +30,90 @@
                 <li> </li>
             </ul>
         </div>
+        
     </nav>-->
-    <%- include("./partials/header.ejs") %>
+    
         <main>
-            <form id="signin">
-                      <label class="lab" for="email"><b>Email</b></label>
-                      <input class="in" type="text" placeholder="Enter Email" name="email" required>
-                      <label class="lab" for="psw"><b>Password</b></label>
-                      <input class="in" type="password" placeholder="Enter Password" name="psw" required>
-                      <button type="submit" class="btn-modal">Login</button>
-                      <div class="opensignup" onclick="change()">Create an acount</div>
-            </form> 
-            <form id="signup" action=" " method="post" onsubmit="return validate(this)">
-                
-                    <label for="fullname"  class="lab">Full Name</label>
-                    <input type="text" id="fullname" class="in" placeholder="Full Name" required class="textBox">
-                
-               
-                    <label for="mail"  class="lab">Email Address</label>
-                    <input id="mail" type="email" class="in"  placeholder="Email" name="Email" required class="textBox">
-                    <label for="mail" id="errormail" ></label>
-                      
-           
+
+            <% if(Email==="" ) {%>
+                <%- include("./partials/header.ejs") %>
+                <form id="signin" action="/" method="get" >
+                    <label class="lab" for="email"><b>Email</b></label>
+                    <input class="in" type="text" placeholder="Email" name="email" required>
+                    <label class="lab" for="psw"><b>Password</b></label>
+                    <input class="in" type="password" placeholder="Enter Password" name="psw" required>
+                   <button type="submit"  class="btn-modal">Login</button>
+                    <div class="opensignup" onclick="change()">Create an acount</div>
+          </form> 
+          <form id="signup" action=" " method="post" onsubmit="return validate(this)">
               
-                    <label for="password"  class="lab">Password</label>
-                    <input type="Password"  id="password" class="in" placeholder="Password" name="Password" required class="textBox">
-                    <label id="errorpassword"></label>
-                
-                       
+                  <label for="fullname"  class="lab">Full Name</label>
+                  <input type="text" id="fullname" class="in" placeholder="Full Name" required class="textBox">
+              
+             
+                  <label for="mail"  class="lab">Email Address</label>
+                  <input id="mail" type="email" class="in"  placeholder="Email" name="Email" required class="textBox">
+                  <label for="mail" id="errormail" ></label>
+                    
+         
             
-                    <label for="cpassword"  class="lab">confirm Password</label>
-                    <input type="Password" id="cpassword" class="in" placeholder="confirmPassword" name="ConfirmPassword" required class="textBox">
-                    <p id="pwcErr"></p>
-                
+                  <label for="password"  class="lab">Password</label>
+                  <input type="Password"  id="password" class="in" placeholder="Password" name="Password" required class="textBox">
+                  <label id="errorpassword"></label>
+              
+                     
+          
+                  <label for="cpassword"  class="lab">confirm Password</label>
+                  <input type="Password" id="cpassword" class="in" placeholder="confirmPassword" name="ConfirmPassword" required class="textBox">
+                  <p id="pwcErr"></p>
+              
 
-                                        
-                
-                    <label for="dat"  class="lab">Age</label>
-                    <input id="dat" type="date" class="in"  value="dob" required class="textBox">
-                    <label id="errordate"></label>
-                
+                                      
+              
+                  <label for="dat"  class="lab">Age</label>
+                  <input id="dat" type="date" class="in"  value="dob" required class="textBox">
+                  <label id="errordate"></label>
+              
 
-                <div class="radio box">
-                    <div id="radiomale">
-                        <input type="radio" value="male" id="male" class="in" name="gender" required class="textBox">
-                        <label for="male"  class="lab">male </label>
-                    </div>
-                    <div id="radiofemale">
-                        <input type="radio" value="female" id="female"  class="in" name="gender" required class="textBox">
-                        <label for="female"  class="lab">Female </label> 
+              <div class="radio box">
+                  <div id="radiomale">
+                      <input type="radio" value="male" id="male" class="in" name="gender" required class="textBox">
+                      <label for="male"  class="lab">male </label>
+                  </div>
+                  <div id="radiofemale">
+                      <input type="radio" value="female" id="female"  class="in" name="gender" required class="textBox">
+                      <label for="female"  class="lab">Female </label> 
 
-                    </div>
-                </div>
-                <button class="btn-modal"  type="submit">Submit</button>
-            </form> 
-        </main>
-        <%- include("./partials/footer.ejs") %>
+                  </div>
+              </div>
+              <button class="btn-modal"  type="submit">Submit</button>
+
+              <%- include("./partials/footer.ejs") %>
+          </form> 
+               
+          <% }else { %>
+            <form action="/logout" method="get">
+            <%- include("./partials/header.ejs") %>
+            <h2>id:<%= employees.id %></h2>
+            <br>
+            <br>
+          <h2>Name:<%= employees.name %></h2>
+          <br>
+          <br>
+          <h2>address:<%= employees.address %></h2>
+            <br>
+            <br>
+          <h2>money:<%= employees.money %></h2>
+
+          <button type="submit">Logout</button>
+          
+          <%- include("./partials/footer.ejs") %>
+          <% } %>
+        </form>
+      </main>
+      
+
+      
+      
     </body>
     </html>
