@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render("home");
+    res.render("homepage");
 });
 
 app.get('/smartphones', (req, res) => {
@@ -20,6 +20,12 @@ app.get('/labtops', (req, res) => {
 
 app.get('/discount', (req, res) => {
     res.render("discount");
+});
+app.get('/sign', (req, res) => {
+    res.render("sign");
+});
+app.get('/item', (req, res) => {
+    res.render("item");
 });
 
 app.get('/dashborad', (req, res) => {
