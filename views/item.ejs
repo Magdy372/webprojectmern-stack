@@ -13,69 +13,8 @@
     <script src="../js/user.js"></script>
 </head>
 <body>
-        <nav class="navbar">
-
-        <!-- LOGO -->
-        <div class="logo"><img src="../images/cyber-mart-high-resolution-logo-black-on-transparent-background.png" alt="logo"></div>
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-        <div class="search-wrapper">
-            
-          <input id="searchin" type="search" placeholder="Search here">
-          <span class="las la-search"></span>
-        </div>
-        <!-- NAVIGATION MENU -->
         
-        <ul class="nav-links">
-        
-        <!-- USING CHECKBOX HACK -->
-        
-        <input type="checkbox" id="checkbox_toggle" />
-        
-        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-        
-        <!-- NAVIGATION MENUS -->
-        
-        <div class="menu">
-        
-        <li><a href="homepage.html">Home</a></li>
-        
-        <li><a href="smartphones.html">Smartphone</a></li>
-        
-        <li class="services">
-
-           
-        
-        <a href="labtops.html">Laptop</a>
-        
-       <!-- DROPDOWN MENU -->
-        
-        <ul class="dropdown">
-        
-        <!--<li><a href="">Dropdown 1 </a></li>
-        
-        <li><a href="">Dropdown 2</a></li>
-        
-        <li><a href="">Dropdown 2</a></li>
-        
-        <li><a href="">Dropdown 3</a></li>
-        
-        <li><a href="">Dropdown 4</a></li>-->
-        
-        </ul>
-        
-        </li>
-        
-        <li><a  onclick="openNav()"><i class="fa-solid fa-cart-shopping"></i></a></li>
-        
-        <li><a  href="sign.html"><i class="fa-solid fa-user"></i></a></li>
-        
-        </div>
-        
-        </ul>
-        
-        </nav>
-
+  <%- include("./partials/header.ejs") %>
 
         <div id="mySidenav" class="sidenav">
           <h1 id="carth">Cart</h1>
@@ -120,35 +59,7 @@
             </div>
           </div>
             
-      
-            <div class="container-footer w-container">
-              <div class="w-row">
-                <div class="footer-column w-clearfix w-col w-col-4"><span></span>
-                  <h3 class="footer-failory-name" style="color : green"><img src="../images/cyber-mart-high-resolution-logo-color-on-transparent-background.png" alt="logo"></h3>
-                  <p class="footer-description-failory"><br></p>
-                </div>
-                <div class="footer-column w-col w-col-8">
-                  <div class="w-row">
-                    <div class="w-col w-col-8">
-                      <div class="w-row">
-                        <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
-                          <h3 class="footer-titles">Electronics</h3>
-                          <p class="footer-links"><a href="" target="_blank"><span class="footer-link">Mobiles<br></span></a><a href=""><span class="footer-link">Laptops<br></span></a><a href=""><span class="footer-link">Tablets</span></a><strong><br></strong></p>
-                        </div>
-                        <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
-                          <h3 class="footer-titles">Other</h3>
-                          <p class="footer-links"><a href=""><span class="footer-link">Sponsor Us!<br></span></a><a href=""><a href=""><span class="footer-link"></span></a><a href=""><span class="footer-link">Contribute<br></span></a><a href=""><span class="footer-link">FAQ</span></a><strong><br></strong></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="column-center-mobile w-col w-col-4">
-                      <h3 class="footer-titles">Follow Us!</h3><a href="" target="_blank" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbf0a2f2b67e3b3ba079c_Twitter%20Icon.svg" width="20" alt="Twitter icon"></a><a href="" target="_blank" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbfe70fcf5a0514c5b1da_Instagram%20Icon.svg" width="20" alt="Instagram icon"></a><a href="" target="_blank" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dbe42e1e6034fdaba46f6_Facebook%20Icon.svg" width="20" alt="Facebook Icon"></a><a href="" target="_blank" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0002f2b676eb4ba0869_LinkedIn%20Icon.svg" width="20" alt="LinkedIn Icon"></a><a href="" target="_blank" class="footer-social-network-icons w-inline-block"><img src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/5c8dc0112f2b6739c9ba0871_Pinterest%20Icon.svg" width="20" alt="Pinterest Icon" class=""></a>
-                      <p class="footer-description">Email me at: <a href=""><strong class="link-email-footer">Miu Egypt</strong></a><br></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <%- include("./partials/footer.ejs") %>
 
 
 

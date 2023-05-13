@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     res.render("homepage",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 
+app.get('/homepage', (req, res) => {
+    res.render("homepage",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
+});
+
 app.get('/smartphones', (req, res) => {
     res.render("smartphones",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
