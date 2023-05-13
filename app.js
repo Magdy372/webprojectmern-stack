@@ -3,14 +3,12 @@ import express from 'express';
 // express app
 const app = express();
 
-
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render("home");
 });
-
 
 app.get('/smartphones', (req, res) => {
     res.render("smartphones");
