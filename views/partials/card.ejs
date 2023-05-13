@@ -1,0 +1,27 @@
+<% const employees = [
+{ "id": "Apple", "name": "Apple MacBook Pro", "position": "$1100","src": "../images/Apple/Annotation 2023-03-11 154259.png " },
+{ "id": "Dell", "name": "dell latitude 5410", "position": "$1100","src": "../images/dell latitude/Annotation 2023-03-11 150643.png " },
+{ "id": "Lenovo", "name": "Legion 5", "position": "$1500" ,"src": "../images/legion/Annotation 2023-03-11 162846.png"},
+{ "id": "Lenovo", "name": "Lenovo Gaming 3", "position": "$1100" ,"src": "../images/gaming 3/Annotation 2023-03-11 164454.png "}
+]; %>
+
+<% employees.forEach(emp=> { %>
+<a href="/item">
+
+    <div class="pro">
+        <img src="<%= emp.src%>" alt= " photo">
+<div class="des">
+<span><%=emp.id%></span>
+<h5><%=emp.name%></h5>
+<div class="star">
+
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+
+</div>
+<h5><%=emp.position%></h5>
+    </div>
+    <a href="" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+</div></a>
+<% }) %>

@@ -33,6 +33,7 @@
         </div>
     </nav>-->
     
+    
     <%- include("./partials/header.ejs") %>
         
 
@@ -113,99 +114,17 @@
 
     
 
-        <div class="form-popup" id="myForm">
-            <form class="form-container">
-            <h1>Login</h1>
-        
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-        
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-        
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
             
         <section  id="product1" class="section-p1">
             <h2>featured products</h2>
           <div class="pro-container">
-            <a href="item.html">
+
+        
+            <%- include("./partials/card.ejs") %>
             
-                <div class="pro">
-                    <img src="../images/Apple/Annotation 2023-03-11 154259.png" alt=" photo">
-            <div class="des">
-            <span>Apple</span>
-            <h5>Apple MacBook Pro</h5>
-            <div class="star">
             
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
             
-            </div>
-            <h5>$1100</h5>
-                </div>
-                <a href="" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div></a>
-            
-            <a href="item.html">
-            <div class="pro">
-                <img src="../images/dell latitude/Annotation 2023-03-11 150643.png" alt=" photo">
-            <div class="des">
-            <span>Dell</span>
-            <h5>dell latitude 5410</h5>
-            <div class="star">
-            
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$1100</h5>
-            </div>
-            <a href="#" id="cart" ><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-            </a>
-            
-            <a href="item.html">
-            <div class="pro">
-                <img src="../images/legion/Annotation 2023-03-11 162846.png" alt=" photo">
-            <div class="des">
-            <span>Lenovo</span>
-            <h5>Legion 5</h5>
-            <div class="star">
-            
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$1500</h5>
-            </div>
-            <a href="#" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-            </a>
-            
-            <a href="item.html">
-            <div class="pro">
-                <img src="../images/gaming 3/Annotation 2023-03-11 164454.png" alt=" photo">
-            <div class="des">
-            <span>Lenovo</span>
-            <h5>Lenovo Gaming 3</h5>
-            <div class="star">
-            
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$1100</h5>
-            </div>
-            <a href="#" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-            </a>
+           
             
             <a href="item.html">
             <div class="pro">
