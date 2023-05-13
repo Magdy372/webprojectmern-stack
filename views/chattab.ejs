@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/chattab.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>Chat</title>
+    <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
+</head>
+<body>
+  <%- include("./partials/adminheader.ejs") %>
+     <main>
+        <div class="chat-screen">
+            <div class="chat-header">
+              <div> <img src="https://picsum.photos/200/300" alt="" class="image"></div> 
+              <div><h2>Ahmed</h2></div>
+            </div>
+            <div class="chat-messages">
+              <div class="message from-me">
+                <p>Hello!</p>
+              </div>
+              <div class="message from-them">
+                <p>Hi there!</p>
+              </div>
+              <div class="message from-me">
+                <p>How are you?</p>
+              </div>
+              <div class="message from-them">
+                <p>I'm doing well, thanks for asking. How about you?</p>
+              </div>
+            </div>
+            <div class="chat-input">
+              <input type="text" placeholder="Type your message...">
+              <button>Send</button>
+            </div>
+          </div>
+     </main>
+</body>
+</html>

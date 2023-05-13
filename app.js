@@ -1,4 +1,6 @@
 import express from 'express';
+
+import session from 'express-session';
 //const session = require('express-session')
 // express app
 const app = express();
@@ -6,35 +8,84 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.render("homepage", {employees});
-});
+app.use(session({ secret: 'Your_Secret_Key' }));
 
-app.get('/homepage', (req, res) => {
-    res.render("homepage");
+
+// object for test
+
+const employees ={ "id": "1", "name": "Essam Eliwa", "address": "madenet nasr" , "money": "$1000"};
+   
+
+app.get('/', (req, res) => {
+
+    req.session.Email = req.query.email;
+    req.session.psw = req.query.psw;
+    req.session.x = 'x';
+    res.render("homepage",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 
 app.get('/smartphones', (req, res) => {
-    res.render("smartphones");
+    res.render("smartphones",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 
 app.get('/labtops', (req, res) => {
-    res.render("labtops");
+    res.render("labtops",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 
 app.get('/discount', (req, res) => {
-    res.render("discount");
+    res.render("discount",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 app.get('/sign', (req, res) => {
-    res.render("sign");
+    res.render("sign" ,{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 app.get('/item', (req, res) => {
-    res.render("item");
+    res.render("item",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
 
 app.get('/dashborad', (req, res) => {
-    res.render("dashborad");
+    res.render("dashborad",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
 });
+
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+});
+
+app.get('/customers', (req, res) => {
+    res.render("customers");
+});
+app.get('/ordes', (req, res) => {
+    res.render("ordes");
+});
+app.get('/inventory', (req, res) => {
+    res.render("inventory");
+});
+app.get('/task', (req, res) => {
+    res.render("task");
+});
+app.get('/offers', (req, res) => {
+    res.render("offers");
+});
+app.get('/addoffer', (req, res) => {
+    res.render("addoffer");
+});
+app.get('/customersupport', (req, res) => {
+    res.render("customersupport");
+});
+app.get('/chattab', (req, res) => {
+    res.render("chattab");
+});
+app.get('/ADMIN-ADD', (req, res) => {
+    res.render("ADMIN-ADD");
+});
+app.get('/profile', (req, res) => {
+    res.render("profile");
+});
+app.get('/login', (req, res) => {
+    res.render("login");
+});
+
 
 
 // listen for requests

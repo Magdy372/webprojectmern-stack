@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/offers.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>offers</title>
+    <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
+</head>
+<body>
+    <%- include("./partials/adminheader.ejs") %>
+     <main>
+        
+    
+
+    <h2>Current Offers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>value</th>
+                <th>Image</th>
+                <th>Validity</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>11212331</td>
+                <td>123131</td>
+                <td>1212121</td>
+                <td>1212133131</td>
+                <td>1313131313</td>
+                <td>1313131313</td>
+            </tr>
+        </thead>
+        <tbody id="offer-list">
+            <!-- offer details will be displayed here -->
+        </tbody>
+    </table>
+    <a href="/addoffer" class="additem"> <button class="btn">ADD Offer<span class="las la-arrow-right"></span> </button></a>
+</body>
+</html>
