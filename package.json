@@ -5,7 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,16 @@
   },
   "homepage": "https://github.com/ahmedabdelrahman1/webdevelopmentmernstack#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
-    "nodemon": "^2.0.22"
+    "http-errors": "^2.0.0",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
+    "routes": "^2.1.0",
+    "url": "^0.11.0"
   }
 }
