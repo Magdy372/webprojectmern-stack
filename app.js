@@ -92,6 +92,9 @@ app.get('/login', (req, res) => {
 app.get('/map', (req, res) => {
     res.render("map");
 });
+app.use((reg, res) => {
+    res.status (404).redirect("homepage");
+  })
 
 
 
