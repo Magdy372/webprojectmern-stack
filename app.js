@@ -53,6 +53,8 @@ app.use('/', homepage_router);
 
 app.use('/homepage', tohome_router);
 
+app.use('/chat', tohome_router);
+
 app.use('/smartphones', smartphones_router);
 
 app.use('/labtops', laptop_router);

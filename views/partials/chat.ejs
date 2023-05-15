@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/chat.css">
+<link rel="stylesheet" href="https://kit.fontawesome.com/e390cab89c.css">
+<script src="https://kit.fontawesome.com/e390cab89c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<button class="open-button" onclick="openForm()"><i class="fa-solid fa-comment" style="max-width: 25; max-height: 20;"></i> </button>
+
+<div class="chat-popup" id="myForm">
+  <form  class="form-container">
+    <a href="javascript:void(0)" class="closbtn" onclick="closeForm()">&times;</a>  
+    
+<iframe
+allow="microphone;"
+width="350"
+height="450"
+src="https://console.dialogflow.com/api-client/demo/embedded/c5d2ea3f-0aa0-477a-aa23-be7c89f2f453">
+</iframe>
+  
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
