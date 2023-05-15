@@ -23,7 +23,8 @@ import offers_router from "./routes/offers.js";
 import addoffer_router from "./routes/addoffer.js";
 import ADMIN_ADD_router from "./routes/ADMIN_ADD.js";
 import profile_router from "./routes/profile.js";
-import tohome_router from "./routes/tohome.js"
+import tohome_router from "./routes/tohome.js";
+import map_router from "./routes/mapa.js"
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -78,10 +79,11 @@ app.use('/offers', offers_router);
 
 app.use('/addoffer', addoffer_router);
 
-
 app.use('/ADMIN-ADD', ADMIN_ADD_router);
 
 app.use('/profile', profile_router);
+
+app.use("/map",map_router);
 
 
 app.use(function(err, req, res, next) {
