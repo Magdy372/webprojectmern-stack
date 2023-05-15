@@ -35,6 +35,7 @@ const server = createServer(app);
 server.listen(PORT);
 server.on('error', onError);
 server.on('listening', onListening);
+console.log(process.env.API_chat);
 console.log(`Server running at http://${HOST}:${PORT}/`); 
 
 /**
