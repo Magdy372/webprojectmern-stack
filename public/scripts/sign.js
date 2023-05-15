@@ -4,8 +4,8 @@
         document.getElementById("signup").style.display="grid";
         document.getElementById("signup").style.placeContent="center"; 
     }
-    function validateEmail(email) {
-        if (!/\S+@\S+\.\S+/.test(email)) {
+    function validateEmail(mail) {
+        if (!/\S+@\S+\.\S+/.test(mail)) {
           document.getElementById("errormail").innerHTML="Please enter a valid email address.";
           return false;
         }
@@ -31,9 +31,9 @@
         return true;
       }
       
-      function validateAge(dob) {
+      function validateAge(Age) {
         let today = new Date();
-        let birthDate = new Date(dob);
+        let birthDate = new Date(Age);
         let age = today.getFullYear() - birthDate.getFullYear();
         let m = today.getMonth() - birthDate.getMonth();
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
@@ -48,10 +48,10 @@
       
       function validate(form) {
         // Get form values
-        let email = form.mail.value.trim();
+        let mail = form.mail.value.trim();
         let password = form.password.value;
         let cpassword = form.cpassword.value;
-        let dob = form.dat.value;
+        let Age = form.dat.value;
         let gender = form.querySelector('input[name="gender"]:checked');
         
         let fail = false;

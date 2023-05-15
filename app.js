@@ -4,6 +4,12 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import session from 'express-session';
+import mongoose from "mongoose"
+//import { Signup } from '../models/signup_schema';
+//const Signup = require('./models/signup_schema');
+import Signup from './models/signup_schema.js';
+
+
 //const session = require('express-session')
 // express app
 
@@ -43,6 +49,9 @@ app.use(session({ secret: 'Your_Secret_Key' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//database
+app.use(express.urlencoded({ extended: true }));
 
 // object for test
 
@@ -98,6 +107,35 @@ app.use(function(err, req, res, next) {
 
 // listen for requests
 
+//sho8l mongodb
+
+
+mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/?retryWrites=true&w=majority")
+.then(()=>{
+
+    console.log(`Example app listening on port ${process.env.PORT}`)
+  })
+.catch((error)=>{
+  console.log(error)
+})
+
+
+
+
+ 
+app.post("/signupform", (req, res) => {
+  const signup = new Signup (req.body);
+ 
+  console.log(req.body);
+ 
+  signup.save( )
+    .then( result => {
+      res.redirect("/");
+    })
+    .catch( err => {
+      console.log(err);
+    });
+}); 
 
 export default app;
 /*app.get('/emp/:id', (req, res) => {
