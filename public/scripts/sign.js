@@ -48,7 +48,7 @@
       
       function validate(form) {
         // Get form values
-        let mail = form.mail.value.trim();
+        let email = form.mail.value.trim();
         let password = form.password.value;
         let cpassword = form.cpassword.value;
         let Age = form.dat.value;
