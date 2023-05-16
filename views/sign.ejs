@@ -46,7 +46,7 @@
                    <button type="submit"  class="btn-modal">Login</button>
                     <div class="opensignup" onclick="change()">Create an acount</div>
           </form> 
-          <form id="signup" action="/signupform" method="post" onsubmit="return validate(this)">
+          <form onsubmit=" return validatesubmit(this)" id="signup" action="/signupform" method="post" >
               
                   <label for="fullname"  class="lab">Full Name</label>
                   <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox">

@@ -48,40 +48,71 @@
       
       function validate(form) {
         // Get form values
-        let email = form.mail.value.trim();
+        let mail = form.mail.value.trim();
         let password = form.password.value;
         let cpassword = form.cpassword.value;
-        let Age = form.dat.value;
+        let Age = form.Age.value;
         let gender = form.querySelector('input[name="gender"]:checked');
         
         let fail = false;
         
         // Validate Email
-        if (!validateEmail(email)) {
+        if (validateEmail(mail)===false) {
           fail = true;
         }
         
         // Validate Password
-        if (!validatePassword(password)) {
+        if (validatePassword(password)===false) {
           fail = true;
         }
         
         // Validate Confirm Password
-        if (!validateConfirmPassword(password, cpassword)) {
+        if (validateConfirmPassword(password, cpassword)===false) {
           fail = true;
         }
         
         // Validate Age
-        if (!validateAge(dob)) {
+        if (validateAge(Age)===false) {
           fail = true;
         }
         
-        if (fail) {
+        if (fail===true) {
           return false;
         } else {
           return true;
         }
       }
+
+function validatesubmit(form){
+
+// const form = document.getElementById('signup');
+
+// Add a submit event listener to the form
+if(validate(form)===false){
+form.addEventListener('submit', function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+  
+
+});
+return false;
+}
+return true;
+      }
+
+     /* function updateFormAction(form) {
+        const form = document.getElementById('signup');
+        // Add a submit event listener to the form
+if(validate(form)===false){
+  form.action = '/sign';
+  return false;
+  }
+  else{
+    form.action = '/signupform';
+  return true;
+  }
+       
+      }*/
       
       
    
