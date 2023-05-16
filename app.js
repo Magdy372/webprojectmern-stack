@@ -30,8 +30,8 @@ import addoffer_router from "./routes/addoffer.js";
 import ADMIN_ADD_router from "./routes/ADMIN_ADD.js";
 import profile_router from "./routes/profile.js";
 import tohome_router from "./routes/tohome.js";
-import map_router from "./routes/mapa.js"
-
+import map_router from "./routes/mapa.js";
+import Signup_router from "./routes/signup.js";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -96,6 +96,8 @@ app.use('/profile', profile_router);
 
 app.use("/map",map_router);
 
+app.use("/signupform",Signup_router);
+
 
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
@@ -125,19 +127,6 @@ mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3
 
 
  
-app.post("/signupform", (req, res) => {
-  const signup = new Signup (req.body);
- 
-  console.log(req.body);
- 
-  signup.save( )
-    .then( result => {
-      res.redirect("/");
-    })
-    .catch( err => {
-      console.log(err);
-    });
-}); 
 
 export default app;
 /*app.get('/emp/:id', (req, res) => {

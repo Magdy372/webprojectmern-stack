@@ -3,12 +3,32 @@ const Schema = mongoose.Schema;
  
 // define the Schema (the structure of the article)
 const SignupSchema = new Schema({
-  fullname: String,
-  mail: String,
-  password: String,
-  cpassword: String,
-  Age: String,
-  gender: String,
+  fullname:{ 
+    type:String,
+    required: true          
+  },
+  mail:{ 
+    type:String,
+    required:true
+  },
+
+  password:{
+    type:String,
+    required:true
+  },
+  cpassword: {
+    type:String,
+    required: true
+  }
+  ,
+  Age: {
+    type:String,
+    required:true
+  },
+  gender: {
+    type:String,
+    required: true
+  }
 
 });
  

@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 var router = Router();
 
 const employees ={ "id": "1", "name": "Essam Eliwa", "address": "madenet nasr" , "money": "$1000"};
@@ -11,5 +12,7 @@ router.get('/', function(req, res, next) {
 router.get('/test', function(req, res, next) {
     res.send('Test Route');
   });
+
+//router.post("/",signupform )
 
 export default router;
