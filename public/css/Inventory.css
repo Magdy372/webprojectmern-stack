@@ -14,7 +14,7 @@
 {
     width: 200px;
 }
-button
+.additem button
 {
     background: var(--main-color);
     border-radius: 10px;
@@ -22,7 +22,11 @@ button
     font-size: .8rem;
     padding: .5rem 1rem;
     border: 1px solid var(--main-color);
-    position: relative;
+    position:absolute;
+    margin-bottom:90%;
+margin-left: 62%;
+    padding-left:47px;
+    padding-right: 47px;
 }
 *{
     padding: 0;
@@ -249,13 +253,7 @@ text-align: center;
 
 
 }
-.additem{
-    position:absolute;
-    bottom: 8px;
-    right: 16px;
-    font-size: 18px;
-  
-}
+
 @media screen and (max-width: 960px) {
    .cards
     {
