@@ -32,6 +32,7 @@ import profile_router from "./routes/profile.js";
 import tohome_router from "./routes/tohome.js";
 import map_router from "./routes/mapa.js";
 import Signup_router from "./routes/signup.js";
+import uploadphoto_router from "./routes/uploadphoto.js";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -81,6 +82,8 @@ app.use('/logout', logout_router);
 app.use('/customers', customers_router);
 
 app.use('/ordes', ordes_router);
+
+app.use('/uploadphoto', uploadphoto_router);
 
 app.use('/inventory', inventory_router);
 
