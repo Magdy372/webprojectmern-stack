@@ -1,4 +1,4 @@
-.open-button {
+.open-button-chat {
     background-color: #976666;
     color: white;
     padding: 16px 20px;
@@ -14,10 +14,10 @@
     
    
   }
-  .open-button:hover{
+  .open-button-chat:hover{
       opacity: 1.5;
   }
-  .closbtn {
+  .closbtn-chat {
       position: absolute;
       font-size: 36px;
       /*background-color: transparent;*/
@@ -27,7 +27,7 @@
     
   
   }
-  .closbtn:hover{
+  .closbtn-chat:hover{
     color: red;
   }
   
