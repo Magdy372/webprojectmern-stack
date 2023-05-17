@@ -28,7 +28,10 @@
    
    
   }
-  
+  body{
+    margin-left:20px;
+    margin-right:20px;
+  }
   @media (max-width: 400px) {
     #fh2{
       font-size: 20px;
@@ -327,4 +330,6 @@
     background-image: none;
     border-color: #01549b;
   }
+  
+
   
