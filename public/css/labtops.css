@@ -242,26 +242,46 @@
       font-weight: 700;
       color: rgb(34, 137, 34);
   }
-  #product1 .pro a{
+  #cart{
+
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: aliceblue;
+    font-weight: 500;
+    color: rgb(22, 25, 22);
+    border: 1px solid #cce7d0;
+   position: absolute;
+    bottom: 20px;
+    right:10px;
+}
+#cart:hover{
+  box-shadow: rgb(0,0,0,0.06);
+  color: #00ffa2;
+  transition: 0.02s;
   
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      border-radius: 50px;
-      background-color: aliceblue;
-      font-weight: 500;
-      color: rgb(22, 25, 22);
-      border: 1px solid #cce7d0;
-      position: absolute;
-      bottom: 20px;
-      right:10px;
-  }
-  #product1 .pro a:hover{
-    box-shadow: rgb(0,0,0,0.06);
-    color: #00ffa2;
-    transition: 0.02s;
-    
-  }
+}
+
+#wish{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: aliceblue;
+  font-weight: 500;
+  color: rgb(22, 25, 22);
+  border: 1px solid #cce7d0;
+ position: absolute;
+  bottom: 20px;
+  right:60px;
+}
+#wish:hover{
+box-shadow: rgb(0,0,0,0.06);
+color: red;
+transition: 0.02s;
+
+}
   #product1 .pro-container{
   display: flex;
   justify-content: space-between;
@@ -811,3 +831,11 @@ padding-left: 15px;
   background-color: #3e8e41;
 }
 
+
+
+/*close button for chat window*/
+.closbtn-chat {
+  top: 4px;
+ 
+ 
+ }

@@ -1,0 +1,36 @@
+.cart {
+    border: 1px solid black;
+    padding: 10px;
+  }
+  
+  .cart ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cart li {
+    margin-bottom: 5px;
+  }
+  
+  .add-to-cart {
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .remove-from-cart {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .product {
+    margin-bottom: 10px;
+  }
+a  
