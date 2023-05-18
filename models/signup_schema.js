@@ -30,7 +30,7 @@ const SignupSchema = new Schema({
     required: true
   }
 
-});
+},{timestamps:true});
  
  
 // Create a model based on that schema
@@ -38,4 +38,4 @@ const Signup = mongoose.model("Signup",SignupSchema);
  
 // export the model
 //module.exports=Signup
-export default Signup;
+export default Signup

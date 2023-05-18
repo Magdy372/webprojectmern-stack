@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import  signupform  from '../controles/signup.js'
+import  signupform  from '../controller/signup.js'
 
 var router = Router();
 
