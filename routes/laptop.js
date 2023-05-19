@@ -1,10 +1,10 @@
 import { Router } from 'express';
+import session from 'express-session';
 var router = Router();
 
-const employees ={ "id": "1", "name": "Essam Eliwa", "address": "madenet nasr" , "money": "$1000"};
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    res.render("labtops",{ employees, Email: (req.session.Email === undefined ? "" : req.session.Email) });
+    res.render("labtops",{ user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
 /* GET /about/test page. */

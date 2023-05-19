@@ -37,7 +37,11 @@
     
         <main>
 
-            <% if(Email==="" ) {%> 
+            <script>
+                const user= req.session.user;
+            </script>
+
+            <% if(user==="" ) {%> 
 
                 <%- include("./partials/header.ejs") %>
                 <form id="signin" action="/signinform" method="post" >
@@ -48,7 +52,8 @@
                    <button type="submit"  class="btn-modal">Login</button>
                     <div class="opensignup" onclick="change()">Create an acount</div>
           </form> 
-          <form onsubmit=" return validatesubmit(this)" id="signup" action="/signupform" method="post" >
+          
+          <form onsubmit="return validatesubmit(this) " id="signup" action="/signupform" method="post" >
               
                   <label for="fullname"  class="lab">Full Name</label>
                   <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox">
@@ -90,6 +95,8 @@
                   </div>
               </div>--> 
              
+              
+
                     <div>
                     <legend>Choose your gender:</legend><br>
                       <div>
@@ -103,6 +110,9 @@
                 </div>
 
 
+                 <input type="hidden" name="Type" value="user" > 
+
+
               <button class="btn-modal"  type="submit">Submit</button>
 
               
@@ -111,16 +121,16 @@
           <% }else { %>
             <form action="/logout" method="get">
             <%- include("./partials/header.ejs") %>
-            <h2>id:<%= employees.id %></h2>
+            <h2>id:<%= user.fullname %></h2>
             <br>
             <br>
-          <h2>Name:<%= employees.name %></h2>
+          <h2>Name:<%= user.mail %></h2>
           <br>
           <br>
-          <h2>address:<%= employees.address %></h2>
+          <h2>address:<%= user.Age %></h2>
             <br>
             <br>
-          <h2>money:<%= employees.money %></h2>
+          <h2>money:<%= user.gender %></h2>
 
           <button type="submit">Logout</button>
           

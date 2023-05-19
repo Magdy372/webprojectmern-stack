@@ -11,6 +11,7 @@ const signupform = async (req,res)=>{
         cpassword: req.body.cpassword,
         Age: req.body.Age,
         gender: req.body.gender,
+        Type:req.body.Type,
       });
 
       console.log(req.body)

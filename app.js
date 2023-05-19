@@ -59,8 +59,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // object for test
 
-const employees ={ "id": "1", "name": "Essam Eliwa", "address": "madenet nasr" , "money": "$1000"};
-   
 
 app.use('/', homepage_router);
 
@@ -132,6 +130,7 @@ mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3
     console.log(`Example app listening on port ${process.env.PORT}`)
   })
 .catch((error)=>{
+    console.log("there is error")
   console.log(error)
 })
 
