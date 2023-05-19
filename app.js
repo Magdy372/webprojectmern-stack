@@ -72,6 +72,12 @@ app.use('/smartphones', smartphones_router);
 
 app.use('/labtops', laptop_router);
 
+app.use('/cart',cart_router);
+
+app.use('/wishlist',wishlist_router);
+
+app.use('/filter',filter_router);
+
 app.use('/discount', discount_router);
 
 app.use('/sign', sign_router);
