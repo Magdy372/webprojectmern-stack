@@ -17,7 +17,7 @@ const product_schema =   new schema({
     },
     category_id:{
         type:String,
-        required:true
+       // required:true
     },
     pro_image:{
        data:Buffer,
