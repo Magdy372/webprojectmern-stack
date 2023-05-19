@@ -40,13 +40,11 @@
             <% if(Email==="" ) {%> 
 
                 <%- include("./partials/header.ejs") %>
-                <%- include("./partials/chat.ejs") %>
-
-                <form id="signin" action="/" method="get" >
+                <form id="signin" action="/signinform" method="post" >
                     <label class="lab" for="email"><b>Email</b></label>
-                    <input class="in" type="text" placeholder="Email" name="email" required>
+                    <input class="in" type="text" placeholder="Email" name="mail" required>
                     <label class="lab" for="psw"><b>Password</b></label>
-                    <input class="in" type="password" placeholder="Enter Password" name="psw" required>
+                    <input class="in" type="password" placeholder="Enter Password" name="password" required>
                    <button type="submit"  class="btn-modal">Login</button>
                     <div class="opensignup" onclick="change()">Create an acount</div>
           </form> 
@@ -63,13 +61,13 @@
          
             
                   <label for="password"  class="lab">Password</label>
-                  <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
+                  <input type="password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
                   <label id="errorpassword"></label>
               
                      
           
                   <label for="cpassword"  class="lab">confirm Password</label>
-                  <input type="Password" id="cpassword" class="in" placeholder="confirmPassword" name="cpassword" required class="textBox">
+                  <input type="password" id="cpassword" class="in" placeholder="confirmPassword" name="cpassword" required class="textBox">
                   <p id="pwcErr"></p>
               
 

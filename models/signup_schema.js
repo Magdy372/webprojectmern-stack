@@ -39,7 +39,8 @@ const SignupSchema = new Schema({
       {type:Number}}]
   }
 
-},{timestamps:true});
+}, { timestamps: true });
+
  
  
 // Create a model based on that schema

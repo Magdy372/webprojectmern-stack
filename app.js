@@ -7,7 +7,7 @@ import session from 'express-session';
 import mongoose from "mongoose"
 //import { Signup } from '../models/signup_schema';
 //const Signup = require('./models/signup_schema');
-import Signup from './models/signup_schema.js';
+//import Signup from './models/signup_schema.js';
 
 
 //const session = require('express-session')
@@ -34,6 +34,8 @@ import map_router from "./routes/mapa.js";
 import Signup_router from "./routes/signup.js";
 import uploadphoto_router from "./routes/uploadphoto.js";
 import addUser_router from "./routes/addUser.js";
+import signinroute_router from "./routes/signinroute.js";
+
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -103,6 +105,8 @@ app.use('/profile', profile_router);
 app.use("/map",map_router);
 
 app.use("/signupform",Signup_router);
+
+app.use("/signinform",signinroute_router);
 
 
 
