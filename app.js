@@ -33,6 +33,7 @@ import tohome_router from "./routes/tohome.js";
 import map_router from "./routes/mapa.js";
 import Signup_router from "./routes/signup.js";
 import uploadphoto_router from "./routes/uploadphoto.js";
+import addUser_router from "./routes/addUser.js";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -95,11 +96,15 @@ app.use('/addoffer', addoffer_router);
 
 app.use('/ADMIN-ADD', ADMIN_ADD_router);
 
+app.use('/addUser', addUser_router);
+
 app.use('/profile', profile_router);
 
 app.use("/map",map_router);
 
 app.use("/signupform",Signup_router);
+
+
 
 
 app.use(function(err, req, res, next) {
