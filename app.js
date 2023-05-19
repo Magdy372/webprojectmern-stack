@@ -117,7 +117,7 @@ app.use(function(err, req, res, next) {
 //sho8l mongodb
 
 
-mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/test?retryWrites=true&w=majority")
 .then(()=>{
 
     console.log(`Example app listening on port ${process.env.PORT}`)

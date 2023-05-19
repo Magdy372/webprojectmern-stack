@@ -10,10 +10,9 @@ const signupform = (req,res,next)=>{
          gender: req.body.gender
     })
     user.save()
-    console.log(user)
     .then(result => {
-        
-        //.redirect("/")
+         console.log(user)
+        res.redirect("/")
     })
     .catch( err => {
         console.log(err)
