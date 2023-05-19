@@ -28,6 +28,15 @@ const SignupSchema = new Schema({
   gender: {
     type:String,
     required: true
+  },
+
+  cart:{
+    item:[{name:
+      {type:String}
+      ,price:
+      {type:Number},
+      count:
+      {type:Number}}]
   }
 
 },{timestamps:true});
