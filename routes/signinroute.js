@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import  signinform  from '../controles/signin.js'
+import  signinform  from '../controller/signin.js'
 
 var router = Router();
 
