@@ -39,6 +39,7 @@ import cart_router from "./routes/cart.js";
 import signinroute_router from "./routes/signinroute.js";
 
 
+
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 console.log(`Project Root dir : ${__dirname}`);
@@ -88,6 +89,7 @@ app.use('/dashborad', dashborad_router);
 
 app.use('/logout', logout_router);
 
+
 app.use('/customers', customers_router);
 
 app.use('/ordes', ordes_router);
@@ -110,9 +112,9 @@ app.use('/profile', profile_router);
 
 app.use("/map",map_router);
 
-app.use("/signupform",Signup_router);
+//app.use("/signupform",Signup_router);
 
-app.use("/signinform",signinroute_router);
+//app.use("/signinform",signinroute_router);
 
 
 
