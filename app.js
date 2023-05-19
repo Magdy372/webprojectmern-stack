@@ -34,6 +34,8 @@ import map_router from "./routes/mapa.js";
 import Signup_router from "./routes/signup.js";
 import uploadphoto_router from "./routes/uploadphoto.js";
 import addUser_router from "./routes/addUser.js";
+import wishlist_router from "./routes/wishlist.js";
+import cart_router from "./routes/cart.js";
 import signinroute_router from "./routes/signinroute.js";
 
 
@@ -76,7 +78,7 @@ app.use('/cart',cart_router);
 
 app.use('/wishlist',wishlist_router);
 
-app.use('/filter',filter_router);
+//app.use('/filter',filter_router);
 
 app.use('/discount', discount_router);
 
