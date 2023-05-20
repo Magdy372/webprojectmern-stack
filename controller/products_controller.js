@@ -5,20 +5,57 @@ import expressAsyncHandler from "express-async-handler";
 
 
 const createproduct = (req,res)=>{
-   const pro = new Products({
-      pro_name: req.body.pro_name,
-      pro_brand:req.body.pro_brand,
-      pro_price:req.body.pro_price,
-      pro_image: req.body.pro_image
+  /* const pro = new Products({
+      name: req.body.title,
+      brand:req.body.brand,
+      price:req.body.price,
+      image: req.body.image,
+      descrption: req.body.descrption,
+      category:req.body.category
    });
 
    pro.save()
    .then(result => {
+       console.log(req.body)
        console.log('item created')
    })
    .catch( err => {
     console.log(err)
    })
+
+*/
+/*console.log(req.body);*/
+
+ 
+const pro = new Products({
+    title: req.body.title,
+    brand:req.body.brand,
+    price: req.body.Price,
+    image: req.body.img ,
+    descrption: req.body.description,
+    category:req.body.category
+ });
+  console.log(pro);
+
+
+    pro.save()
+    .then(result => {
+    res.redirect('/dashborad');
+    
+    })
+    .catch(err => {
+    console.log(err);
+    });
+
+
+
+
+
+
+
+
+
+
 }
 
 const getproducts = async(req,res)=>{

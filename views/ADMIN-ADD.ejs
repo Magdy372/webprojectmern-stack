@@ -14,30 +14,39 @@
 <main>
     <main>
         
-            <form id="add-form">
+            <form id="add-form" method="post">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title"><br>
-        
-            
         
                 <label for="Price">Price:</label>
                 <input type="text" id="Price" name="Price"><br>
 
+                <label for="category">category:</label>
+                <input type="text" id="category" name="category"><br>
+
+                <label for="brand">brand:</label>
+                <input type="text" id="brand" name="brand"><br>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea><br>
+
                 
-                <%- include("./partials/uploadphoto.ejs") %>
+                <label for="Image">Image:</label>
+                <input type="file" name="img"/>
+                
+               
         
                
         
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea><br>
+                
         
-                <input type="submit" class="btn" value="Add Item" onaction="uploadFiles()" >
+                <input type="submit" class="btn" value="submit" onaction="uploadFiles()" >
             </form> 
             </table>
      </main>
 </main>
-<script>
-    function uploadFiles() {
+<!-- <script>
+   /* function uploadFiles() {
     var files = document.getElementById('file_upload').files;
     if(files.length==0){
         alert("Please first choose or drop any file(s)...");
@@ -49,7 +58,7 @@
     }
     alert("Selected file(s) :\n____________________\n"+filenames);
 }
-</script>
+</script> -->
 
 </body>
 </html>
