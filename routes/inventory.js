@@ -3,9 +3,9 @@ import product from '../controller/products_controller.js';
 var router = Router();
 
 /* GET /about page. */
-router.get('/',product.getproducts, function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.render("inventory");
-});
+},product.getproducts);
 
 
 /* GET /about/test page. */
