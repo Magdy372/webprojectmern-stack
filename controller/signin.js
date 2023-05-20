@@ -11,8 +11,14 @@ const signinform = (req, res) => {
     .then(result => {
       if (result.length > 0) {
         console.log(result[0]);
-
-        res.redirect('/');
+          req.session.user = result[0];
+          //, { user: (req.session.user === undefined ? "" : req.session.user) }
+          if(req.session.user.Type==='admin'){
+            res.redirect('/dashborad')
+          }
+          else{
+          res.redirect('/');
+          }
       }
       else {
         res.send('invalid data')

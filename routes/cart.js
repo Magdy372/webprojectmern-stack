@@ -1,13 +1,9 @@
 import { Router } from 'express';
-import session from 'express-session';
 var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    /*req.session.Email = req.query.email;
-    req.session.psw = req.query.psw;
-    req.session.x = 'x';*/
-    res.render("homepage");
+    res.render("cart");
 });
 
 /* GET /about/test page. */

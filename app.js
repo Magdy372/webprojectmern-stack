@@ -34,7 +34,10 @@ import map_router from "./routes/mapa.js";
 import Signup_router from "./routes/signup.js";
 import uploadphoto_router from "./routes/uploadphoto.js";
 import addUser_router from "./routes/addUser.js";
+import wishlist_router from "./routes/wishlist.js";
+import cart_router from "./routes/cart.js";
 import signinroute_router from "./routes/signinroute.js";
+
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -59,8 +62,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // object for test
 
-const employees ={ "id": "1", "name": "Essam Eliwa", "address": "madenet nasr" , "money": "$1000"};
-   
 
 app.use('/', homepage_router);
 
@@ -72,6 +73,12 @@ app.use('/smartphones', smartphones_router);
 
 app.use('/labtops', laptop_router);
 
+app.use('/cart',cart_router);
+
+app.use('/wishlist',wishlist_router);
+
+//app.use('/filter',filter_router);
+
 app.use('/discount', discount_router);
 
 app.use('/sign', sign_router);
@@ -82,13 +89,14 @@ app.use('/dashborad', dashborad_router);
 
 app.use('/logout', logout_router);
 
+
 app.use('/customers', customers_router);
 
 app.use('/ordes', ordes_router);
 
 app.use('/uploadphoto', uploadphoto_router);
 
-app.use('/inventory', inventory_router);
+app.use('/Inventory', inventory_router);
 
 app.use('/Task', task_router);
 
@@ -104,9 +112,9 @@ app.use('/profile', profile_router);
 
 app.use("/map",map_router);
 
-app.use("/signupform",Signup_router);
+//app.use("/signupform",Signup_router);
 
-app.use("/signinform",signinroute_router);
+//app.use("/signinform",signinroute_router);
 
 
 
@@ -132,6 +140,7 @@ mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3
     console.log(`Example app listening on port ${process.env.PORT}`)
   })
 .catch((error)=>{
+    console.log("there is error")
   console.log(error)
 })
 
@@ -147,6 +156,7 @@ export default app;
         return val.id == id });
     res.render('emp', { emp, userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });
+
 app.get('/profile', (req, res) => {
     req.session.userName = req.query.un;
     req.session.pw = req.query.pw;
@@ -164,6 +174,8 @@ app.get('/about', (req, res) => {
 app.get('/slide', (req, res) => {
     res.render('slide', { userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });
+
+
 app.get('/login', (req, res) => {
     res.render('login', { userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });

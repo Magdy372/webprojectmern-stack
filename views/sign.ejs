@@ -37,10 +37,12 @@
     
         <main>
 
-            <% if(Email==="" ) {%> 
+            
+
+            <% if(user==="" ) {%> 
 
                 <%- include("./partials/header.ejs") %>
-                <form id="signin" action="/signinform" method="post" >
+                <form id="signin" action="/sign" method="post" >
                     <label class="lab" for="email"><b>Email</b></label>
                     <input class="in" type="text" placeholder="Email" name="mail" required>
                     <label class="lab" for="psw"><b>Password</b></label>
@@ -48,7 +50,8 @@
                    <button type="submit"  class="btn-modal">Login</button>
                     <div class="opensignup" onclick="change()">Create an acount</div>
           </form> 
-          <form onsubmit=" return validatesubmit(this)" id="signup" action="/signupform" method="post" >
+          
+          <form onsubmit="return validatesubmit(this) " id="signup" action="/sign" method="post" >
               
                   <label for="fullname"  class="lab">Full Name</label>
                   <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox">
@@ -90,6 +93,8 @@
                   </div>
               </div>--> 
              
+              
+
                     <div>
                     <legend>Choose your gender:</legend><br>
                       <div>
@@ -103,6 +108,9 @@
                 </div>
 
 
+                 <input type="hidden" name="Type" value="user" > 
+
+
               <button class="btn-modal"  type="submit">Submit</button>
 
               
@@ -111,16 +119,16 @@
           <% }else { %>
             <form action="/logout" method="get">
             <%- include("./partials/header.ejs") %>
-            <h2>id:<%= employees.id %></h2>
+            <h2>name:<%= user.fullname %></h2>
             <br>
             <br>
-          <h2>Name:<%= employees.name %></h2>
+          <h2>mail:<%= user.mail %></h2>
           <br>
           <br>
-          <h2>address:<%= employees.address %></h2>
+          <h2>age:<%= user.Age %></h2>
             <br>
             <br>
-          <h2>money:<%= employees.money %></h2>
+          <h2>gender:<%= user.gender %></h2>
 
           <button type="submit">Logout</button>
           
