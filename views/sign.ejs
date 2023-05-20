@@ -37,12 +37,17 @@
     
         <main>
 
+          <script>
+
+            const user=req.session.user;
             
+            </script>
+       
 
             <% if(user==="" ) {%> 
 
                 <%- include("./partials/header.ejs") %>
-                <form id="signin" action="/sign" method="post" >
+                <form id="signin" action="/signinform" method="post" >
                     <label class="lab" for="email"><b>Email</b></label>
                     <input class="in" type="text" placeholder="Email" name="mail" required>
                     <label class="lab" for="psw"><b>Password</b></label>
@@ -51,7 +56,7 @@
                     <div class="opensignup" onclick="change()">Create an acount</div>
           </form> 
           
-          <form onsubmit="return validatesubmit(this) " id="signup" action="/sign" method="post" >
+          <form onsubmit="return validatesubmit(this) " id="signup" action="/signupform" method="post" >
               
                   <label for="fullname"  class="lab">Full Name</label>
                   <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox">

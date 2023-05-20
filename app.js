@@ -112,9 +112,9 @@ app.use('/profile', profile_router);
 
 app.use("/map",map_router);
 
-//app.use("/signupform",Signup_router);
+app.use("/signupform",Signup_router);
 
-//app.use("/signinform",signinroute_router);
+app.use("/signinform",signinroute_router);
 
 
 
