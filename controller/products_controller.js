@@ -58,11 +58,11 @@ const pro = new Products({
 
 }
 
-const getproducts = async(req,res)=>{
+/*const getproducts = async(req,res)=>{
     const pro = await Products.find({}).sort({createdAt:-1})
     console.log(req.body)
     res.status(200).json(pro)
-}
+}*/
 
 const updateproducts = async(req,res)=>{
     const { id }= req.params
@@ -103,7 +103,7 @@ const deleteporduct = async (req,res)=>{
 
 const exportpro = {
    createproduct,
-   getproducts,
+   //getproducts,
    updateproducts,
    deleteporduct
 }
