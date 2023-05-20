@@ -96,7 +96,7 @@ app.use('/ordes', ordes_router);
 
 app.use('/uploadphoto', uploadphoto_router);
 
-app.use('/inventory', inventory_router);
+app.use('/Inventory', inventory_router);
 
 app.use('/Task', task_router);
 
@@ -156,6 +156,7 @@ export default app;
         return val.id == id });
     res.render('emp', { emp, userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });
+
 app.get('/profile', (req, res) => {
     req.session.userName = req.query.un;
     req.session.pw = req.query.pw;
@@ -173,6 +174,8 @@ app.get('/about', (req, res) => {
 app.get('/slide', (req, res) => {
     res.render('slide', { userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });
+
+
 app.get('/login', (req, res) => {
     res.render('login', { userName: (req.session.userName === undefined ? "" : req.session.userName) });
 });
