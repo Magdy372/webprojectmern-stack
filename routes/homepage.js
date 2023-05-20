@@ -7,7 +7,14 @@ router.get('/', function(req, res, next) {
     /*req.session.Email = req.query.email;
     req.session.psw = req.query.psw;
     req.session.x = 'x';*/
-    res.render("homepage");
+    res.render("homepage", { user: (req.session.user === undefined ? "" : req.session.user) });
+});
+
+router.get('/homepage', function(req, res, next) {
+  /*req.session.Email = req.query.email;
+  req.session.psw = req.query.psw;
+  req.session.x = 'x';*/
+  res.render("homepage", { user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
 /* GET /about/test page. */
