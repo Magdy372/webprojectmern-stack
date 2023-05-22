@@ -3,7 +3,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    res.render("wishlist");
+    res.render("wishlist",{ user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
 /* GET /about/test page. */
