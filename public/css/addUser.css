@@ -20,6 +20,7 @@
     box-sizing: border-box;
     list-style-type: none;
     text-decoration: none;
+    
 }
 .sidebar
 {
@@ -349,6 +350,7 @@ main{
     
     
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -469,25 +471,8 @@ main{
         
         }
 
-        #cart{
-
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            border-radius: 50px;
-            background-color: aliceblue;
-            font-weight: 500;
-            color: rgb(22, 25, 22);
-            border: 1px solid #cce7d0;
-           position: absolute;
-            bottom: 20px;
-            right:10px;
-        }
-        #cart:hover{
-          box-shadow: rgb(0,0,0,0.06);
-          color: #00ffa2;
-          transition: 0.02s;
-        }
+    
+      
         div.container-footer.w-container {
             background-color: #111;
             box-sizing: border-box;
@@ -671,23 +656,7 @@ main{
             margin-top: 2px;
           }
           
-          a {
-            background-color: transparent;
-            box-sizing: border-box;
-            color: #FFFFFF;
-            font-family: Lato, sans-serif;
-            font-size: 17px;
-            font-weight: 400;
-            line-height: 1.2em;
-            text-decoration: none;
-          }
-          
-          a:active {
-            outline: 0;
-          }
-          a:hover {
-            outline: 0;
-          }
+   
           
           span.footer-link {
             box-sizing: border-box;
@@ -813,32 +782,73 @@ main{
           }
           .lab
           {
+            display: grid;
             margin-top: 20px;
             margin-bottom: 20px;
             font-size: large;
             font-family: Arial, Helvetica, sans-serif;
             color: #222;
           }
+          input[type="text"]
+          {
+            width:80%;
+            height: 40px;
+            padding:0 10px;
+            border-radius: 5px;
+            border: none;
+            font-size:18px;
+
+          }
+          input[type="password"]
+          {
+            width:80%;
+            height: 40px;
+            padding:0 10px;
+            border-radius: 5px;
+            border: none;
+            font-size:18px;
+
+          }
+          input[type="date"]
+          {
+            width:80%;
+            height: 40px;
+            padding:0 10px;
+            border-radius: 5px;
+            border: none;
+            font-size:18px;
+
+          }
+          .gender{
+            font-size:large;
+            display: grid;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+          }
+          ::placeholder
+          {
+            font-size: 14px;
+          }
           .in
           {
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
             font-size: large;
             width: 500px;
             padding: 10px;
           }
-          .btn-modal
+          .submit-btn button
           {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            padding: 10px;
-            width: 200px;
-            margin-left: 155px;
-            background-color: #222;
-            color:#FFFFFF;
-            font-size: larger;
-            border: none;
-            cursor: pointer;
+           background-color: black;
+           color:white;
+           font-size:19px;
+           margin-top:20px;
+           border: none;
+           background-image: none;
+           width:200px;
+           height: 50px;
           }
           .btn-modal.btn-modal:hover
           {
@@ -867,4 +877,5 @@ main{
           {
             display: none;
           }
+          
           
