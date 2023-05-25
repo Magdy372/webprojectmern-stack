@@ -15,34 +15,37 @@
             <main>
     
                       <label for="fullname"  class="lab">Full Name</label><br>
-                      <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox">
+                      <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
                   
                  
-                      <label for="mail"  class="lab">Email Address</label>
-                      <input id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox">
+                      <label for="mail"  class="lab">Email Address</label><br>
+                      <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
+                      <label for="mail" id="errormail" ></label>
                       
                         
              
                 
-                      <label for="password"  class="lab">Password</label>
+                      <label for="password"  class="lab">Password</label><br>
                       <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
+                      <label id="errorpassword"></label><br>
                     
                   
                          
               
-                      <label for="cpassword"  class="lab">confirm Password</label>
-                      <input type="Password" id="cpassword" class="in" placeholder="confirmPassword" name="cpassword" required class="textBox">
+                      <label for="cpassword"  class="lab">confirm password</label><br>
+                      <input type="Password" id="cpassword" class="in" placeholder="confirm password" name="cpassword" required class="textBox">
+                      <label id="pwcErr"></label><br>
                      
                   
-                      <label for="Address"  class="lab">Address</label>
-                      <input type="text" id="address" class="in" placeholder="address" name="address" required class="textBox">
+                      <label for="Address"  class="lab">Address</label><br>
+                      <input type="text" id="address" class="in" placeholder="address" name="address" required class="textBox"><br>
                                           
                   
-                      <label for="dat"  class="lab">Age</label>
-                      <input id="dat" name="Age" type="date" class="in"  value="dob" required class="textBox">
+                      <label for="dat"  class="lab">Age</label><br>
+                      <input id="dat" name="Age" type="date" class="in"  value="dob" required class="textBox"><br>
+                      <label id="errordate"></label>
                       
-
-                        <div>
+                      <div>
                         <legend>Choose your gender:</legend><br>
                           <div>
                         <label for="male">Male</label>
@@ -55,7 +58,8 @@
                     </div>
     
     
-                  <button class="btn-modal"  type="submit">Submit</button>
+                  <div class="submit-btn"><button>Submit</button></div>
+                 
               </form>     
           </main> 
         </body>
