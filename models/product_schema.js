@@ -7,7 +7,7 @@ const product_schema =   new schema({
         type:String,
         required:true
     },
-    price:{
+    Price:{
         type:Number,
         required:true
     },
@@ -23,7 +23,7 @@ const product_schema =   new schema({
        type:String,
        required:true
     },
-    descrption:{
+    description:{
         type:String,
         required:true
     },

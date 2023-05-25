@@ -5,6 +5,9 @@ import cookieParser from "cookie-parser";
 import { fileURLToPath } from "url";
 import session from 'express-session';
 import mongoose from "mongoose"
+import fileUpload from 'express-fileupload';
+
+
 //import { Signup } from '../models/signup_schema';
 //const Signup = require('./models/signup_schema');
 //import Signup from './models/signup_schema.js';
@@ -56,6 +59,7 @@ app.use(session({ secret: 'Your_Secret_Key' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 //database
 app.use(express.urlencoded({ extended: true }));
