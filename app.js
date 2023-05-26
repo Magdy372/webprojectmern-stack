@@ -73,6 +73,8 @@ app.use('/', homepage_router);
 
 app.use('/homepage', tohome_router);
 
+
+
 app.use('/chat', tohome_router);
 
 app.use('/smartphones', smartphones_router);
@@ -92,6 +94,8 @@ app.use('/discount', discount_router);
 app.use('/sign', sign_router);
 
 app.use('/item', item_router);
+
+app.use('/item/:id', item_router);
 
 app.use('/dashborad', dashborad_router);
 
