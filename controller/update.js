@@ -16,7 +16,8 @@ const updateusers = async (req, res) => {
     client.close();
 
     if (result.modifiedCount > 0) {
-      res.send('User data updated successfully');
+      res.redirect('/');
+      
     } else {
       res.send('No user data updated');
     }
