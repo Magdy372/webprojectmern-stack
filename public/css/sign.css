@@ -516,4 +516,14 @@
           {
             display: none;
           }
+
+          .edituser{
+          display:flex;
+          flex-direction: column;
+            margin-top: 20px;
+            margin-bottom: 20px;
+margin-left: 500px;
+            text-align: center;
+          }
+          
           

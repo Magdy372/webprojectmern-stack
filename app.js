@@ -40,6 +40,8 @@ import addUser_router from "./routes/addUser.js";
 import wishlist_router from "./routes/wishlist.js";
 import cart_router from "./routes/cart.js";
 import signinroute_router from "./routes/signinroute.js";
+import edituser_router from "./routes/edituser.js";
+import updateroutr_router from "./routes/updaterouter.js";
 
 
 
@@ -74,6 +76,8 @@ app.use('/homepage', tohome_router);
 app.use('/chat', tohome_router);
 
 app.use('/smartphones', smartphones_router);
+
+app.use('/edituserr', edituser_router);
 
 app.use('/labtops', laptop_router);
 
@@ -119,6 +123,7 @@ app.use("/map",map_router);
 app.use("/signupform",Signup_router);
 
 app.use("/signinform",signinroute_router);
+app.use("/updateform",updateroutr_router)
 
 
 
