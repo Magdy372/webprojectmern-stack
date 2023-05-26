@@ -61,12 +61,13 @@
 
         
         
-        
-            <div class="pro">
-                <img src="../images/<%=product1[0].image%>" alt=" photo">
+        <% product1.forEach(element => { %>
+
+        <div class="pro">
+                <img src="../images/<%=element.image%>" alt=" photo">
         <div class="des">
-        <span><%=product1[0].title%></span>
-        <h5> <%=product1[0].category%></h5>
+            <span><%=element.category%></span>
+            <h5> <%=element.title%></h5>
         <div class="star">
         
             <i class="fas fa-star"></i>
@@ -74,11 +75,13 @@
             <i class="fas fa-star"></i>
         
         </div>
-        <h5> $<%=product1[0].Price%></h5>
+        <h5> $<%=element.Price%></h5>
             </div>
-            <a href="https://www.youtube.com" ><i class="fa-solid fa-cart-shopping"></i></a>
         </div>
         
+            
+        <%});%>
+            
             
             
     </div>
@@ -89,22 +92,26 @@
     <h2>Laptops</h2>
     <div class="pro-container">
     
-        <div class="pro">
-                <img src="../images/<%=product[0].image%>" alt=" photo">
+        <% product.forEach(element => { %>
+
+            <div class="pro">
+                    <img src="../images/<%=element.image%>" alt=" photo">
             <div class="des">
-                <span><%=product[0].title%></span>
-                <h5> <%=product[0].category%></h5>
-
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-
-                <h5> $<%=product[0].Price%></h5>
+            <span><%=element.category%></span>
+            <h5> <%=element.title%></h5>
+            <div class="star">
+            
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            
             </div>
-            <a href="https://www.youtube.com" ><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
+            <h5> $<%=element.Price%></h5>
+                </div>
+            </div>
+            
+                
+            <%});%>
         
     </div>
                 
