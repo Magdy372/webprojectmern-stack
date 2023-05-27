@@ -52,11 +52,11 @@
   
     
           <div class="product-container">
-            <img src="../images/dell g15/Annotation 2023-03-11 144934.png" alt="Product Photo">
+            <img src="../images/<%=item.image%>" alt="Product Photo">
             <div class="product-info">
-              <h2 class="product-title">Product Title</h2>
-              <p class="product-description">Product Description</p>
-              <p class="product-price">$19.99</p>
+              <h2 class="product-title"><%=item.title%></h2>
+              <p class="product-description"><%=item.description%></p>
+              <p class="product-price"><%=item.price%></p>
              <a href="/cart"><button class="checkout-button">Checkout</button></a>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import session from 'express-session';
 import mongoose from "mongoose"
 import fileUpload from 'express-fileupload';
+import product1 from './models/product_schema.js';
 
 
 //import { Signup } from '../models/signup_schema';
@@ -95,8 +96,6 @@ app.use('/sign', sign_router);
 
 app.use('/item', item_router);
 
-app.use('/item/:id', item_router);
-
 app.use('/dashborad', dashborad_router);
 
 app.use('/logout', logout_router);
@@ -129,6 +128,19 @@ app.use("/signupform",Signup_router);
 app.use("/signinform",signinroute_router);
 app.use("/updateform",updateroutr_router)
 
+app.get("/item/:id", function(req, res, next) {
+      product1.findById(req.params.id)
+      .then(result=>{
+        console.log(req.params.id);
+        console.log(result);
+        res.render("item",{ item: result ,user: (req.session.user === undefined ? "" : req.session.user) });
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+     
+    });
+    
 
 
 
