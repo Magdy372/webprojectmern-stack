@@ -5,7 +5,7 @@ import  signinform  from '../controller/signin.js'
 
 var router = Router();
 
-router.post("/",signinform)
+router.post("/",signinform.signinform)
 
 
 

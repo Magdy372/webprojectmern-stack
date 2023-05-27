@@ -28,7 +28,7 @@ const signinform = (req, res) => {
       console.log(err);
     });
 
-
+  
 
 
 
@@ -74,5 +74,20 @@ const hashedPassword = user.password; // Assuming you have retrieved the hashed 
 
 
   }
-
-  export default signinform
+  const getalluser = async (req,res)=>
+  {
+    Signup.find({}, (err, users) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      } else {
+        res.status(200).json(users);
+      }
+    });
+  }
+ 
+  const exportuser = {
+    signinform,
+    getalluser
+  }
+  export default exportuser

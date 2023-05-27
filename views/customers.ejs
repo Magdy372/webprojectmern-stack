@@ -12,6 +12,7 @@
 <body>
    
     <%- include("./partials/adminheader.ejs") %>
+    
   <main>
     <div class="card-body">
         <div class="table-responsive"> 
@@ -22,63 +23,21 @@
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>Address</th>
+                  <th>type</th>
                </tr>
              </thead>
              <tbody>
+              <% user.forEach(element => { %>
+
                 <tr>
-                  <td>xyz</td>
-                  <td>xyz@email.com</td>
+                  <td><%=element.fullname%></td>
+                  <td><%=element.mail%></td>
                   <td> 022 </td>
                   <td>there</td>
+                  <td><%=element.Type%></td>
                 </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
-                <tr>
-                    <td>xyz</td>
-                    <td>xyz@email.com</td>
-                    <td> 022 </td>
-                    <td>there</td>
-                </tr>
+                <%});%>
+               
              </tbody>
           </table>
         </div> 

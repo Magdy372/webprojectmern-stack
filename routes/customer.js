@@ -1,9 +1,13 @@
 import { Router } from 'express';
+import signin from '../models/signup_schema.js'
 var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    res.render("customers");
+    signin.find()
+    .then(result => {
+      res.render('customers',{user: result})
+    })
 });
 
 /* GET /about/test page. */
