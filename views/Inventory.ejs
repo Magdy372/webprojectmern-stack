@@ -57,18 +57,49 @@
 
     
 <section  id="product1" class="section-p1">
-        <h2>Smartphones</h2>
-        <div class="pro-container">
+    <h2>Smartphones</h2>
+    <div class="pro-container">
 
+    
+    
+    <% product1.forEach(element => { %>
+
+    <div class="pro">
+            <img src="../images/<%=element.image%>" alt=" photo">
+    <div class="des">
+        <span><%=element.category%></span>
+        <h5> <%=element.title%></h5>
+    <div class="star">
+    
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    
+    </div>
+    <h5> $<%=element.Price%></h5>
+        </div>
+    </div>
+    
+        
+    <%});%>
         
         
-        <% product1.forEach(element => { %>
+        
+</div>
+
+<hr><br><hr>
+
+<section  id="product1" class="section-p1">
+<h2>Laptops</h2>
+<div class="pro-container">
+
+    <% product.forEach(element => { %>
 
         <div class="pro">
                 <img src="../images/<%=element.image%>" alt=" photo">
         <div class="des">
-            <span><%=element.category%></span>
-            <h5> <%=element.title%></h5>
+        <span><%=element.category%></span>
+        <h5> <%=element.title%></h5>
         <div class="star">
         
             <i class="fas fa-star"></i>
@@ -82,39 +113,8 @@
         
             
         <%});%>
-            
-            
-            
-    </div>
     
-    <hr><br><hr>
-
-    <section  id="product1" class="section-p1">
-    <h2>Laptops</h2>
-    <div class="pro-container">
-    
-        <% product.forEach(element => { %>
-
-            <div class="pro">
-                    <img src="../images/<%=element.image%>" alt=" photo">
-            <div class="des">
-            <span><%=element.category%></span>
-            <h5> <%=element.title%></h5>
-            <div class="star">
-            
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            
-            </div>
-            <h5> $<%=element.Price%></h5>
-                </div>
-            </div>
-            
-                
-            <%});%>
-        
-    </div>
+</div>
                 
 </section>
 
