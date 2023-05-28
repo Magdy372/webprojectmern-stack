@@ -1,14 +1,10 @@
 import { Router } from 'express';
-
+import  adduserform  from '../controller/adduser.js'
 var router = Router();
 
 
-/* GET /about page. */
-router.get('/', function(req, res, next) {
-    res.render("addUser",{ user: (req.session.user === undefined ? "" : req.session.user) });
-});
 
-
+router.post("/",adduserform)
 
 
 /* GET /about/test page. */

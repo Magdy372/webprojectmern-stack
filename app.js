@@ -41,6 +41,7 @@ import addUser_router from "./routes/addUser.js";
 import wishlist_router from "./routes/wishlist.js";
 import cart_router from "./routes/cart.js";
 import signinroute_router from "./routes/signinroute.js";
+import adduserroute_router from "./routes/adduserroute.js";
 import edituser_router from "./routes/edituser.js";
 import updateroutr_router from "./routes/updaterouter.js";
 import edititem_router from "./routes/edititem.js";
@@ -123,6 +124,9 @@ app.use('/profile', profile_router);
 app.use("/map",map_router);
 
 app.use("/signupform",Signup_router);
+
+app.use("/adduserform",adduserroute_router);
+
 
 app.use("/signinform",signinroute_router);
 
