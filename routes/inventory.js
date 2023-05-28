@@ -42,6 +42,17 @@ router.get('/', function(req, res, next) {
    
 });
 
+router.get("/Inventory/:id",function(req,res,next){
+  product1.findByIdAndDelete(req.params.id)
+      .then(result=>{
+        console.log(req.params.id);
+        console.log(result);
+       res.redirect("/Inventory")
+      })
+      .catch((err)=>{
+        console.log(err);
+      });
+})  
 
 
 

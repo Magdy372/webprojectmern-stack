@@ -6,8 +6,17 @@ var router = Router();
 
 
 /* GET /about page. */
-router.get('/', function(req, res, next) {
-    res.render("item",{ user: (req.session.user === undefined ? "" : req.session.user) });
+router.get("/item/:id", function(req, res, next) {
+  product1.findById(req.params.id)
+  .then(result=>{
+    console.log(req.params.id);
+    console.log(result);
+    res.render("item",{ item: result ,user: (req.session.user === undefined ? "" : req.session.user) });
+  })
+  .catch((err)=>{
+    console.log(err);
+  });
+ 
 });
 
 /* GET /about/test page. */
