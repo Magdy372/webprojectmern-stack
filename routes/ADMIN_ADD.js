@@ -9,9 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/',product.createproduct)
 
-router.patch('/:id',product.updateproducts)
-
-router.delete('/:id',product.deleteporduct)
 
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
