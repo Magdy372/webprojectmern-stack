@@ -1,16 +1,21 @@
 import Signup from "../models/signup_schema.js"
 import bcrypt from 'bcrypt';
-import expressAsyncHandler from "express-async-handler";
+
 
 
 const signinform = (req, res) => {
 
-
-  var query = { mail: req.body.mail,password: req.body.password };
+  const password= req.body.password;
+  var query = { mail: req.body.mail };
   Signup.find(query)
     .then(result => {
       if (result.length > 0) {
-        console.log(result[0]);
+
+        const storedHashedPassword = result[0].password; 
+
+        if ( bcrypt.compareSync(password, storedHashedPassword)) {
+
+          console.log(result[0]);
           req.session.user = result[0];
           //, { user: (req.session.user === undefined ? "" : req.session.user) }
           if(req.session.user.Type==='admin'){
@@ -19,9 +24,16 @@ const signinform = (req, res) => {
           else{
           res.redirect('/');
           }
+
+        }
+        else{
+          res.send('invalid password')
+        }
+
+        
       }
       else {
-        res.send('invalid data')
+        res.send('invalid email')
       }
     })
     .catch(err => {
