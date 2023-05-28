@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 import session from 'express-session';
 import mongoose from "mongoose"
 import fileUpload from 'express-fileupload';
-import product1 from './models/product_schema.js';
+import user1 from './models/signup_schema.js';
 
 
 //import { Signup } from '../models/signup_schema';
@@ -135,6 +135,37 @@ app.use("/updateform",updateroutr_router);
 app.use("/",edititem_router);
 
 app.use("/",inventory_router);
+
+app.get("/addcart/:id",function(req, res, next) {
+  
+   const id1= req.session.user._id;
+    const itemId = req.params.id;
+   
+    console.log(itemId);
+
+    req.session.user.cart.push(itemId);
+
+   console.log(req.session.user.cart);
+
+
+    const newcart= req.session.user.cart;
+    const id2={_id:id1};
+    console.log(id1);
+    console.log("------");
+    user1
+    .updateOne( id2 , {cart: newcart })
+    .then( result => {
+      
+      console.log(id1);
+        res.redirect("/")
+    })
+    .catch( err => {
+        console.log(err)
+    })
+   
+    
+    //("/");
+});
 
 
 
