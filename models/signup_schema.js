@@ -57,6 +57,7 @@ const SignupSchema = new Schema({
  
 // Create a model based on that schema
 const Signup = mongoose.model("Signup",SignupSchema);
+
  
 // export the model
 //module.exports=Signup
