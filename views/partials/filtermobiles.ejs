@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Computer and Mobile Shop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/filter.css">
+</head>
+<body>
+  <form id="filter-form">
+    <label for="brand-select">Brand:</label>
+    <select id="brand-select" name="brand">
+      <option value="">All</option>
+      <option value="Apple">Apple</option>
+      <option value="Samsung">Samsung</option>
+      <option value="Huawei">Huawei</option>
+    </select>
+    <label for="price-range">Price:</label>
+    <input type="range" id="price-range" name="price" min="0" max="2000" value="0">
+    <input type="submit" value="Filter">
+  </form>
+  <div id="products-container">
+    <!-- Products will be dynamically added here -->
+  </div>
+</body>
+</html>
