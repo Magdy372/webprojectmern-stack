@@ -138,33 +138,101 @@ app.use("/",inventory_router);
 
 app.get("/addcart/:id",function(req, res, next) {
   
-   const id1= req.session.user._id;
-    const itemId = req.params.id;
    
-    console.log(itemId);
+  const id1= req.session.user._id;
+  const itemId = req.params.id;
+ 
+  console.log(itemId);
 
-    req.session.user.cart.push(itemId);
+ console.log(req.session.user.cart);
 
-   console.log(req.session.user.cart);
+ 
 
-
-    const newcart= req.session.user.cart;
-    const id2={_id:id1};
-    console.log(id1);
-    console.log("------");
-    user1
-    .updateOne( id2 , {cart: newcart })
-    .then( result => {
-      
-      console.log(id1);
-        res.redirect("/")
-    })
-    .catch( err => {
-        console.log(err)
-    })
+  let ishere=false;
+  const newcart= req.session.user.cart;
+  const id2={_id:id1};
+  console.log(id1);
+  console.log("------");
+  
+  
+   if(newcart.includes(itemId)){
+     ishere=false;
+     console.log("the product already in the cart");
+     res.redirect("/");
+     
+   }
+   else{
+     ishere=true;
+   }
+  
    
+  if(ishere){    
+     req.session.user.cart.push(itemId);
+       
+     user1
+     .updateOne( id2 , {cart: newcart })
+     .then( result => {
+       
+       console.log(id1);
+         res.redirect("/")
+     })
+     .catch( err => {
+         console.log(err)
+     })
+       
+  }
     
     //("/");
+});
+
+
+app.get("/addwish/:id",function(req, res, next) {
+  
+  const id1= req.session.user._id;
+   const itemId = req.params.id;
+  
+   console.log(itemId);
+
+  console.log(req.session.user.wishlist);
+
+  
+
+   let ishere=false;
+   const newwishlist= req.session.user.wishlist;
+   const id2={_id:id1};
+   console.log(id1);
+   console.log("------");
+   
+   
+    if(newwishlist.includes(itemId)){
+      ishere=false;
+      console.log("the product already in the wishlist");
+      res.redirect("/");
+      
+    }
+    else{
+      ishere=true;
+    }
+   
+    
+   if(ishere){    
+      req.session.user.wishlist.push(itemId);
+        
+      user1
+      .updateOne( id2 , {wishlist: newwishlist })
+      .then( result => {
+        
+        console.log(id1);
+          res.redirect("/")
+      })
+      .catch( err => {
+          console.log(err)
+      })
+        
+   }
+   
+   
+   //("/");
 });
 
 

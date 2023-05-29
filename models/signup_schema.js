@@ -39,11 +39,10 @@ const SignupSchema = new Schema({
     type: String
 }]
   ,
-  wishlist:{
-    item:[{product_id:{
+  wishlist:[{
       type:String
-    }}]
-  },
+    }]
+  ,
   orderlist:{
     item:[{order_id:{
       type:String
