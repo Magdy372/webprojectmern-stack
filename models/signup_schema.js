@@ -1,6 +1,9 @@
 import mongoose from "mongoose"
+import bcrypt from "bcrypt";
+
 const Schema = mongoose.Schema;
- 
+
+
 // define the Schema (the structure of the article)
 const SignupSchema = new Schema({
   fullname:{ 
@@ -9,16 +12,18 @@ const SignupSchema = new Schema({
   },
   mail:{ 
     type:String,
-    required:true
+    required:true,
+    
   },
 
   password:{
     type:String,
-    required:true
+    required:true,
   },
   cpassword: {
     type:String,
-    required: true
+    required: true,
+
   }
   ,
   Age: {
@@ -51,8 +56,10 @@ const SignupSchema = new Schema({
 
 }, { timestamps: true });
 
- 
- 
+
+
+
+
 // Create a model based on that schema
 const Signup = mongoose.model("Signup",SignupSchema);
 
