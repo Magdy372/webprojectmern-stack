@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/addUser.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <title>Add user</title>
+    <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
+    <script src="../scripts/adminnav.js"></script>
+</head>
+<body>
+
+    <%- include("./partials/adminheader.ejs") %>
+            <main>
+              <form onsubmit="return validatesubmit(this) " id="adduser" action="/editUseradmin" method="post">
+
+                <label for="mail"  class="lab"> old Email Address</label><br>
+                <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
+                <label for="mail" id="errormail" ></label>
+                
+                  
+       
+          
+                <label for="password"  class="lab"> old Password</label><br>
+                <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
+                <label id="errorpassword"></label><br>
+
+
+                      <label for="fullname"  class="lab">edit Full Name</label><br>
+                      <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
+                  
+                 
+                      <label for="mail"  class="lab"> edit Email Address</label><br>
+                      <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
+                      <label for="mail" id="errormail" ></label>
+                      
+                        
+             
+                
+                      <label for="password"  class="lab"> edit Password</label><br>
+                      <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
+                      <label id="errorpassword"></label><br>
+                    
+                  
+                         
+              
+                      <label for="cpassword"  class="lab">confirm edited password</label><br>
+                      <input type="Password" id="cpassword" class="in" placeholder="confirm password" name="cpassword" required class="textBox">
+                      <label id="pwcErr"></label><br>
+                     
+                  
+                     <!--<label for="Address"  class="lab">Address</label><br>
+                      <input type="text" id="address" class="in" placeholder="address" name="address" required class="textBox"><br>--> 
+                                          
+                      <input type="hidden" name="Type" value="user" >
+    
+                  <div class="submit-btn"><button>Submit</button></div>
+                  
+                 
+              </form>     
+          </main> 
+        </body>

@@ -47,3 +47,10 @@ function addUser()
     // Add the 'active' class to the element
     element.classList.add('active');
 }
+function edituser()
+{
+    const element = document.getElementById('edituser').classList.add('active');
+
+    // Add the 'active' class to the element
+    element.classList.add('active');
+}

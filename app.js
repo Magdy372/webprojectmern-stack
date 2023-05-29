@@ -45,7 +45,7 @@ import adduserroute_router from "./routes/adduserroute.js";
 import edituser_router from "./routes/edituser.js";
 import updateroutr_router from "./routes/updaterouter.js";
 import edititem_router from "./routes/edititem.js";
-
+import editUseradmin_route from "./routes/editUseradmin_route.js";
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -135,6 +135,7 @@ app.use("/updateform",updateroutr_router);
 app.use("/",edititem_router);
 
 app.use("/",inventory_router);
+app.use("/eitUseradmin",editUseradmin_route)
 
 app.get("/addcart/:id",function(req, res, next) {
   
