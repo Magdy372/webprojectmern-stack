@@ -2,6 +2,39 @@ import { MongoClient, ObjectId } from "mongodb";
 import bcrypt from 'bcrypt';
 
 
+function validateSignup(){
+  let fail=false;
+
+  if (!/\S+@\S+\.\S+/.test(req.body.mail)){
+    fail=true;
+  }
+
+  if (req.body.password.length < 8) {
+    
+    fail=true;
+  } else if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/.test(req.body.password)) {
+    fail=true;
+
+  }
+
+  if (req.body.password !== req.body.cpassword) {
+    fail=true;
+    
+  }
+
+  if(fail===true){
+    console.log("there is error in password or email");
+    return false;
+  }
+  else{
+return true;
+  }
+}
+
+
+
+
+
 const updateusers = async (req, res) => {
 
   const password = req.body.password;
@@ -10,7 +43,7 @@ const updateusers = async (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 10);
   const hashedcPassword = bcrypt.hashSync(cpassword, 10);
 
-
+if(validateSignup){
   try {
     const client = await MongoClient.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/test?retryWrites=true&w=majority");
     const db = client.db('test');
@@ -33,6 +66,8 @@ const updateusers = async (req, res) => {
     console.error('Error updating user data:', error);
     res.status(500).send('Server error');
   }
+}
+
 }
 
 
