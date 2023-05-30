@@ -218,10 +218,6 @@
 
 
 
-
-
-
-
 .product {
   display: flex;
   width: 100%;
@@ -240,12 +236,12 @@
 .product-link {
   display: flex;
   width: 100%;
-  text-decoration: none; /* Add text-decoration property for anchor */
-  color: inherit; /* Inherit text color from parent */
+  text-decoration: none;
+  color: inherit;
 }
 
 .product-link:hover {
-  text-decoration: none; /* Remove underline on hover */
+  text-decoration: none;
 }
 
 .product-image {
@@ -271,14 +267,20 @@
 }
 
 .product-remove {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  justify-content: flex-end;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
   padding: 10px 25px;
   background-color: green;
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  text-decoration: none; /* Add text-decoration property for anchor */
+}
+
+.product-remove i{
+  justify-content: center;
 }
 
 .product-remove:hover {
@@ -287,9 +289,6 @@
   font-weight: 600;
   border: 1px solid green;
 }
-
-
-
 
 
 

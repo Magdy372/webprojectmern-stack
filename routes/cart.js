@@ -4,8 +4,6 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-  console.log("a7aaaaaaaaaaaaaaaa"); 
-  console.log(req.session.user.cart[0]) ;
   const arr=req.session.user.cart;
 
 
@@ -17,11 +15,6 @@ router.get('/', function(req, res, next) {
     
 });
 
-router.get('/cart', function(req, res, next) {
-
-  console.log("a7aaaaaaaa111111aaaaaaa");
-    res.render("/cart",{ user: (req.session.user === undefined ? "" : req.session.user) });
-});
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
     res.send('Test Route');

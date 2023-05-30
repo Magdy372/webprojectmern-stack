@@ -22,8 +22,9 @@
         <div class="cart">
 
             <div class="products">
-
+                <%let sum1=0 ;%>
                 <% product.forEach(product=> { %>
+                    <%sum1=sum1+product.Price ;%>
 
                     <div class="product">
                         <a href="/item/<%=product.id%>" class="product-link">
@@ -32,9 +33,10 @@
                             <h3 class="product-name"><%=product.title%></h3>
                             <p class="product-price">$<%=product.Price%></p>
                             <p class="product-offer"><%=product.category%></p>
-                            <button class="product-remove">Remove</button>
                           </div>
-                        </a>
+                          <a class="product-remove" href="/cart/<%=product.id%>"><i class="fa-solid fa-trash"></i></a>
+
+                        <!-- </a> -->
                       </div>
 
                       <%})%>
@@ -42,30 +44,25 @@
             </div>
     
             <div class="cart-total">
+                <br><br>
     
                 <p>
     
-                    <span>Total Price</span>
+                    <span>Total Price :</span>
     
-                    <span>3,000$</span>
+                    <span>$<%=sum1%></span>
     
                 </p>
     
                 <p>
     
-                    <span>Number of Items</span>
+                    <span>Number of Items :</span>
     
-                    <span>2</span>
-    
-                </p>
-    
-                <p>
-    
-                    <span>You Save</span>
-    
-                    <span>1,000$</span>
+                    <span><%=product.length%></span>
     
                 </p>
+    
+                <br>
     
                 <a href="#">Proceed to Checkout</a>
     
