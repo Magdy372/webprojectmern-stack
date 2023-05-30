@@ -30,7 +30,7 @@ const SignupSchema = new Schema({
       message: "Passwords do not match."
     }
   },
-  age: {
+  Age: {
     type: Number, // Changed the data type to Number
     required: true
   },
@@ -38,7 +38,7 @@ const SignupSchema = new Schema({
     type: String,
     required: true
   },
-  type: {
+  Type: {
     type: String,
     required: true
   },
