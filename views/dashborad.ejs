@@ -165,64 +165,28 @@
                       <a href="/customers" > <button>See all  <span class="las la-arrow-right"></span></button></a>
                         </button>
                     </div>
+                    
+                    <% user.slice(0, 5).forEach(element => { %>
+
                     <div class="card-body">
                         <div class="customer">
                             <div class="info">
                                 <img src="wallpaper/wallpaperflare.com_wallpaper (3).jpg" width="40px" height="40px" alt="">
                                 <div>
-                                    <h4>11111111111111111</h4>
-                                    <small>222222222222222</small>
+                                    <% if(element.type!=='admin'){%>
+                                    <h4><%=element.mail%></h4>
+                                    <small><%=element.Type%></small>
+                                    <%}%>
                                 </div>
                             </div>
                             <div class="contact">
                                  <span  class="las la-user-circle"></span>
-                                 <span class="las la-comment"></span>
                                  <span class="las la-phone"></span>
                             </div>
                         </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img src="wallpaper/wallpaperflare.com_wallpaper (3).jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>11111111111111111</h4>
-                                    <small>222222222222222</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                 <span  class="las la-user-circle"></span>
-                                 <span class="las la-comment"></span>
-                                 <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img src="wallpaper/wallpaperflare.com_wallpaper (3).jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>11111111111111111</h4>
-                                    <small>222222222222222</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                 <span  class="las la-user-circle"></span>
-                                 <span class="las la-comment"></span>
-                                 <span class="las la-phone"></span>
-                            </div>
-                        </div>
-                        <div class="customer">
-                            <div class="info">
-                                <img src="wallpaper/wallpaperflare.com_wallpaper (3).jpg" width="40px" height="40px" alt="">
-                                <div>
-                                    <h4>11111111111111111</h4>
-                                    <small>222222222222222</small>
-                                </div>
-                            </div>
-                            <div class="contact">
-                                 <span  class="las la-user-circle"></span>
-                                 <span class="las la-comment"></span>
-                                 <span class="las la-phone"></span>
-                            </div>
-                        </div>
+                        
                      </div>
+                     <%});%>
                 </div>
             </div>
 

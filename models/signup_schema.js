@@ -1,62 +1,67 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const Schema = mongoose.Schema;
 const SALT_WORK_FACTOR = 10;
 
-// define the Schema (the structure of the article)
 const SignupSchema = new Schema({
-  fullname:{ 
-    type:String,
+  fullname: { 
+    type: String,
     required: true          
   },
-  mail:{ 
-    type:String,
-    required:true,
+  mail: { 
+    type: String,
+    required: true,
     match: [/\S+@\S+\.\S+/, "is invalid"],
+    unique: true
   },
-
-  password:{
-    type:String,
-    required:true,
+  password: {
+    type: String,
+    required: true,
+    minlength: 8 // Minimum length of the password
   },
   cpassword: {
-    type:String,
+    type: String,
     required: true,
-
-  }
-  ,
-  Age: {
-    type:String,
-    required:true
+    validate: {
+      validator: function (value) {
+        return value === this.password; // Validate if cpassword matches password
+      },
+      message: "Passwords do not match."
+    }
   },
-  gender: {
-    type:String,
+  age: {
+    type: Number, // Changed the data type to Number
     required: true
   },
-
-  Type: {
+  gender: {
     type: String,
     required: true
   },
-
-  cart:{
-    item:[{product_id:{
-      type:String
-    }}]
+  type: {
+    type: String,
+    required: true
   },
-  wishlist:{
-    item:[{product_id:{
-      type:String
-    }}]
-  },
-  orderlist:{
-    item:[{order_id:{
-      type:String
-    }}]
-  }
+  cart: [{
 
+      product_id: {
+        type: String
+      }
+  }],
+  wishlist:[{
+
+    product_id: {
+      type: String
+    }
+}],
+  orderlist:[{
+
+    order_id: {
+      type: String
+    }
+}],
 }, { timestamps: true });
+
 
 
 
