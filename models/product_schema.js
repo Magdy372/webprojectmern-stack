@@ -28,7 +28,17 @@ const product_schema = new Schema({
         type: String,
         required: [true, "Description is required"],
         minlength: [10, "Description should be at least 10 characters long"]
-    }
+    },
+    rate:{
+    type:Number,
+    max: [5,"can not rate an item higher than 5"],
+    min: [1,"can not rate an item lower than 0"]
+    },
+    review:[{
+        comment:{
+           type:String
+        }
+}]
 }, { timestamps: true });
 
 const Product = mongoose.model("Product", product_schema);

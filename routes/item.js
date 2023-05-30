@@ -13,12 +13,21 @@ router.get("/item/:id", function(req, res, next) {
     console.log(result);
     res.render("item",{ item: result ,user: (req.session.user === undefined ? "" : req.session.user) });
   })
-  .catch((err)=>{
-    console.log(err);
-  });
+  
  
 });
 
+router.post("/item/:id",function(req,res,next){
+  const id= req.params.id;
+  product1.updateone()
+  .then(result =>{
+
+     res.redirect('/item/:id')
+  })
+  .catch((err)=>{
+    console.log(err);
+  });
+})
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
     res.send('Test Route');

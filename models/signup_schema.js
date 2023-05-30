@@ -23,15 +23,10 @@ const SignupSchema = new Schema({
   cpassword: {
     type: String,
     required: true,
-    validate: {
-      validator: function (value) {
-        return value === this.password; // Validate if cpassword matches password
-      },
-      message: "Passwords do not match."
-    }
+    
   },
   Age: {
-    type: Number, // Changed the data type to Number
+    type: String, // Changed the data type to Number
     required: true
   },
   gender: {
