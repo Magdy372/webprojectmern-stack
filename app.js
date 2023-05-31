@@ -7,6 +7,7 @@ import session from 'express-session';
 import mongoose from "mongoose"
 import fileUpload from 'express-fileupload';
 import user1 from './models/signup_schema.js';
+import product1 from './models/product_schema.js';
 
 
 //import { Signup } from '../models/signup_schema';
@@ -79,12 +80,12 @@ app.use('/homepage', tohome_router);
 
 
 app.use('/chat', tohome_router);
-
-app.use('/smartphones', smartphones_router);
+//app.use('/smartphones', smartphones_router);
 
 app.use('/edituserr', edituser_router);
 
-app.use('/labtops', laptop_router);
+//app.use('/labtops', laptop_router);
+
 
 app.use('/cart',cart_router);
 
@@ -136,6 +137,18 @@ app.use("/",edititem_router);
 
 app.use("/",inventory_router);
 app.use("/eitUseradmin",editUseradmin_route)
+
+app.get('/labtops', (req, res) => {
+  product1.find({ category: { $in: "laptop" } })
+    .then((results) => {
+      res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+
 
 app.get("/addcart/:id",function(req, res, next) {
   
