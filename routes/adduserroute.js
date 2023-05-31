@@ -1,10 +1,12 @@
 import { Router } from 'express';
 import  adduserform  from '../controller/adduser.js'
+import checkUN from '../controller/adduser.js'
+
+
 var router = Router();
+router.post("/",adduserform.adduserform)
+router.post('/checkUN',checkUN.checkUN)
 
-
-
-router.post("/",adduserform)
 
 
 /* GET /about/test page. */

@@ -1,5 +1,8 @@
-import signup from "../models/signup_schema.js"
+import Signup from "../models/signup_schema.js";
+
 import bcrypt from 'bcrypt';
+
+
 
 const  adduserform= async (req,res)=>{
   //const signup =new Signup(req.body)
@@ -31,5 +34,25 @@ const  adduserform= async (req,res)=>{
     })
 }
 
+const checkUN = (req, res) => {
+    var query = { fullname: req.body.fullname};
+    Signup.find(query)
+        .then(result => {
+            if (result.length > 0) {
+                res.send('taken');
+            }
+            else {
+                res.send('available');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+const exportsign = {
+    checkUN,
+    adduserform
+ }
+ 
 
-export default adduserform
+export default exportsign
