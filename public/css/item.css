@@ -367,4 +367,37 @@ form .btn button{
 form .btn button:hover{
   background: #1b1b1b;
 }
-           
+.review-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.review {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.review-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.reviewer-name {
+  font-weight: bold;
+}
+
+.review-rating {
+  color: #ffc107;
+  font-size: 20px;
+}
+
+.review-text {
+  font-size: 14px;
+}          

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import review_schema from './review_schema.js'
 
 const Schema = mongoose.Schema;
 
@@ -29,16 +30,12 @@ const product_schema = new Schema({
         required: [true, "Description is required"],
         minlength: [10, "Description should be at least 10 characters long"]
     },
-    rate:{
-    type:Number,
-    max: [5,"can not rate an item higher than 5"],
-    min: [1,"can not rate an item lower than 0"]
-    },
-    review:[{
-        comment:{
-           type:String
+    review: [{
+        comment: {
+          type: Schema.Types.ObjectId,
+          ref: "Review"
         }
-}]
+      }]
 }, { timestamps: true });
 
 const Product = mongoose.model("Product", product_schema);

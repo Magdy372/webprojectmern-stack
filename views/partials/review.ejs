@@ -1,29 +1,47 @@
-
+<%if(user!=="")
+{
+%>
+ <form action="" method="post">
     <div class="container">
       <div class="post">
         <div class="text">Thanks for rating us!</div>
         <div class="edit">EDIT</div>
       </div>
       <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5">
+        <input type="radio" name="rate" id="rate-5" value="5">
         <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-4">
+        <input type="radio" name="rate" id="rate-4" value="4">
         <label for="rate-4" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-3">
+        <input type="radio" name="rate" id="rate-3" value="3">
         <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-2">
+        <input type="radio" name="rate" id="rate-2" value="2">
         <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-1">
+        <input type="radio" name="rate" id="rate-1" value="1">
         <label for="rate-1" class="fas fa-star"></label>
-        <form action="#">
+        
           <header></header>
           <div class="textarea">
-            <textarea cols="30" placeholder="Describe your experience.."></textarea>
+            <textarea cols="30" placeholder="Describe your experience.." name="comment"></textarea>
           </div>
           <div class="btn">
-            <button type="submit">Post</button>
+           <a href="/item/<%=item.id%>"> <button type="submit">Post</button></a>
           </div>
-        </form>
+      </div>
+    </div>
+  </form>
+  <% } %>
+    <div class="review-section">
+      <h2>Customer Reviews</h2>
+      <div class="review-section">
+        <% re.forEach(re1 => { %>
+          <div class="review">
+            <div class="review-info">
+              <div class="reviewer-name"><%= re1.reviewer_name %></div>
+              <div class="review-rating"><%= re1.rate %></div>
+            </div>
+            <p class="review-text"><%= re1.review %></p>
+          </div>
+        <% }); %>
       </div>
     </div>
     <script>
