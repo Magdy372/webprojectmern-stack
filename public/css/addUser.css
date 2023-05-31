@@ -878,4 +878,11 @@ main{
             display: none;
           }
           
+          .adduser{
+margin-top: 10px;
+margin-bottom: 15px;
+            border-color: #e63946;
+            border-radius: 4px;
+
+          }
           

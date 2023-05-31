@@ -1,25 +1,21 @@
-import { Router } from 'express';
-import  checkusersssdata  from '../controller/checkusersssdata.js'
 import Signup from "../models/signup_schema.js"
 import bcrypt from 'bcrypt';
 
-var router = Router();
 
 
-/* GET /about page. */
+const checkusersssdata = (req, res) => {
 
-
-router.post("/",function(req, res, next){
-
+ // const password= req.body.password;
   var query = { mail: req.body.mail };
   Signup.find(query)
     .then(result => {
       if (result.length > 0) {
-       
+        const password= req.body.password;
+        const storedHashedPassword = result[0].password; 
         //req.session.check=result[0];
         const data=result[0];
 
-      
+        if ( bcrypt.compareSync(password, storedHashedPassword)) {
 
           console.log(result[0]);
          // req.session.user = result[0];
@@ -28,9 +24,12 @@ router.post("/",function(req, res, next){
          
            // res.render('/eitUseradmin',data);
           
-        res.render("editUseradmin",{data});
-                         // return true;
-        
+       // res.render("editUseradmin",{data});
+                          return true;
+        }
+        else{
+          res.send('invalid password')
+        }
 
         
       }
@@ -42,15 +41,14 @@ router.post("/",function(req, res, next){
       console.log(err);
     });
 
-});
 
-/*router.post('/', function(req, res, next) {
-    res.render("editUseradmin");
-});*/
 
-/* GET /about/test page. */
-router.get('/test', function(req, res, next) {
-    res.send('Test Route');
-  });
 
-export default router;
+
+
+
+  }
+  
+  export default checkusersssdata
+    
+  

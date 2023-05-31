@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/customers.css">
+    <link rel="stylesheet" href="../css/addUser.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <title>Customers</title>
     <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
@@ -12,6 +13,23 @@
 <body>
    
     <%- include("./partials/adminheader.ejs") %>
+
+      <form onsubmit=" " id="adduser" action="/editUseradmin" method="post">
+
+
+        <label for="mail"  class="lab">User's Email Address </label><br>
+        <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
+        <label for="mail" id="errormail" ></label>
+        
+
+          <div class="submit-btn"><button>Submit</button></div>
+          
+         
+      </form>     
+
+
+
+
     
   <main>
     <div class="card-body">

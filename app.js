@@ -49,7 +49,7 @@ import updateroutr_router from "./routes/updaterouter.js";
 import edititem_router from "./routes/edititem.js";
 import editUseradmin_route from "./routes/editUseradmin_route.js";
 import checkout_router from "./routes/checkout.js";
-
+import checkusersdata_router from "./routes/checkusersdata.js";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -138,7 +138,8 @@ app.use("/updateform",updateroutr_router);
 app.use("/",edititem_router);
 
 app.use("/",inventory_router);
-app.use("/eitUseradmin",editUseradmin_route)
+app.use("/editUseradmin",editUseradmin_route)
+app.use("/checkusersdata",checkusersdata_router)
 
 app.get('/labtops', (req, res) => {
   product1.find({ category: { $in: "laptop" } })
@@ -147,7 +148,7 @@ app.get('/labtops', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+});
 });
 
 app.get('/smartphones', (req, res) => {
@@ -157,7 +158,7 @@ app.get('/smartphones', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+});
 });
 
 
