@@ -38,16 +38,10 @@ const SignupSchema = new Schema({
     required: true
   },
   cart: [{
-
-      product_id: {
         type: String
-      }
   }],
   wishlist:[{
-
-    product_id: {
       type: String
-    }
 }],
   orderlist:[{
 

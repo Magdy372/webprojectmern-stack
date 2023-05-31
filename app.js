@@ -236,6 +236,62 @@ app.get("/addwish/:id",function(req, res, next) {
    //("/");
 });
 
+app.get("/cart/:id",function(req,res,next){
+
+  const id1= req.session.user._id;
+  const itemId = req.params.id;
+
+  const newcart= req.session.user.cart;
+  const id2={_id:id1};
+
+  var index = newcart.indexOf(itemId);
+  if (index > -1) {
+    newcart.splice(index, 1);
+  }
+
+  console.log(newcart);
+
+    
+  user1
+  .updateOne( id2 , {cart: newcart })
+  .then( result => {
+    
+    console.log(id1);
+      res.redirect("/cart")
+  })
+  .catch( err => {
+      console.log(err)
+  })
+}) 
+
+app.get("/wishlist/:id",function(req,res,next){
+
+  const id1= req.session.user._id;
+  const itemId = req.params.id;
+
+  const newcart= req.session.user.wishlist;
+  const id2={_id:id1};
+
+  var index = newcart.indexOf(itemId);
+  if (index > -1) {
+    newcart.splice(index, 1);
+  }
+
+  console.log(newcart);
+
+    
+  user1
+  .updateOne( id2 , {wishlist: newcart })
+  .then( result => {
+    
+    console.log(id1);
+      res.redirect("/wishlist")
+  })
+  .catch( err => {
+      console.log(err)
+  })
+}) 
+
 
 
 
