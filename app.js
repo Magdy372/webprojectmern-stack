@@ -148,6 +148,15 @@ app.get('/labtops', (req, res) => {
     });
 });
 
+app.get('/smartphones', (req, res) => {
+  product1.find( {category: { $in: "smartphone" }})
+    .then((results) => {
+      res.render('smartphones', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 
 app.get("/addcart/:id",function(req, res, next) {
