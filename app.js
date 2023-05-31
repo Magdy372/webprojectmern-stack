@@ -10,6 +10,7 @@ import user1 from './models/signup_schema.js';
 import product1 from './models/product_schema.js';
 
 
+
 //import { Signup } from '../models/signup_schema';
 //const Signup = require('./models/signup_schema');
 //import Signup from './models/signup_schema.js';
@@ -47,6 +48,7 @@ import edituser_router from "./routes/edituser.js";
 import updateroutr_router from "./routes/updaterouter.js";
 import edititem_router from "./routes/edititem.js";
 import editUseradmin_route from "./routes/editUseradmin_route.js";
+import checkout_router from "./routes/checkout.js";
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -77,7 +79,7 @@ app.use('/', homepage_router);
 
 app.use('/homepage', tohome_router);
 
-
+app.use('/checkout', checkout_router);
 
 app.use('/chat', tohome_router);
 //app.use('/smartphones', smartphones_router);
@@ -157,6 +159,8 @@ app.get('/smartphones', (req, res) => {
       console.log(err);
     });
 });
+
+
 
 
 app.get("/addcart/:id",function(req, res, next) {
