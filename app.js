@@ -79,15 +79,20 @@ app.use('/', homepage_router);
 
 app.use('/homepage', tohome_router);
 
-app.use('/checkout', checkout_router);
+//app.use('/checkout', checkout_router);
+
+app.get('/checkout', function(req, res, next) {
+  console.log("a7aaaaaaaaaaaaaaaaaaaaaa")
+  res.render("checkout", { user: (req.session.user === undefined ? "" : req.session.user) });
+});
 
 app.use('/chat', tohome_router);
+
 //app.use('/smartphones', smartphones_router);
 
 app.use('/edituserr', edituser_router);
 
 //app.use('/labtops', laptop_router);
-
 
 app.use('/cart',cart_router);
 
@@ -138,7 +143,9 @@ app.use("/updateform",updateroutr_router);
 app.use("/",edititem_router);
 
 app.use("/",inventory_router);
+
 app.use("/editUseradmin",editUseradmin_route)
+
 app.use("/checkusersdata",checkusersdata_router)
 
 app.get('/labtops', (req, res) => {

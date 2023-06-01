@@ -3,7 +3,7 @@ import { Router } from 'express';
 var router = Router();
 
 /* GET /about page. */
-router.get('/checkout', function(req, res, next) {
+router.get('/', function(req, res, next) {
     res.render("checkout",{ user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
