@@ -878,11 +878,26 @@ main{
             display: none;
           }
           
-          .adduser{
-margin-top: 10px;
-margin-bottom: 15px;
+          .search_customer {
+            margin-top: 10px;
+            margin-bottom: 15px;
             border-color: #e63946;
             border-radius: 4px;
 
           }
+
+          .search_button button{
+
+            background-color: rgb(86, 80, 80);
+           color:white;
+           font-size:19px;
+           margin-top:20px;
+           border: none;
+           background-image: none;
+           width:180px;
+           height: 45px;
+           
+          }
+
+          
           

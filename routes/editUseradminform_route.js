@@ -41,11 +41,11 @@ function validateSignup(){
 router.post('/', async function(req, res, next) {
    
 
-        const password = req.body.password;
+      /*  const password = req.body.password;
         const cpassword=req.body.cpassword;
       
         const hashedPassword = bcrypt.hashSync(password, 10);
-        const hashedcPassword = bcrypt.hashSync(cpassword, 10);
+        const hashedcPassword = bcrypt.hashSync(cpassword, 10);*/
       
       if(validateSignup){
         try {
@@ -55,7 +55,7 @@ router.post('/', async function(req, res, next) {
           console.log(req.body.fullname)
           const result = await db.collection('signups').updateOne(
               { _id: new ObjectId(req.body._id) },
-              { $set: { fullname: req.body.fullname,mail: req.body.mail,password: hashedPassword, cpassword: hashedcPassword,Type: req.body.Type }}
+              { $set: { fullname: req.body.fullname,mail: req.body.mail,Type: req.body.Type }}
             );
             
           client.close();
