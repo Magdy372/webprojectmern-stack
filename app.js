@@ -50,6 +50,8 @@ import edititem_router from "./routes/edititem.js";
 import editUseradmin_route from "./routes/editUseradmin_route.js";
 import checkout_router from "./routes/checkout.js";
 import checkusersdata_router from "./routes/checkusersdata.js";
+import editUseradminform_route from "./routes/editUseradminform_route.js";
+
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -147,6 +149,8 @@ app.use("/",inventory_router);
 app.use("/editUseradmin",editUseradmin_route)
 
 app.use("/checkusersdata",checkusersdata_router)
+
+app.use("/editUseradminform",editUseradminform_route)
 
 app.get('/labtops', (req, res) => {
   product1.find({ category: { $in: "laptop" } })
