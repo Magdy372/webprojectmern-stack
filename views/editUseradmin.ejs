@@ -14,7 +14,7 @@
 
     <%- include("./partials/adminheader.ejs") %>
             <main>
-              <form onsubmit=" " id="adduser" action="/editUseradmin" method="post">
+              <form onsubmit=" " id="adduser" action="/editUseradminform" method="post">
 
 
                       <label for="fullname"  class="lab">edit Full Name</label><br>
@@ -44,8 +44,9 @@
                       <input type="text" id="address" class="in" placeholder="address" name="address" required class="textBox"><br>--> 
                                           
                       <input type="hidden" name="Type" value="user" >
+                      <input type="hidden" name="_id" value="<%=data._id%>">
     
-                  <div class="submit-btn"><button>Submit</button></div>
+                  <div class="submit-btn"><button type="submit">Submit</button></div>
                   
                  
               </form>     
