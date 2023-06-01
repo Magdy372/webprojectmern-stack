@@ -1,7 +1,9 @@
 import { Router } from 'express';
-import product from '../controller/products_controller.js';
 import product1 from '../models/product_schema.js'
 import product2 from '../models/product_schema.js'
+import { __dirname } from '../app.js';
+import fs from 'fs'
+import path from 'path';
 var router = Router();
 
 
@@ -45,10 +47,19 @@ router.get('/', function(req, res, next) {
 router.get("/Inventory/:id",function(req,res,next){
   product1.findByIdAndDelete(req.params.id)
       .then(result=>{
+        const imagePath = path.join(__dirname, '/public/images/', result.image);
+        console.log(imagePath)
+        fs.unlink(imagePath, (err) => {
+          if (err) {
+            console.error('Error deleting image:', err);
+          } else {
+            console.log('Image deleted:', imagePath);
+          }
         console.log(req.params.id);
         console.log(result);
        res.redirect("/Inventory")
       })
+    })
       .catch((err)=>{
         console.log(err);
       });
