@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <title>Add user</title>
     <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../scripts/adminnav.js"></script>
     <script src="../scripts/ajax.js"></script>
     
@@ -16,10 +18,10 @@
 
     <%- include("./partials/adminheader.ejs") %>
             <main>
-              <form onsubmit="return validatesubmit(this) " id="adduser" action="/adduserform" method="post"onkeyup="checkUN()">
+              <form onsubmit="return validatesubmit(this) " id="adduser" action="/adduserform" method="post">
                       <label for="fullname"  class="lab">Full Name</label><br>
-                      <input type="text" oninput="checkUN()"  name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
-                  
+                      <input type="text"  name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
+                  <div id="result"></div>
                  
                       <label for="mail"  class="lab">Email Address</label><br>
                       <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>

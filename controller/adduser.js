@@ -13,7 +13,7 @@ const  adduserform= async (req,res)=>{
     
       const hashedPassword = await bcrypt.hash(password, saltRounds);
       const hashedcPassword = await bcrypt.hash(cpassword, saltRounds);
-    const sign = new signup ({
+    const sign = new Signup ({
       
         fullname: req.body.fullname,
         mail: req.body.mail,
