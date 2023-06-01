@@ -2,6 +2,7 @@ import { Router } from 'express';
 import session from 'express-session';
 import { MongoClient, ObjectId } from "mongodb";
 import bcrypt from 'bcrypt';
+import edituser from "../models/signup_schema.js"
 
 var router = Router();
 
@@ -73,6 +74,99 @@ router.post('/', async function(req, res, next) {
       
       
 });
+
+
+router.get("/change/:id", async function(req, res, next) {
+    let client;
+    try {
+        // Create a new MongoClient
+        client = new MongoClient("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/test?retryWrites=true&w=majority", { useUnifiedTopology: true });
+    
+        // Connect to the MongoDB database
+        await client.connect();
+    
+        // Access the specific collection
+        const collection = client.db('test').collection('signups');
+    
+        // Convert the ID string to an ObjectId
+        const objectId = new ObjectId(req.params.id);
+    
+        // Delete the document by ID
+        const result = await collection.deleteOne({ _id: objectId });
+    
+        if (result.deletedCount === 1) {
+          console.log('Document deleted successfully');
+          res.redirect('/dashborad');
+        } else {
+          console.log('Document not found');
+        }
+    
+      } catch (error) {
+        console.error('Error deleting document:', error);
+      } finally {
+        // Close the connection
+        client.close();
+      }
+
+
+
+
+    /*try {
+        // Find the document by ID
+        console.log("ahmedddddddddddddddddd")
+        console.log(req.params.id)
+       edituser.findByIdAndDelete(req.params.id)
+    
+       .then(result=>{
+
+       
+        res.redirect("/dashborad");
+       })
+      
+        } catch (error) {
+          console.error('Error deleting document:', error);
+        }*/
+
+
+
+
+    /*edituser.findById(req.params.id)
+    .then(result => {
+      const datareview= result.review
+      console.log(req.params.id);
+      console.log(result);
+      review_schema.find({_id:{$in:result.review}})
+      .then(result1 =>{
+        console.log(result1)
+         res.render("item", { item: result,re:result1, user: (req.session.user === undefined ? "" : req.session.user) });
+      })
+      .catch(err => {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+      });
+    })
+    .catch(err => {
+      console.error('Error:', err);
+      res.status(500).send('Internal Server Error');
+    });*/
+
+    /*product1.findById(req.params.id)
+      .populate('review') // Populate the review field
+      .exec()
+      .then(result => {
+        console.log(req.params.id);
+        console.log(result);
+        review_schema.findById(result.review)
+        .then(result1 =>{
+          res.render("item", { item: result, re:result1 , user: (req.session.user === undefined ? "" : req.session.user) });
+        })
+      })
+      .catch(err => {
+        console.error('Error:', err);
+        res.status(500).send('Internal Server Error');
+      });*/
+    
+  });
 
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {

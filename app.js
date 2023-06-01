@@ -151,6 +151,7 @@ app.use("/editUseradmin",editUseradmin_route)
 app.use("/checkusersdata",checkusersdata_router)
 
 app.use("/editUseradminform",editUseradminform_route)
+app.use("/",editUseradminform_route)
 
 app.get('/labtops', (req, res) => {
   product1.find({ category: { $in: "laptop" } })
