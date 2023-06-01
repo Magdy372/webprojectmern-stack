@@ -10,6 +10,7 @@ import user1 from './models/signup_schema.js';
 import product1 from './models/product_schema.js';
 
 
+
 //import { Signup } from '../models/signup_schema';
 //const Signup = require('./models/signup_schema');
 //import Signup from './models/signup_schema.js';
@@ -47,7 +48,8 @@ import edituser_router from "./routes/edituser.js";
 import updateroutr_router from "./routes/updaterouter.js";
 import edititem_router from "./routes/edititem.js";
 import editUseradmin_route from "./routes/editUseradmin_route.js";
-
+import checkout_router from "./routes/checkout.js";
+import checkusersdata_router from "./routes/checkusersdata.js";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
@@ -77,15 +79,20 @@ app.use('/', homepage_router);
 
 app.use('/homepage', tohome_router);
 
+//app.use('/checkout', checkout_router);
 
+app.get('/checkout', function(req, res, next) {
+  console.log("a7aaaaaaaaaaaaaaaaaaaaaa")
+  res.render("checkout", { user: (req.session.user === undefined ? "" : req.session.user) });
+});
 
 app.use('/chat', tohome_router);
+
 //app.use('/smartphones', smartphones_router);
 
 app.use('/edituserr', edituser_router);
 
 //app.use('/labtops', laptop_router);
-
 
 app.use('/cart',cart_router);
 
@@ -136,7 +143,10 @@ app.use("/updateform",updateroutr_router);
 app.use("/",edititem_router);
 
 app.use("/",inventory_router);
-app.use("/eitUseradmin",editUseradmin_route)
+
+app.use("/editUseradmin",editUseradmin_route)
+
+app.use("/checkusersdata",checkusersdata_router)
 
 app.get('/labtops', (req, res) => {
   product1.find({ category: { $in: "laptop" } })
@@ -145,7 +155,7 @@ app.get('/labtops', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+});
 });
 
 app.get('/smartphones', (req, res) => {
@@ -155,8 +165,10 @@ app.get('/smartphones', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-    });
 });
+});
+
+
 
 
 app.get("/addcart/:id",function(req, res, next) {

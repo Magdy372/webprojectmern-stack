@@ -14,40 +14,29 @@
 
     <%- include("./partials/adminheader.ejs") %>
             <main>
-              <form onsubmit="return validatesubmit(this) " id="adduser" action="/editUseradmin" method="post">
-
-                <label for="mail"  class="lab"> old Email Address</label><br>
-                <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
-                <label for="mail" id="errormail" ></label>
-                
-                  
-       
-          
-                <label for="password"  class="lab"> old Password</label><br>
-                <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
-                <label id="errorpassword"></label><br>
+              <form onsubmit=" " id="adduser" action="/editUseradmin" method="post">
 
 
                       <label for="fullname"  class="lab">edit Full Name</label><br>
-                      <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
+                      <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox" value="<%=data.fullname%>" ><br>
                   
                  
                       <label for="mail"  class="lab"> edit Email Address</label><br>
-                      <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox"><br>
+                      <input type="text" id="mail" type="email" class="in"  placeholder="Email" name="mail" required class="textBox" value="<%=data.mail%>" ><br>
                       <label for="mail" id="errormail" ></label>
                       
                         
              
                 
                       <label for="password"  class="lab"> edit Password</label><br>
-                      <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox">
+                      <input type="Password"  id="password" class="in" placeholder="Password" name="password" required class="textBox" value="<%=data.password%>">
                       <label id="errorpassword"></label><br>
                     
                   
                          
               
                       <label for="cpassword"  class="lab">confirm edited password</label><br>
-                      <input type="Password" id="cpassword" class="in" placeholder="confirm password" name="cpassword" required class="textBox">
+                      <input type="Password" id="cpassword" class="in" placeholder="confirm password" name="cpassword" required class="textBox" value="<%=data.cpassword%>">
                       <label id="pwcErr"></label><br>
                      
                   
