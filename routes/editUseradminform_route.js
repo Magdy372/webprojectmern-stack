@@ -55,7 +55,7 @@ router.post('/', async function(req, res, next) {
           console.log(req.body.fullname)
           const result = await db.collection('signups').updateOne(
               { _id: new ObjectId(req.body._id) },
-              { $set: { fullname: req.body.fullname,mail: req.body.mail,password: hashedPassword, cpassword: hashedcPassword }}
+              { $set: { fullname: req.body.fullname,mail: req.body.mail,password: hashedPassword, cpassword: hashedcPassword,Type: req.body.Type }}
             );
             
           client.close();
