@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     .then(result => {
       if(req.session.user.Type==='admin')
       {
-      res.render('customers',{user: result , user: (req.session.user === undefined ? "" : req.session.user) })
+      res.render('customers',{user: result , User: (req.session.user === undefined ? "" : req.session.user) })
     }
     else{
       res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })

@@ -15,7 +15,7 @@ router.get('/edititem/:id', function(req, res, next) {
       {
       console.log(req.params.id);
       console.log(result);
-      res.render("edititem",{item: result},{ user: (req.session.user === undefined ? "" : req.session.user) });
+      res.render("edititem",{item: result , user: (req.session.user === undefined ? "" : req.session.user) });
     }
     else{
       res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
