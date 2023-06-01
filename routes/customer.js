@@ -6,8 +6,14 @@ var router = Router();
 router.get('/', function(req, res, next) {
     signin.find()
     .then(result => {
-      res.render('customers',{user: result})
-    })
+      if(req.session.user.Type==='admin')
+      {
+      res.render('customers',{user: result , user: (req.session.user === undefined ? "" : req.session.user) })
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
+  })
 });
 
 /* GET /about/test page. */

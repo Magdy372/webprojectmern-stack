@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No Access</title>
+  <link rel="stylesheet" href="../css/labtops.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 100px auto;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #555;
+    }
+
+    p {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+  <div class="container">
+    <h1>No Access</h1>
+    <p>Sorry, but you do not have access to view this page.</p>
+  </div>
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

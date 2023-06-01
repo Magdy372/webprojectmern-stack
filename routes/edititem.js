@@ -11,9 +11,15 @@ var router = Router();
 router.get('/edititem/:id', function(req, res, next) {
     product1.findById(req.params.id)
     .then(result=>{
+      if(req.session.user.Type==='admin')
+      {
       console.log(req.params.id);
       console.log(result);
-      res.render("edititem",{item: result});
+      res.render("edititem",{item: result},{ user: (req.session.user === undefined ? "" : req.session.user) });
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
     })
     .catch((err)=>{
       console.log(err);
@@ -57,7 +63,7 @@ router.post('/edititem/:id', function(req, res, next) {
       product1.findByIdAndUpdate(id,pro)
         .then(result => {
             console.log(result)
-          res.redirect('/inventory');
+          res.redirect('/inventory',{ user: (req.session.user === undefined ? "" : req.session.user) });
         })
         .catch(err => {
           console.log(err);

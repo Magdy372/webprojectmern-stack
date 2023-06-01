@@ -34,7 +34,13 @@ router.get('/', function(req, res, next) {
     product2.find(query1)
   ])
     .then(([result1, result2]) => {
-      res.render("inventory", { product: result1, product1: result2 });
+      if(req.session.user.Type==='admin')
+      {
+      res.render("inventory", { product: result1, product1: result2 , user: (req.session.user === undefined ? "" : req.session.user) });
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
     })
     .catch((err) => {
       console.log(err);
@@ -47,6 +53,8 @@ router.get('/', function(req, res, next) {
 router.get("/Inventory/:id",function(req,res,next){
   product1.findByIdAndDelete(req.params.id)
       .then(result=>{
+        if(req.session.user.Type==='admin')
+        {
         const imagePath = path.join(__dirname, '/public/images/', result.image);
         console.log(imagePath)
         fs.unlink(imagePath, (err) => {
@@ -57,8 +65,12 @@ router.get("/Inventory/:id",function(req,res,next){
           }
         console.log(req.params.id);
         console.log(result);
-       res.redirect("/Inventory")
+       res.redirect("/Inventory",{ user: (req.session.user === undefined ? "" : req.session.user) })
       })
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
     })
       .catch((err)=>{
         console.log(err);
