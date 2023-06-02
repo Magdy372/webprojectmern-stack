@@ -63,8 +63,15 @@
                 </p>
     
                 <br>
-    
+               <%if(product.length===0){%>
+              <a  style="background-color: gray; ">No items to Checkout</a></button>
+                
+                
+
+              <% } else{%>
+
                 <a href="/checkout">Proceed to Checkout</a>
+                <% }%>
     
             </div>
     

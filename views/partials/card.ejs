@@ -15,8 +15,19 @@
 </div>
 <h5>$<%=product.Price%></h5>
     </div>
-    <a href="/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-    <a href="/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+
+    <% if(user==="" ) {%>
+
+        <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
+        <% }else { 
+          if(user.Type==="user")
+          {
+          %>
+          <a href="/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+          <% } %>
+          <% } %>
 </div></a>
 <% }) %>
 
