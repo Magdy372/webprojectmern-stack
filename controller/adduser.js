@@ -65,7 +65,7 @@ const  adduserform= async (req,res)=>{
 }
 
 const checkUN = (req, res) => {
-    var query = { fullname: req.body.fullname};
+    var query = { mail: req.body.mail};
     Signup.find(query)
         .then(result => {
             if (result.length > 0) {
