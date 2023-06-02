@@ -8,6 +8,7 @@ import mongoose from "mongoose"
 import fileUpload from 'express-fileupload';
 import user1 from './models/signup_schema.js';
 import product1 from './models/product_schema.js';
+import form2 from './controller/filter.js'
 
 
 
@@ -151,12 +152,24 @@ app.use("/",editUseradminform_route)
 app.get('/labtops', (req, res) => {
   product1.find({ category: { $in: "laptop" } })
     .then((results) => {
-      res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+   .catch((err) => {
+   console.log(err);
+});
+});
+
+app.post('/labtops/filter', (req, res) => {
+  const brand = req.body.brand;
+  product1.find({ category: 'laptop', brand: brand })
+    .then((results) => {
+      res.render('labtops', { product: results, user: (req.session.user === undefined ? "" : req.session.user) });
     })
     .catch((err) => {
       console.log(err);
+    });
 });
-});
+
 
 app.get('/smartphones', (req, res) => {
   product1.find( {category: { $in: "smartphone" }})
