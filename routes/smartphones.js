@@ -1,13 +1,21 @@
 import { Router } from 'express';
 import session from 'express-session';
+import product1 from '../models/product_schema.js';
 var router = Router();
 
 
 /* GET /about page. */
-router.get('/', function(req, res, next) {
-    res.render("smartphones",{ user: (req.session.user === undefined ? "" : req.session.user) });
-});
 
+
+router.get('/smartphones', (req, res) => {
+  product1.find( {category: { $in: "smartphone" }})
+    .then((results) => {
+      res.render('smartphones', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+});
+});
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
     res.send('Test Route');

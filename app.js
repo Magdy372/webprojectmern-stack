@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import session from 'express-session';
 import mongoose from "mongoose"
 import fileUpload from 'express-fileupload';
-import user1 from './models/signup_schema.js';
 import product1 from './models/product_schema.js';
 import form2 from './controller/filter.js'
 
@@ -86,15 +85,15 @@ app.use('/checkout', checkout_router);
 
 app.use('/chat', tohome_router);
 
-//app.use('/smartphones', smartphones_router);
+app.use('/', smartphones_router);
 
 app.use('/edituserr', edituser_router);
 
-//app.use('/labtops', laptop_router);
+app.use('/', laptop_router);
 
-app.use('/cart',cart_router);
+app.use('/',cart_router);
 
-app.use('/wishlist',wishlist_router);
+app.use('/',wishlist_router);
 
 app.use('/discount', discount_router);
 
@@ -105,7 +104,6 @@ app.use('/', item_router);
 app.use('/dashborad', dashborad_router);
 
 app.use('/logout', logout_router);
-
 
 app.use('/customers', customers_router);
 
@@ -133,7 +131,6 @@ app.use("/signupform",Signup_router);
 
 app.use("/adduserform",adduserroute_router);
 
-
 app.use("/signinform",signinroute_router);
 
 app.use("/updateform",updateroutr_router);
@@ -147,248 +144,8 @@ app.use("/editUseradmin",editUseradmin_route)
 app.use("/checkusersdata",checkusersdata_router)
 
 app.use("/editUseradminform",editUseradminform_route)
+
 app.use("/",editUseradminform_route)
-
-app.get('/labtops', (req, res) => {
-  product1.find({ category: { $in: "laptop" } })
-    .then((results) => {
-    res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-   .catch((err) => {
-   console.log(err);
-});
-});
-
-app.post('/labtops/filter', (req, res) => {
-  const brand = req.body.brand;
-  product1.find({ category: 'laptop', brand: brand })
-    .then((results) => {
-      res.render('labtops', { product: results, user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-
-app.get('/smartphones', (req, res) => {
-  product1.find( {category: { $in: "smartphone" }})
-    .then((results) => {
-      res.render('smartphones', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-    .catch((err) => {
-      console.log(err);
-});
-});
-
-
-app.get("/add/:id",function(req, res, next) {
-  
-   
-  const id1= req.session.user._id;
-  const itemId = req.params.id;
- 
-  console.log(itemId);
-
- console.log(req.session.user.cart);
-
- 
-
-  let ishere=false;
-  const newcart= req.session.user.cart;
-  const id2={_id:id1};
-  console.log(id1);
-  console.log("------");
-  
-  
-   if(newcart.includes(itemId)){
-     ishere=false;
-     console.log("the product already in the cart");
-     res.redirect("/");
-     
-   }
-   else{
-     ishere=true;
-   }
-  
-   
-  if(ishere){    
-     req.session.user.cart.push(itemId);
-       
-     user1
-     .updateOne( id2 , {cart: newcart })
-     .then( result => {
-       
-       console.log(id1);
-         res.redirect("/cart")
-     })
-     .catch( err => {
-         console.log(err)
-     })
-       
-  }
-    
-    //("/");
-});
-
-
-app.get("/addcart/:id",function(req, res, next) {
-  
-   
-  const id1= req.session.user._id;
-  const itemId = req.params.id;
- 
-  console.log(itemId);
-
- console.log(req.session.user.cart);
-
- 
-
-  let ishere=false;
-  const newcart= req.session.user.cart;
-  const id2={_id:id1};
-  console.log(id1);
-  console.log("------");
-  
-  
-   if(newcart.includes(itemId)){
-     ishere=false;
-     console.log("the product already in the cart");
-     res.redirect("/");
-     
-   }
-   else{
-     ishere=true;
-   }
-  
-   
-  if(ishere){    
-     req.session.user.cart.push(itemId);
-       
-     user1
-     .updateOne( id2 , {cart: newcart })
-     .then( result => {
-       
-       console.log(id1);
-         res.redirect("/")
-     })
-     .catch( err => {
-         console.log(err)
-     })
-       
-  }
-    
-    //("/");
-});
-
-
-app.get("/addwish/:id",function(req, res, next) {
-  
-  const id1= req.session.user._id;
-   const itemId = req.params.id;
-  
-   console.log(itemId);
-
-  console.log(req.session.user.wishlist);
-
-  
-
-   let ishere=false;
-   const newwishlist= req.session.user.wishlist;
-   const id2={_id:id1};
-   console.log(id1);
-   console.log("------");
-   
-   
-    if(newwishlist.includes(itemId)){
-      ishere=false;
-      console.log("the product already in the wishlist");
-      res.redirect("/");
-      
-    }
-    else{
-      ishere=true;
-    }
-   
-    
-   if(ishere){    
-      req.session.user.wishlist.push(itemId);
-        
-      user1
-      .updateOne( id2 , {wishlist: newwishlist })
-      .then( result => {
-        
-        console.log(id1);
-          res.redirect("/")
-      })
-      .catch( err => {
-          console.log(err)
-      })
-        
-   }
-   
-   
-   //("/");
-});
-
-app.get("/cart/:id",function(req,res,next){
-
-  const id1= req.session.user._id;
-  const itemId = req.params.id;
-
-  const newcart= req.session.user.cart;
-  const id2={_id:id1};
-
-  var index = newcart.indexOf(itemId);
-  if (index > -1) {
-    newcart.splice(index, 1);
-  }
-
-  console.log(newcart);
-
-    
-  user1
-  .updateOne( id2 , {cart: newcart })
-  .then( result => {
-    
-    console.log(id1);
-      res.redirect("/cart")
-  })
-  .catch( err => {
-      console.log(err)
-  })
-}) 
-
-app.get("/wishlist/:id",function(req,res,next){
-
-  const id1= req.session.user._id;
-  const itemId = req.params.id;
-
-  const newcart= req.session.user.wishlist;
-  const id2={_id:id1};
-
-  var index = newcart.indexOf(itemId);
-  if (index > -1) {
-    newcart.splice(index, 1);
-  }
-
-  console.log(newcart);
-
-    
-  user1
-  .updateOne( id2 , {wishlist: newcart })
-  .then( result => {
-    
-    console.log(id1);
-      res.redirect("/wishlist")
-  })
-  .catch( err => {
-      console.log(err)
-  })
-}) 
-
-
-
 
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
