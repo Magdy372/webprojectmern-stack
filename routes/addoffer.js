@@ -3,7 +3,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-  if(req.session.user.Type==='admin')
+  if (req.session && req.session.user && req.session.user.Type === 'admin') 
   {
     res.render("addoffer",{ user: (req.session.user === undefined ? "" : req.session.user) });
   }

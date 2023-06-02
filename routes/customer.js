@@ -6,8 +6,7 @@ var router = Router();
 router.get('/', function(req, res, next) {
     signin.find()
     .then(result => {
-      if(req.session.user.Type==='admin')
-      {
+      if (req.session && req.session.user && req.session.user.Type === 'admin') {
       res.render('customers',{user: result , User: (req.session.user === undefined ? "" : req.session.user) })
     }
     else{

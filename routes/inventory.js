@@ -34,8 +34,7 @@ router.get('/', function(req, res, next) {
     product2.find(query1)
   ])
     .then(([result1, result2]) => {
-      if(req.session.user.Type==='admin')
-      {
+      if (req.session && req.session.user && req.session.user.Type === 'admin') {
       res.render("inventory", { product: result1, product1: result2 , user: (req.session.user === undefined ? "" : req.session.user) });
     }
     else{
@@ -53,8 +52,7 @@ router.get('/', function(req, res, next) {
 router.get("/Inventory/:id",function(req,res,next){
   product1.findByIdAndDelete(req.params.id)
       .then(result=>{
-        if(req.session.user.Type==='admin')
-        {
+        if (req.session && req.session.user && req.session.user.Type === 'admin') {
         const imagePath = path.join(__dirname, '/public/images/', result.image);
         console.log(imagePath)
         fs.unlink(imagePath, (err) => {

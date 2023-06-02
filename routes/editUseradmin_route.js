@@ -14,6 +14,7 @@ router.post("/",function(req, res, next){
   var query = { mail: req.body.mail };
   Signup.find(query)
     .then(result => {
+      if (req.session && req.session.user && req.session.user.Type === 'admin') {
       if (result.length > 0) {
        
         //req.session.check=result[0];
@@ -37,6 +38,10 @@ router.post("/",function(req, res, next){
       else {
         res.send('invalid email')
       }
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
     })
     .catch(err => {
       console.log(err);

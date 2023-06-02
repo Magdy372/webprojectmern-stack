@@ -46,6 +46,7 @@ router.post('/', async function(req, res, next) {
       
         const hashedPassword = bcrypt.hashSync(password, 10);
         const hashedcPassword = bcrypt.hashSync(cpassword, 10);*/
+        if (req.session && req.session.user && req.session.user.Type === 'admin') {
       
       if(validateSignup){
         try {
@@ -61,7 +62,7 @@ router.post('/', async function(req, res, next) {
           client.close();
       
           if (result.modifiedCount > 0) {
-            res.redirect('/dashborad');
+            res.redirect('/dashborad',{ user: (req.session.user === undefined ? "" : req.session.user) });
             
           } else {
             res.send('No user data updated');
@@ -71,12 +72,17 @@ router.post('/', async function(req, res, next) {
           res.status(500).send('Server error');
         }
       }
+      else{
+        res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+      }
+      }
       
       
 });
 
 
 router.get("/change/:id", async function(req, res, next) {
+  if (req.session && req.session.user && req.session.user.Type === 'admin') {
     let client;
     try {
         // Create a new MongoClient
@@ -107,65 +113,10 @@ router.get("/change/:id", async function(req, res, next) {
         // Close the connection
         client.close();
       }
-
-
-
-
-    /*try {
-        // Find the document by ID
-        console.log("ahmedddddddddddddddddd")
-        console.log(req.params.id)
-       edituser.findByIdAndDelete(req.params.id)
-    
-       .then(result=>{
-
-       
-        res.redirect("/dashborad");
-       })
-      
-        } catch (error) {
-          console.error('Error deleting document:', error);
-        }*/
-
-
-
-
-    /*edituser.findById(req.params.id)
-    .then(result => {
-      const datareview= result.review
-      console.log(req.params.id);
-      console.log(result);
-      review_schema.find({_id:{$in:result.review}})
-      .then(result1 =>{
-        console.log(result1)
-         res.render("item", { item: result,re:result1, user: (req.session.user === undefined ? "" : req.session.user) });
-      })
-      .catch(err => {
-        console.error('Error:', err);
-        res.status(500).send('Internal Server Error');
-      });
-    })
-    .catch(err => {
-      console.error('Error:', err);
-      res.status(500).send('Internal Server Error');
-    });*/
-
-    /*product1.findById(req.params.id)
-      .populate('review') // Populate the review field
-      .exec()
-      .then(result => {
-        console.log(req.params.id);
-        console.log(result);
-        review_schema.findById(result.review)
-        .then(result1 =>{
-          res.render("item", { item: result, re:result1 , user: (req.session.user === undefined ? "" : req.session.user) });
-        })
-      })
-      .catch(err => {
-        console.error('Error:', err);
-        res.status(500).send('Internal Server Error');
-      });*/
-    
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
   });
 
 /* GET /about/test page. */
