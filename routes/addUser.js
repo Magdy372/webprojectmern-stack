@@ -5,8 +5,15 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
+  if(req.session.user.Type==='admin')
+  {
     res.render("addUser",{ user: (req.session.user === undefined ? "" : req.session.user) });
+  }
+  else{
+    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
 });
+
 
 
 

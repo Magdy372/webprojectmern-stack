@@ -3,9 +3,14 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    res.render("Task");
+  if(req.session.user.Type==='admin')
+  {
+    res.render("ADMIN-ADD",{ user: (req.session.user === undefined ? "" : req.session.user) });
+  }
+  else{
+    res.render("tasks",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
 });
-
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
     res.send('Test Route');

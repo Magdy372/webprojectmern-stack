@@ -3,7 +3,13 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-    res.render("addoffer");
+  if(req.session.user.Type==='admin')
+  {
+    res.render("addoffer",{ user: (req.session.user === undefined ? "" : req.session.user) });
+  }
+  else{
+    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
 });
 
 /* GET /about/test page. */
