@@ -72,6 +72,24 @@ if(validateSignup){
   }
 //}
 }
+const checkUN = (req, res) => {
+  var query = { fullname: req.body.fullname};
+  Signup.find(query)
+      .then(result => {
+          if (result.length > 0) {
+              res.send('taken');
+          }
+          else {
+              res.send('available');
+          }
+      })
+      .catch(err => {
+          console.log(err);
+      });
+};
 
-
-export default signupform
+const exportsignup = {
+  checkUN,
+  signupform
+}
+export default exportsignup
