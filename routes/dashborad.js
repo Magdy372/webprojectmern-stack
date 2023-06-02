@@ -7,10 +7,12 @@ var router = Router();
 router.get('/', function(req, res, next) {
   signin.find()
     .then(result => {
-      if (req.session && req.session.user && req.session.user.Type === 'admin') {
-        res.render("dashboard", { user: result, User: req.session.user || '' });
-      } else {
-        res.render("noaccess", { user: req.session.user || '' });
+      if (req.session && req.session.user && req.session.user.Type === 'admin')
+      {
+    res.render("dashborad",{user: result , User: (req.session.user === undefined ? "" : req.session.user) });
+      }
+      else{
+        res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
       }
     })
 });
