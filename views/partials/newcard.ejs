@@ -1,0 +1,34 @@
+<% product2.forEach(product=> { %>
+    <a href="/item/<%=product.id%>">
+    
+        <div class="pro">
+            <h3>New</h3>
+            <img src="../images/<%=product.image%>" alt= " photo">
+    <div class="des">
+        <span><%=product.category%></span>
+        <h5> <%=product.title%></h5>
+    <div class="star">
+    
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    
+    </div>
+    <h5>$<%=product.Price%></h5>
+        </div>
+    
+        <% if(user==="" ) {%>
+    
+            <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
+            <% }else { 
+              if(user.Type==="user")
+              {
+              %>
+              <a href="/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+              <% } %>
+              <% } %>
+    </div></a>
+    <% }) %>
+    
