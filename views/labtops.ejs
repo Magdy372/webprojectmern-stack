@@ -52,36 +52,51 @@
         
       </div>
       
-      <section  id="product1" class="section-p1">
-        <h2>featured products</h2>
-      <div class="pro-container">
+          <div class="filter">
+        <h2>Filter by Brand</h2>
+        <form action="/labtops/filter" method="post">
+          <select name="brand">
+            <option value="">All Brands</option>
+            <option value="apple">macbook</option>
+            <option value="dell">dell</option>
+            <option value="lenovo">lenovo</option>
+            <!-- add more options for other brands -->
+          </select>
+          <button type="submit">Apply</button>
+        </form>
+      
 
+<section  id="product1" class="section-p1">
+<h2>featured products</h2>
+<div class="pro-container">
+
+
+<% product.forEach(product=> { %>
+    <a href="/item/<%=product.id%>">
     
-        <% product.forEach(product=> { %>
-            <a href="/item/<%=product.id%>">
-            
-                <div class="pro">
-                    <img src="../images/<%=product.image%>" alt= " photo">
-            <div class="des">
-                <span><%=product.category%></span>
-                <h5> <%=product.title%></h5>
-            <div class="star">
-            
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$<%=product.Price%></h5>
-                </div>
-                <a href="/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
-            </div></a>
-            <% }) %>
+        <div class="pro">
+            <img src="../images/<%=product.image%>" alt= " photo">
+    <div class="des">
+        <span><%=product.category%></span>
+        <h5> <%=product.title%></h5>
+    <div class="star">
+    
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
     
     </div>
-            
+    <h5>$<%=product.Price%></h5>
+        </div>
+        <a href="/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+    </div></a>
+    <% }) %>
+
+</div>
+    
 </section>
+
         <%- include("./partials/footer.ejs") %>
                     
     
