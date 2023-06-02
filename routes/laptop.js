@@ -16,13 +16,26 @@ router.get('/labtops', (req, res) => {
 
 router.post('/labtops/filter', (req, res) => {
   const brand = req.body.brand;
-  product1.find({ category: 'laptop', brand: brand })
+  console.log(brand);
+  if(brand==="All"){
+    product1.find({ category: { $in: "laptop" } })
+    .then((results) => {
+    res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+   .catch((err) => {
+   console.log(err);
+    });
+  }else{
+
+    product1.find({ category: 'laptop', brand: brand })
     .then((results) => {
       res.render('labtops', { product: results, user: (req.session.user === undefined ? "" : req.session.user) });
     })
     .catch((err) => {
       console.log(err);
     });
+  }
+  
 });
 
 
