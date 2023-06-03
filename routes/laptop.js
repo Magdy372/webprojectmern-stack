@@ -27,7 +27,7 @@ router.post('/labtops/filter', (req, res) => {
     });
   }else{
 
-    product1.find({ category: 'laptop', brand: brand })
+    product1.find({ category: 'laptop', brand: { $regex: new RegExp(brand, "i") }})
     .then((results) => {
       res.render('labtops', { product: results, user: (req.session.user === undefined ? "" : req.session.user) });
     })

@@ -27,7 +27,7 @@ router.post('/smartphones/filter', (req, res) => {
     });
   }else{
 
-    product1.find({ category: 'smartphone', brand: brand })
+    product1.find({ category: 'smartphone',  brand: { $regex: new RegExp(brand, "i") } })
     .then((results) => {
       res.render('smartphones', { product: results, user: (req.session.user === undefined ? "" : req.session.user) });
     })
