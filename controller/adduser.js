@@ -56,7 +56,7 @@ const  adduserform= async (req,res)=>{
       console.log(req.body)
    await sign.save()
     .then( result => {
-        res.redirect("/")
+        res.redirect("/dashborad")
     })
     .catch( err => {
         console.log(err)

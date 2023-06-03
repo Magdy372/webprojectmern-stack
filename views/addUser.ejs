@@ -13,12 +13,22 @@
     <script src="../scripts/adminnav.js"></script>
     <script src="../scripts/ajax.js"></script>
     <script src="../scripts/sign.js"></script>
+    <script>
+      function validatebtn() {
+          if (document.getElementById('result').innerHTML.includes('taken')){
+            return false;
+          }
+          else
+              return true;
+      }
+    </script>
+
 </head>
 <body>
 
     <%- include("./partials/adminheader.ejs") %>
             <main>
-              <form onsubmit="return validatesubmit(this) " id="adduser" action="/adduserform" method="post">
+              <form onsubmit="return validateform(this) " id="adduser" action="/adduserform" method="post">
                       <label for="fullname"  class="lab">Full Name</label><br>
                       <input type="text"  name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
                   
@@ -64,7 +74,10 @@
                     </div>
                    
     
-                  <div class="submit-btn"><button>Submit</button></div>
+                  <div class="submit-btn" name="btn" id="btn">
+                    <button onclick="return validatebtn()">Submit</button></div>
+
+
                   <label for="type">Role :</label>
                   <select type="text" id="type" name="type">
                     <option value="user">User</option>
