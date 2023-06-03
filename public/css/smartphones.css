@@ -830,3 +830,42 @@ padding-left: 15px;
  
  
  }
+ /*close button for chat window*/
+.closbtn-chat {
+  top: 4px;
+ 
+ 
+ }
+ .filter {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.filter h2 {
+  margin-top: 0;
+}
+
+.filter form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter select {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.filter button {
+  font-size: 16px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter button:hover {
+  background-color: #0062cc;

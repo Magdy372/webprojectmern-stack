@@ -13,105 +13,112 @@
 <body id="body">
    
     <%- include("./partials/header.ejs") %>
-    <%- include("./partials/filtermobiles.ejs") %>
+    
     <%- include("./partials/chat.ejs") %>
+        
 
 
-
-        <div id="mySidenav" class="sidenav">
-            <h1 id="carth">Cart</h1>
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     
-            <section  id="productcart" >
-                <div class="pro-container">
-                    
-                    <div class="pro">
-                        <img src="../images/dell g15/Annotation 2023-03-11 144934.png" alt=" photo">
-                        <div class="des">
-                                <span>Dell</span>
-                                <h5>Dell g15</h5>
-                                <div class="star">
-                                
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                
-                                </div>
-                                <h5>$2100</h5>
-                        </div>
-                        
-                </div>
-                </div>
-    
-                <button class="checkout-button">Checkout</button>
+    <div id="mySidenav" class="sidenav">
+        <h1 id="carth">Cart</h1>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <section  id="productcart" >
+            <div class="pro-container">
                 
-                </section>
-    
-            
-          </div>
-
-            
-        
-          <section  id="product1" class="section-p1">
-            <h2>featured products</h2>
-          <div class="pro-container">
-    
-        
-            
-                <% product.forEach(product=> { %>
-                    <a href="/item/<%=product.id%>">
-                    
-                        <div class="pro">
-                            <img src="../images/<%=product.image%>" alt= " photo">
+                <div class="pro">
+                    <img src="../images/dell g15/Annotation 2023-03-11 144934.png" alt=" photo">
                     <div class="des">
-                        <span><%=product.category%></span>
-                        <h5> <%=product.title%></h5>
-                    <div class="star">
-                    
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    
+                            <span>Dell</span>
+                            <h5>Dell g15</h5>
+                            <div class="star">
+                            
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            
+                            </div>
+                            <h5>$2100</h5>
                     </div>
-                    <h5>$<%=product.Price%></h5>
-                        </div>
-                        <% if(user==="" ) {%>
-
-                            <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
-                            <% }else { 
-                              if(user.Type==="user")
-                              {
-                              %>
-                              <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                                <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
-                              <% } %>
-                              <% } %>
-                            </div></a>
-                    <% }) %>
-            
-            </div>
                     
-        </section>
-           
-        
-        </div>
-                
-    </section>
+            </div>
+            </div>
+
+            <button class="checkout-button">Checkout</button>
             
+            </section>
 
-
-
-      
         
-                    <%- include("./partials/footer.ejs") %>
+      </div>
       
+          <div class="filter">
+        <h2>Filter by Brand</h2>
+        <form action="/smartphones/filter" method="post">
+          <select name="brand">
+            <option value="All">All Brands</option>
+            <option value="apple">iphone</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Huawei">Huawei</option>
+            <!-- add more options for other brands -->
+          </select>
+          <button type="submit">Apply</button>
+        </form>
       
-     
+
+<section  id="product1" class="section-p1">
+<h2>featured products</h2>
+<div class="pro-container">
+
+
+<% product.forEach(product=> { %>
+    <a href="/item/<%=product.id%>">
+    
+        <div class="pro">
+            <img src="../images/<%=product.image%>" alt= " photo">
+    <div class="des">
+        <span><%=product.category%></span>
+        <h5> <%=product.title%></h5>
+    <div class="star">
+    
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    
+    </div>
+    <h5>$<%=product.Price%></h5>
+        </div>
+        <% if(user==="" ) {%>
+
+            <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
+            <% }else { 
+              if(user.Type==="user")
+              {
+              %>
+              <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+              <% } %>
+              <% } %>
+            </div></a>
+    <% }) %>
+
+</div>
+    
+</section>
+
+        <%- include("./partials/footer.ejs") %>
+                    
     
     
      
     <script>
+        function filterLaptops(brand) {
+            fetch(`/filter?brand=${brand}`)
+             .then(res => res.json())
+             .then(smartphone => {
+               // Update .laptops div with filtered laptops
+             });
+          }   
         function openNav() {
         document.getElementById("mySidenav").style.width = "350px";
         }
@@ -121,9 +128,6 @@
         }
     </script>
 
-
-    
-       
         
 </body>
 
