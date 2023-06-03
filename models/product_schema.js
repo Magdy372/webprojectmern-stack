@@ -30,6 +30,12 @@ const product_schema = new Schema({
         required: [true, "Description is required"],
         minlength: [10, "Description should be at least 10 characters long"]
     },
+
+    offervalue:{
+     type:Number,
+
+    },
+
     review: [{
         comment: {
           type: Schema.Types.ObjectId,

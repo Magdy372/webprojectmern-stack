@@ -3,40 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/Inventory.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ADMIN add.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/e390cab89c.css">
+    <script src="https://kit.fontawesome.com/e390cab89c.js" crossorigin="anonymous"></script>
     <title>Add Offer</title>
     <link rel="shortcut icon" type="x-icon" href="../image/4151901.png">
     <script src="../scripts/adminnav.js"></script>
+    
 </head>
 <body>
     <%- include("./partials/adminheader.ejs") %>
 <main>
     <main>
-        
-            <form id="add-form">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title"><br>
-        
-                <label for="value">value:</label>
-                <input type="text" id="value" name="value"><br>
-        
-               
-        
-                <label for="validity">Validity:</label>
-                <input type="date" id="validity" name="validity"><br>
-        
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea><br>
 
-                <label for="Image">Image:</label>
-                <input type="file" name="img"/>
         
-                <input type="submit" class="btn" value="Add Offer">
+       <h2 class="current-items" style="color: var(--main-color); left: 0%;">Current Items</h2>
+       <br><br>
+   
+    
+
+        
+            <form method="post" id="add-form" action="/searchtoaddoffer">
+              
+               
+                <label for="category">category :</label>
+                <select type="text" id="category" name="category" required>
+                  <option value="laptop">laptop</option>
+                  <option value="smartphone">smartphone</option>
+                  
+                </select>
+
+
+                <label for="brand">brand :</label>
+                <input type="text" id="brand" name="brand" required><br>
+        
+                <input type="submit" class="btn" value="search">
             </form> 
-            </table>
+
+
+
+            <section  id="product1" class="section-p1">
+                <h2>Smartphones</h2>
+                <div class="pro-container">
+            
+                
+                
+                <% product1.forEach(element => { %>
+            
+                <div class="pro">
+                        <img src="../images/<%=element.image%>" alt=" photo">
+                <div class="des">
+                    <span><%=element.category%></span>
+                    <h5> <%=element.title%></h5>
+                <div class="star">
+                
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                
+                </div>
+                <h5> $<%=element.Price%></h5>
+                    </div>
+                    <a href="/edititem/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    
+                </div>
+                
+                    
+                <%});%>
+                    
+                    
+                    
+            </div>
+            </section>
+            
+            <hr><br><hr>
+            
+            <section  id="product1" class="section-p1">
+            <h2>Laptops</h2>
+            <div class="pro-container">
+            
+                <% product.forEach(element => { %>
+            
+                    <div class="pro">
+                            <img src="../images/<%=element.image%>" alt=" photo">
+                    <div class="des">
+                    <span><%=element.category%></span>
+                    <h5> <%=element.title%></h5>
+                    <div class="star">
+                    
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    
+                    </div>
+                    <h5> $<%=element.Price%></h5>
+                        </div> 
+                        <a href="/edititem/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                       
+                    </div>
+                    
+                        
+                    <%});%>
+                
+            </div>
+                            
+            </section>
+            
      </main>
-</main>
+    </main>
+
+    
+    
+
 </body>
 </html>

@@ -47,6 +47,9 @@ router.post("/item/:id",function(req,res,next){
  
   const id = { _id: req.params.id };
   const User = {user: (req.session.user === undefined ? "" : req.session.user)}
+
+
+
 const newreview = new review_schema ({
   reviewer_name:req.session.user.fullname,
   rate:req.body.rate,
