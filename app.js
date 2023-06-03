@@ -53,6 +53,7 @@ import checkusersdata_router from "./routes/checkusersdata.js";
 import editUseradminform_route from "./routes/editUseradminform_route.js";
 
 
+
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
 console.log(`Project Root dir : ${__dirname}`);
@@ -146,6 +147,9 @@ app.use("/checkusersdata",checkusersdata_router)
 app.use("/editUseradminform",editUseradminform_route)
 
 app.use("/",editUseradminform_route)
+app.use("/",addoffer_router)
+
+app.use("/postoffer",addoffer_router)
 
 
 
