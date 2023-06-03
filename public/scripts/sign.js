@@ -46,7 +46,7 @@
         return true;
       }
       
-      function validate(form) {
+      function validateform(form) {
         // Get form values
         let mail = form.mail.value.trim();
         let password = form.password.value;

@@ -62,7 +62,7 @@
                     <div class="opensignup" onclick="change()">Create an account</div>
           </form> 
           <!-- onsubmit="return validatesubmit(this) "  -->
-          <form onsubmit="return validate()"  id="signup" action="/signupform" method="post" >
+          <form onsubmit="return validateform(this)"  id="signup" action="/signupform" method="post" >
               
                   <label for="fullname"  class="lab">Full Name</label><br>
                   <input type="text" name="fullname" id="fullname" class="in" placeholder="Full Name" required class="textBox"><br>
