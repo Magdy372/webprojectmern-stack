@@ -13,6 +13,28 @@ import { __dirname } from '../app.js';
 
 
 const createproduct = (req, res) => {
+
+  if (
+    !req.body.title ||
+    !req.body.brand ||
+    !req.body.Price ||
+    !req.body.description ||
+    !req.body.category ||
+    !req.files
+  ) {
+    return res.status(400).send('All fields are required.');
+  }
+
+
+  /*const pro = new Products({
+    title: req.body.title,
+    brand: req.body.brand,
+    price: req.body.Price,
+    image: req.body.title + path.extname(imgFile.name),
+    description: req.body.description,
+    category: req.body.category
+  });*/
+
     let imgFile;
     let uploadPath;
     console.log(__dirname + '/public/images/');
