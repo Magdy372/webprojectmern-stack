@@ -12,9 +12,16 @@ $(document).ready(function () {
 
                 if (result == 'taken') {
                     $('#result').css("color", "red");
+                    //document.querySelector('#btn-sub').disabled = true;
+                    $('#btn-sub').css("background-color", "red");
+                   // $('#btn-sub').querySelector.disabled = true;
+                    $('#btn-sub').prop("disabled", true);
+                    console.log()
+
                 }
                 else {
                     $('#result').css("color", "green");
+                   // document.querySelector('#button').disabled = false;
                 }
             },
             error:function(err){
