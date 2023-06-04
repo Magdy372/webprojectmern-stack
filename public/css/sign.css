@@ -1,122 +1,131 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    }
-    a {
-    text-decoration: none;
-    }
-    li {
-    list-style: none;
-    }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #A8DADC;
+}
+
+.nav-links a {
+  color: #fff;
+}
+
+/* LOGO */
+.logo {
+  font-size: 32px;
+  width: 200px;
+}
+
+/* NAVBAR MENU */
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+}
+
+.menu li:hover {
+  background-color: #000000;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+/* DROPDOWN MENU */
+.services {
+  position: relative;
+}
+
+.dropdown {
+  background-color: rgb(0, 0, 0);
+  padding: 1em 0;
+  position: absolute; /*WITH RESPECT TO PARENT*/
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+  overflow-y: auto;
+}
+
+.dropdown li + li {
+  margin-top: 10px;
+}
+
+.dropdown li {
+  padding: 0.5em 1em;
+  width: 8em;
+  text-align: center;
+}
+
+.dropdown li:hover {
+  background-color: #4c9e9e;
+}
+
+.services:hover .dropdown {
+  display: block;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
   .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #A8DADC;
-    }
-    .nav-links a {
-    color: #fff;
-    }
-    /* LOGO */
-    .logo {
-    font-size: 32px;
-    width: 200px;
-    }
-    /* NAVBAR MENU */
-    .menu {
-    display: flex;
-    gap: 1em;
-    font-size: 18px;
-    }
-    .menu li:hover {
-    background-color: #000000;
-    border-radius: 5px;
-    transition: 0.3s ease;
-    
-    }
-    
-    .menu li {
-    
-    padding: 5px 14px;
-    
-    }
-    
-    /* DROPDOWN MENU */
-    
-    .services {
-    
-    position: relative; 
-    
-    }
-    
-    .dropdown {
-    
-    background-color: rgb(0, 0, 0);
-    
-    padding: 1em 0;
-    
-    position: absolute; /*WITH RESPECT TO PARENT*/
-    
-    display: none;
-    
-    border-radius: 8px;
-    
-    top: 35px;
-  
-    overflow-y: auto;
-  
-    
-    }
-    
-    .dropdown li + li {
-    
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
     margin-top: 10px;
-    
-    }
-    
-    .dropdown li {
-    
-    padding: 0.5em 1em;
-    
-    width: 8em;
-    
-    text-align: center;
-    
-    }
-    
-    .dropdown li:hover {
-    
-    background-color: #4c9e9e;
-    
-    }
-    
-    .services:hover .dropdown {
-    
+  }
+
+  .menu li {
+    padding: 5px 0;
+  }
+
+  .services {
+    display: none;
+  }
+
+  .hamburger {
     display: block;
-    
-    }
-  
-  
-  
-    input[type=checkbox]{
-  
-        display: none;
-        
-        } 
-        
-        /*HAMBURGER MENU*/
-        
-        .hamburger {
-        
-        display: none;
-        
-        font-size: 24px;
-        
-        user-select: none;
-        
-        }
+  }
+
+  .dropdown {
+    position: static;
+    display: block;
+    margin-top: 10px;
+    border-radius: 0;
+    top: auto;
+  }
+}
 
         #cart{
 

@@ -8,7 +8,7 @@ var router = Router();
 
 /* GET /about page. */
 
-router.get('/', function(req, res, next) {
+router.get('/addoffer', function(req, res, next) {
   Promise.all([    product1.find(),    product2.find()  ])
     .then((result) => {
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
@@ -42,15 +42,6 @@ router.get('/addoffer/:id', function(req, res, next) {
   
 });
 
-router.get('/addoffer', (req, res) => {
-  Product.find()
-    .then((products) => {
-      res.render('addoffer', { products: products, user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
 
 router.post('/addoffer/filter', (req, res) => {
   const category = req.body.category;
@@ -89,15 +80,15 @@ router.post('/',async function(req, res, next) {
       const client = await MongoClient.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/test?retryWrites=true&w=majority");
       const db = client.db('test');
 
-      const result = await db.collection('products').updateOne(
+      const result = await db.collection('products').updateMany(
           { _id: new ObjectId(req.body.id) },
-          { $set: { offervalue: req.body.offervalue }}
+          { $set: { offervalue: req.body.offervalue , hasoffer: req.body.hasoffer}}
         );
         
       client.close();
   
       if (result.modifiedCount > 0) {
-        res.redirect('/addoffer');
+        res.redirect('/offers');
         
       } else {
         res.send('No data updated');
