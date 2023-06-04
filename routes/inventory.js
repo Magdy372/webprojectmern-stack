@@ -78,6 +78,44 @@ router.get("/Inventory/:id",function(req,res,next){
 
 
 
+// router.get('/Inventory', (req, res) => {
+//   Product.find()
+//     .then((products) => {
+//       res.render('Inventory', { products: products, user: (req.session.user === undefined ? "" : req.session.user) });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
+
+router.post('/Inventory/filter', (req, res) => {
+  const category = req.body.category;
+  const brand = req.body.brand;
+
+  let query = {};
+
+  if (category !== 'All' && brand !== 'All') {
+    query = { category: category, brand: { $regex: new RegExp(brand, "i") } };
+  } else if (category !== 'All') {
+    query = { category: category };
+  } else if (brand !== 'All') {
+    query = { brand: { $regex: new RegExp(brand, "i") } };
+  }
+
+  Promise.all([
+    product1.find(query),
+    product2.find(query)
+  ])
+    .then(([result1, result2]) => {
+      res.render('Inventory', { product: result1, product1: result2, user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    });
+});
+
+
 
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {

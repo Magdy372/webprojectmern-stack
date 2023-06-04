@@ -168,13 +168,12 @@ app.use(function(err, req, res, next) {
 //sho8l mongodb
 app.post('/getItems',async(req,res)=>{
     let payload=req.body.payload.trim();
-    product1.find({title:{$regex:new RegExp('^'+payload+'.*','i')}}).exec()
-   .then ( result => {
-     let search=result.slice(0,10);
-    res.send({payload:search});
-   })
+     product1.find({title:{$regex:new RegExp('^'+payload+'.*','i')}}).exec()
+     .then(result=>{
     // limit search to 10
-   
+    let search=result.slice(0,10);
+    res.send({payload:search});
+})
 });
 
 mongoose.connect("mongodb+srv://ahmed2110223:Bi1rExHxs1QSCUpP@webproject.fve9yw3.mongodb.net/test?retryWrites=true&w=majority")
