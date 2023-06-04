@@ -30,6 +30,7 @@ body {
   input[type="range"] {
     width: 100%;
   }
+}
 
 #filter-form input[type="submit"] {
   padding: 10px;
