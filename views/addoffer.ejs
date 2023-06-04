@@ -26,91 +26,92 @@
     
 
         
-            <form method="post" id="add-form" action="/searchtoaddoffer">
-              
-               
-                <label for="category">category :</label>
-                <select type="text" id="category" name="category" required>
-                  <option value="laptop">laptop</option>
-                  <option value="smartphone">smartphone</option>
-                  
-                </select>
-
-
-                <label for="brand">brand :</label>
-                <input type="text" id="brand" name="brand" required><br>
+       <div class="filter">
+        <h2>Filter by category</h2>
+        <form action="/addoffer/filter" method="post">
+          <select name="category" id="category-select">
+            <option value="All">All categories</option>
+            <option value="laptop">Laptops</option>
+            <option value="smartphone">Smartphones</option>
+          </select>
+          <select name="brand" id="brand-select">
+            <option value="All">All brands</option>
+            <option value="apple">mac</option>
+            <option value="apple">iphone</option>
+            <option value="samsung">Samsung</option>
+            <option value="huawei">Huawei</option>
+            <option value="dell">Dell</option>
+            <option value="lenovo">Lenovo</option>
+          </select>
+          <button type="submit">Apply</button>
+        </form>
+      </div>
+      
+      <script>
+        const categorySelect = document.getElementById('category-select');
+        const brandSelect = document.getElementById('brand-select');
+      
+        categorySelect.addEventListener('change', () => {
+          if (categorySelect.value === 'laptop') {
+            brandSelect.innerHTML = `
+              <option value="All">All brands</option>
+              <option value="apple">mac</option>
+              <option value="dell">Dell</option>
+              <option value="lenovo">Lenovo</option>
+            `;
+          } else if (categorySelect.value === 'smartphone') {
+            brandSelect.innerHTML = `
+              <option value="All">All brands</option>
+              <option value="samsung">Samsung</option>
+              <option value="huawei">Huawei</option>
+              <option value="apple">iphone</option>
+            `;
+          } else {
+            brandSelect.innerHTML = `
+              <option value="All">All brands</option>
+              <option value="apple">Apple</option>
+              <option value="samsung">Samsung</option>
+              <option value="huawei">Huawei</option>
+              <option value="dell">Dell</option>
+              <option value="lenovo">Lenovo</option>
+            `;
+          }
+        });
+      </script>
         
-                <input type="submit" class="btn" value="search">
-            </form> 
-
-
-
-            <section  id="product1" class="section-p1">
-                <h2>Smartphones</h2>
-                <div class="pro-container">
-            
-                
-                
-                <% product1.forEach(element => { %>
-            
-                <div class="pro">
-                        <img src="../images/<%=element.image%>" alt=" photo">
-                <div class="des">
-                    <span><%=element.category%></span>
-                    <h5> <%=element.title%></h5>
-                <div class="star">
-                
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                
-                </div>
-                <h5> $<%=element.Price%></h5>
-                    </div>
-                    <a href="/addoffer/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                    
-                </div>
-                
-                    
-                <%});%>
-                    
-                    
-                    
+    <section  id="product1" class="section-p1">
+        
+        <div class="pro-container">
+    
+        
+        
+        <% product1.forEach(element => { %>
+    
+        <div class="pro">
+                <img src="../images/<%=element.image%>" alt=" photo">
+        <div class="des">
+            <span><%=element.category%></span>
+            <h5> <%=element.title%></h5>
+        <div class="star">
+        
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        
+        </div>
+        <h5> $<%=element.Price%></h5>
             </div>
-            </section>
+            <a href="/addoffer/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="/addoffer/<%=element.id%>" id="trash"><i class="fa-solid fa-trash"></i></a>
+        </div>
+        
             
-            <hr><br><hr>
+        <%});%>
             
-            <section  id="product1" class="section-p1">
-            <h2>Laptops</h2>
-            <div class="pro-container">
+        
             
-                <% product.forEach(element => { %>
-            
-                    <div class="pro">
-                            <img src="../images/<%=element.image%>" alt=" photo">
-                    <div class="des">
-                    <span><%=element.category%></span>
-                    <h5> <%=element.title%></h5>
-                    <div class="star">
-                    
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    
-                    </div>
-                    <h5> $<%=element.Price%></h5>
-                        </div> 
-                        <a href="/addoffer/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
-                       
-                    </div>
-                    
-                        
-                    <%});%>
-                
-            </div>
-                            
-            </section>
+    </div>
+    
             
      </main>
     </main>
