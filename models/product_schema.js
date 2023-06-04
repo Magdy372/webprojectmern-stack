@@ -35,6 +35,11 @@ const product_schema = new Schema({
      type:Number,
 
     },
+    hasoffer:{
+        type:String,
+        default: "false",
+        required:true
+    },
 
     review: [{
         comment: {
