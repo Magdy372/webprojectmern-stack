@@ -9,21 +9,13 @@ var router = Router();
 /* GET /about page. */
 
 router.get('/', function(req, res, next) {
-
-  var query = { category: "laptop" };
-  var query1 = { category: "smartphone" };
-
-  Promise.all([
-    product1.find(query),
-    product2.find(query1)
-  ])
-    .then(([result1, result2]) => {
+  Promise.all([    product1.find(),    product2.find()  ])
+    .then((result) => {
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
-      res.render("addoffer", { product: result1, product1: result2 , user: (req.session.user === undefined ? "" : req.session.user) });
-    }
-    else{
-      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
-    }
+        res.render('addoffer', { product: result[0], product1: result[1], user: (req.session.user === undefined ? "" : req.session.user) });
+      } else {
+        res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -50,7 +42,42 @@ router.get('/addoffer/:id', function(req, res, next) {
   
 });
 
+router.get('/addoffer', (req, res) => {
+  Product.find()
+    .then((products) => {
+      res.render('addoffer', { products: products, user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
+router.post('/addoffer/filter', (req, res) => {
+  const category = req.body.category;
+  const brand = req.body.brand;
+
+  let query = {};
+
+  if (category !== 'All' && brand !== 'All') {
+    query = { category: category, brand: { $regex: new RegExp(brand, "i") } };
+  } else if (category !== 'All') {
+    query = { category: category };
+  } else if (brand !== 'All') {
+    query = { brand: { $regex: new RegExp(brand, "i") } };
+  }
+
+  Promise.all([
+    product1.find(query),
+    product2.find(query)
+  ])
+    .then(([result1, result2]) => {
+      res.render('addoffer', { product: result1, product1: result2, user: (req.session.user === undefined ? "" : req.session.user) });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    });
+});
 
 router.post('/',async function(req, res, next) {
   console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii Ahmeddddd")
