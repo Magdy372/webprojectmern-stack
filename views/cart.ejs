@@ -22,21 +22,31 @@
         <div class="cart">
 
             <div class="products">
-                <%let sum1=0 ;%>
+                <%let sum1=0.0 ;%>
+                <%let dis=0%>
                 <% product.forEach(product=> { %>
-                    <%sum1=sum1+product.Price ;%>
+                    
 
                     <div class="product">
                         <a href="/item/<%=product.id%>" class="product-link">
                           <img src="../images/<%=product.image%>" alt="Product Image" class="product-image">
                           <div class="product-info">
                             <h3 class="product-name"><%=product.title%></h3>
-                            <p class="product-price">$<%=product.Price%></p>
+                            <%if( product.hasoffer==="true"){%>
+                                <%let newprice=product.Price-product.Price*(product.offervalue/100)%>
+                                <h5><s style="color: red;">$<%=product.Price%></s><br>$<%=newprice%></h5>
+                                <%sum1=sum1+ product.Price-product.Price*(product.offervalue/100);%>
+                                <%dis=dis+product.Price*(product.offervalue/100)%>
+                            <%}else{%>
+                                <p class="product-price">$<%=product.Price%></p>
+                                <%sum1=sum1+product.Price ;%>
+                            <%} %>
+                            
                             <p class="product-offer"><%=product.category%></p>
                           </div>
                           <a class="product-remove" href="/cart/<%=product.id%>"><i class="fa-solid fa-trash"></i></a>
 
-                        <!-- </a> -->
+                        
                       </div>
 
                       <%})%>
@@ -53,7 +63,14 @@
                     <span>$<%=sum1%></span>
     
                 </p>
+                <p>
     
+                    <span>You save :</span>
+    
+                    <span><s style="color: red;">$<%=dis%></s> </span>
+    
+                </p>
+                <br><br>
                 <p>
     
                     <span>Number of Items :</span>
