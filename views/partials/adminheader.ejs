@@ -48,62 +48,6 @@
         DashBoard
        </h1>
 
-       <div class="search-wrapper">
-         <span class="las la-search"></span>
-         <input type="search" placeholder="Search here" placeholder="Search here" onkeyup="sendData(this)">
-       </div>
-       <script>
-        function sendData(e){
-            const searchResults=document.getElementById('searchResults');
-          let match=e.value.match(/^[a-zA-Z ]*/);
-          let match2=e.value.match(/\s*/);
-          if(match2[0]===e.value){
-            document.getElementById('simg').innerHTML='';
-            document.getElementById('sc').innerHTML='';
-            document.getElementById('st').innerHTML='';
-            document.getElementById('sp').innerHTML='';
-            document.getElementById('se').innerHTML='';
-            document.getElementById('strash').innerHTML='';
-            
-            return;
-          }
-          if(match[0]===e.value){
-            fetch('getItems',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({payload: e.value}),
-        }).then(res=>res.json()).then(data=>{
-let payload=data.payload;
-            document.getElementById('simg').innerHTML='';
-            document.getElementById('sc').innerHTML='';
-            document.getElementById('st').innerHTML='';
-            document.getElementById('sp').innerHTML='';
-            document.getElementById('se').innerHTML='';
-            document.getElementById('strash').innerHTML='';
-if(payload.length<1){
-  searchResults.innerHTML='<p> Sorry. Nothing Found.</p>';
-  return;
-}
-payload.forEach((item,index)=>{
-    document.getElementById('simg').innerHTML +=`<img src="../images/${item.image}" alt=" photo" id="simg">`;
-    document.getElementById('sc').innerHTML=`${item.catcategory}`;
-    document.getElementById('st').innerHTML=`${item.title}`;
-    document.getElementById('sp').innerHTML=`${item.Price}`;
-     document.getElementById('se').innerHTML=`<a href="/edititem/${item._id}" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>`;
-    document.getElementById('strash').innerHTML=`<a href="/Inventory/${item._id}" id="trash"><i class="fa-solid fa-trash"></i></a>`;
-});  
-          });
-          return;
-        }
-        document.getElementById('simg').innerHTML='';
-            document.getElementById('sc').innerHTML='';
-            document.getElementById('st').innerHTML='';
-            document.getElementById('sp').innerHTML='';
-            document.getElementById('se').innerHTML='';
-            document.getElementById('strash').innerHTML='';
-            searchResults.innerHTML='';
-    }
-    </script>
 
        <div class="user-wrapper">
          <a href="/profile"><img width="40px" height="40px" src="../image/blank-profile-picture-973460_1280.webp" alt=""></a>
