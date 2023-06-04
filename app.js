@@ -116,7 +116,7 @@ app.use('/Inventory', inventory_router);
 
 app.use('/Task', task_router);
 
-app.use('/offers', offers_router);
+app.use('/', offers_router);
 
 app.use('/addoffer', addoffer_router);
 

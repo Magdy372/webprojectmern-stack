@@ -18,7 +18,7 @@
 
     <h2>Current Offers</h2>
     <h2 class="current-items">Current Items</h2>
-
+    <a href="/addoffer" class="additem"><button>ADD ITEM<span class="las la-arrow-right"></span></button> </a>
    <div id="mySidenav" class="sidenav">
     <h1 id="carth">Cart</h1>
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -53,16 +53,72 @@
   </div>
 
 
+  <div class="filter">
+    <h2>Filter by category</h2>
+    <form action="/offers/filter" method="post">
+      <select name="category" id="category-select">
+        <option value="All">All categories</option>
+        <option value="laptop">Laptops</option>
+        <option value="smartphone">Smartphones</option>
+      </select>
+      <select name="brand" id="brand-select">
+        <option value="All">All brands</option>
+        <option value="apple">mac</option>
+        <option value="apple">iphone</option>
+        <option value="samsung">Samsung</option>
+        <option value="huawei">Huawei</option>
+        <option value="dell">Dell</option>
+        <option value="lenovo">Lenovo</option>
+      </select>
+      <button type="submit">Apply</button>
+    </form>
+  </div>
+  
+  <script>
+    const categorySelect = document.getElementById('category-select');
+    const brandSelect = document.getElementById('brand-select');
+  
+    categorySelect.addEventListener('change', () => {
+      if (categorySelect.value === 'laptop') {
+        brandSelect.innerHTML = `
+          <option value="All">All brands</option>
+          <option value="apple">mac</option>
+          <option value="dell">Dell</option>
+          <option value="lenovo">Lenovo</option>
+        `;
+      } else if (categorySelect.value === 'smartphone') {
+        brandSelect.innerHTML = `
+          <option value="All">All brands</option>
+          <option value="samsung">Samsung</option>
+          <option value="huawei">Huawei</option>
+          <option value="apple">iphone</option>
+        `;
+      } else {
+        brandSelect.innerHTML = `
+          <option value="All">All brands</option>
+          <option value="apple">Apple</option>
+          <option value="samsung">Samsung</option>
+          <option value="huawei">Huawei</option>
+          <option value="dell">Dell</option>
+          <option value="lenovo">Lenovo</option>
+        `;
+      }
+    });
+  </script>
     
 <section  id="product1" class="section-p1">
-    <h2>Apple labtops</h2>
+    
     <div class="pro-container">
+
     
-        <div class="pro">
-            <img src="../images/images.jpg" alt=" photo">
+    
+    <% product1.forEach(element => { %>
+
+    <div class="pro">
+            <img src="../images/<%=element.image%>" alt=" photo">
     <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
+        <span><%=element.category%></span>
+        <h5> <%=element.title%></h5>
     <div class="star">
     
         <i class="fas fa-star"></i>
@@ -70,650 +126,19 @@
         <i class="fas fa-star"></i>
     
     </div>
-    <h5>$1100</h5>
+    <h5> $<%=element.Price%></h5>
         </div>
-        <a href="https://www.youtube.com" ><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="/edititem/<%=element.id%>" id="edit"><i class="fa-regular fa-pen-to-square"></i></a>
+        <a href="/Inventory/<%=element.id%>" id="trash"><i class="fa-solid fa-trash"></i></a>
     </div>
     
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#" ><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    <div class="pro">
-    <img src="../images/images.jpg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-
-<div class="pro">
-    <img src="../images/images.jpg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-
-<div class="pro">
-<img src="../images/images.jpg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-    
-    </div>
-    
-</section>
-
-
-<div class="space">
-<div class="spacestyle">
-
-
-</div>
-
-</div>
-
-<section  id="product1" class="section-p1">
-    <h2>Lenovo laptops</h2>
-    <div class="pro-container">
-    
-        <div class="pro">
-            <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-        </div>
-        <a href="https://www.youtube.com" ><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#" ><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    <div class="pro">
-        <img src="../images/images.jpgg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    
-    
-    <div class="pro">
-        <img src="../images/images.jpg" alt=" photo">
-    <div class="des">
-    <span>Apple</span>
-    <h5>Iphone 12 pro max</h5>
-    <div class="star">
-    
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$1100</h5>
-    </div>
-    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-    </div>
-    <div class="pro">
-    <img src="../images/images.jpg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-
-<div class="pro">
-    <img src="../images/images.jpgg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-
-<div class="pro">
-<img src="../images/images.jpg" alt=" photo">
-<div class="des">
-<span>Apple</span>
-<h5>Iphone 12 pro max</h5>
-<div class="star">
-
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-
-</div>
-<h5>$1100</h5>
-</div>
-<a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
-    
-    </div>
-    
-</section>
-
-<div class="space">
-    <div class="spacestyle">
-    
-    
-    </div>
-    
-            </div>
-
-            <section  id="product1" class="section-p1">
-                <h2>DELL laptops</h2>
-                <div class="pro-container">
-                
-                    <div class="pro">
-                        <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                    </div>
-                    <a href="https://www.youtube.com" ><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#" ><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                <div class="pro">
-                    
-                    <img src="../images/images.jpg" alt=" photo">
-                    
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                
-                
-                <div class="pro">
-                    <img src="../images/images.jpg" alt=" photo">
-                <div class="des">
-                <span>Apple</span>
-                <h5>Iphone 12 pro max</h5>
-                <div class="star">
-                
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                
-                </div>
-                <h5>$1100</h5>
-                </div>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                </div>
-                <div class="pro">
-                <img src="../images/images.jpg" alt=" photo">
-            <div class="des">
-            <span>Apple</span>
-            <h5>Iphone 12 pro max</h5>
-            <div class="star">
-            
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$1100</h5>
-            </div>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-    
-            <div class="pro">
-                <img src="../images/images.jpg" alt=" photo">
-            <div class="des">
-            <span>Apple</span>
-            <h5>Iphone 12 pro max</h5>
-            <div class="star">
-            
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            
-            </div>
-            <h5>$1100</h5>
-            </div>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-    
-            <div class="pro">
-            <img src="../images/images.jpg" alt=" photo">
-        <div class="des">
-        <span>Apple</span>
-        <h5>Iphone 12 pro max</h5>
-        <div class="star">
         
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
+    <%});%>
         
-        </div>
-        <h5>$1100</h5>
-        </div>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-                
-                </div>
-                
-            </section>
+    
+        
+</div>
+
 
    
          
