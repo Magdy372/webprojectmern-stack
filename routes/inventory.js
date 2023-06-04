@@ -54,15 +54,6 @@ router.get("/Inventory/:id",function(req,res,next){
 
 
 
-router.get('/Inventory', (req, res) => {
-  Product.find()
-    .then((products) => {
-      res.render('Inventory', { products: products, user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
 
 router.post('/Inventory/filter', (req, res) => {
   const category = req.body.category;
