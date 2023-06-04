@@ -19,37 +19,7 @@
 
 
     
-    <div id="mySidenav" class="sidenav">
-        <h1 id="carth">Cart</h1>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-        <section  id="productcart" >
-            <div class="pro-container">
-                
-                <div class="pro">
-                    <img src="../images/dell g15/Annotation 2023-03-11 144934.png" alt=" photo">
-                    <div class="des">
-                            <span>Dell</span>
-                            <h5>Dell g15</h5>
-                            <div class="star">
-                            
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            
-                            </div>
-                            <h5>$2100</h5>
-                    </div>
-                    
-            </div>
-            </div>
-
-            <button class="checkout-button">Checkout</button>
-            
-            </section>
-
-        
-      </div>
+   
       
           <div class="filter">
         <h2>Filter by Brand</h2>
@@ -70,40 +40,62 @@
 <div class="pro-container">
 
 
-<% product.forEach(product=> { %>
-    <a href="/item/<%=product.id%>">
-    
-        <div class="pro">
-            <img src="../images/<%=product.image%>" alt= " photo">
-    <div class="des">
-        <span><%=product.category%></span>
-        <h5> <%=product.title%></h5>
-    <div class="star">
-    
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-    
-    </div>
-    <h5>$<%=product.Price%></h5>
+    <% product.forEach(product=> { %>
+        <% if(product.hasoffer==="false"){%>
+        <a href="/item/<%=product.id%>">
+        
+            <div class="pro">
+                <img src="../images/<%=product.image%>" alt= " photo">
+        <div class="des">
+            <span><%=product.category%></span>
+            <h5> <%=product.title%></h5>
+        <div class="star">
+        
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        
         </div>
-        <% if(user==="" ) {%>
-
-            <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
-            <% }else { 
-              if(user.Type==="user")
-              {
-              %>
-              <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
-              <% } %>
-              <% } %>
-            </div></a>
-    <% }) %>
-
-</div>
+        <h5>$<%=product.Price%></h5>
+            </div>
+            <% if(user==="" ) {%>
     
+                <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
+                <% }else { 
+                  if(user.Type==="user")
+                  {
+                  %>
+                  <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+                  <% } %>
+                  <% } %>
+                </div></a>
+                 <%} else {%>
+                    <a href="/item/<%=product.id%>">
+                    <div class="pro">
+                        <img src="../images/<%=product.image%>" alt=" photo">
+                          <div class="des">
+                          <span><%=product.category%></span>
+                          <h5><%=product.title%></h5>
+                          <div class="star">
+                
+                             <i class="fas fa-star"></i>
+                             <i class="fas fa-star"></i>
+                             <i class="fas fa-star"></i>
+                
+                             <% let sp = (product.offervalue / 100) * product.Price; %>
+                             <% let newprice = product.Price - sp; %>
+                
+                </div>
+                <h5><s style="color: red;">$<%=product.Price%></s><br>$<%=newprice%></h5>
+                    </div>
+                    <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+                </div></a>
+                    <%}%>
+        <% }) %>
+    </div>
 </section>
 
         <%- include("./partials/footer.ejs") %>
@@ -119,13 +111,6 @@
                // Update .laptops div with filtered laptops
              });
           }   
-        function openNav() {
-        document.getElementById("mySidenav").style.width = "350px";
-        }
-        
-        function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        }
     </script>
 
         

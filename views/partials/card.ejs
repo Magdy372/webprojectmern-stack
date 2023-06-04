@@ -1,35 +1,59 @@
 <% product1.forEach(product=> { %>
-<a href="/item/<%=product.id%>">
-
-    <div class="pro">
-        <img src="../images/<%=product.image%>" alt= " photo">
-<div class="des">
-    <span><%=product.category%></span>
-    <h5> <%=product.title%></h5>
-<div class="star">
-
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-
-</div>
-<h5>$<%=product.Price%></h5>
+    <% if(product.hasoffer==="false"){%>
+    <a href="/item/<%=product.id%>">
+    
+        <div class="pro">
+            <img src="../images/<%=product.image%>" alt= " photo">
+    <div class="des">
+        <span><%=product.category%></span>
+        <h5> <%=product.title%></h5>
+    <div class="star">
+    
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+    
     </div>
+    <h5>$<%=product.Price%></h5>
+        </div>
+        <% if(user==="" ) {%>
 
-    <% if(user==="" ) {%>
-
-        <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
-        <% }else { 
-          if(user.Type==="user")
-          {
-          %>
-          <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
-          <% } %>
-          <% } %>
-</div></a>
-<% }) %>
+            <a href="/sign" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/sign" id="wish"><i class="fa-solid fa-heart"></i></a>
+            <% }else { 
+              if(user.Type==="user")
+              {
+              %>
+              <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+              <% } %>
+              <% } %>
+            </div></a>
+             <%} else {%>
+                <a href="/item/<%=product.id%>">
+                <div class="pro">
+                    <img src="../images/<%=product.image%>" alt=" photo">
+                      <div class="des">
+                      <span><%=product.category%></span>
+                      <h5><%=product.title%></h5>
+                      <div class="star">
+            
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+                         <i class="fas fa-star"></i>
+            
+                         <% let sp = (product.offervalue / 100) * product.Price; %>
+                         <% let newprice = product.Price - sp; %>
+            
+            </div>
+            <h5><s style="color: red;">$<%=product.Price%></s><br>$<%=newprice%></h5>
+                </div>
+                <a href="/cart/addcart/<%=product.id%>" id="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/wishlist/addwish/<%=product.id%>" id="wish"><i class="fa-solid fa-heart"></i></a>
+            </div></a>
+                <%}%>
+    <% }) %>
+</div>
 
 
         
