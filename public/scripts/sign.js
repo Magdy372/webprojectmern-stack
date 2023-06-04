@@ -3,6 +3,7 @@
         document.getElementById("signin").style.display="none";
         document.getElementById("signup").style.display="grid";
         document.getElementById("signup").style.placeContent="center"; 
+        
     }
     function validateEmail(mail) {
         if (!/\S+@\S+\.\S+/.test(mail)) {
