@@ -529,4 +529,13 @@ margin-left: 0rem;
     }
     
     
+
+}
+p{
+    margin:10px 0;
+}
+#searchResults{
+    max-width: 600px;
+    width: 95%;
+    margin:20px auto 0 auto;
 }
