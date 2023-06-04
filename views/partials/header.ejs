@@ -38,11 +38,17 @@ if(payload.length<1){
   searchResults.innerHTML='<p> Sorry. Nothing Found.</p>';
   return;
 }
-payload.forEach((item,index)=>{
-searchResults.innerHTML +='<hr>';
-searchResults.innerHTML +=`<p>${item.title}</p>`;
-
-});  
+payload.forEach((item, index) => {
+  searchResults.innerHTML += `
+    <p>
+      ${item.title}
+      <a href="/item/${item._id}">
+        Click here to view
+      </a>
+    </p>
+    <hr>
+  `;
+});
           });
           return;
         }
