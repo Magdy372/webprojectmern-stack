@@ -16,9 +16,9 @@ const order_schema = new Schema({
             type: String,
             required: [true, "Street is required"]
         },
-        address: {
+        building:{
             type: String,
-            required: [true, "Address is required"]
+            required: [true, "Building No. is required"]
         }
     },
     order_total: {

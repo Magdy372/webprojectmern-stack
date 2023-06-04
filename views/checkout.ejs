@@ -21,52 +21,80 @@
             <div class="input-container">
                 <div class="input-line">
                     <label for="Fname">First name</label>
-                    <input type="text" name="Fname" id="Fname" placeholder="first name" >
+                    <input type="text" name="Fname" id="Fname" placeholder="first name" ><br>
                     <span class="error"></span>
                     <div class="erro"></div>
                 </div>
                 <div class="input-line">
                     <label for="Lname">Last name</label>
-                    <input type="text" name="Lname" id="Lname" placeholder="last name" >
+                    <input type="text" name="Lname" id="Lname" placeholder="last name" ><br>
                     <span class="error"></span>
                     <div class="erro"></div>
                 </div>
             </div> 
             <div class="input-line">
                 <label for="phone">Phone number</label>
-                <input type="text" name="phone" id="phone" placeholder="enter your number" >
+                <input type="text" name="phone" id="phone" placeholder="enter your number" ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
             <div class="input-line">
+                <label for="loc">Country</label>
+                <input type="text" name="country" id="country" placeholder="Country name" ><br>
+                <span class="error"></span>
+                <div class="erro"></div>
+            </div>
+
+            <div class="input-line">
+                <label for="loc">City</label>
+                <input type="text" name="city" id="city" placeholder="City name" ><br>
+                <span class="error"></span>
+                <div class="erro"></div>
+            </div>
+
+            <div class="input-line">
+                <label for="loc">Street</label>
+                <input type="text" name="street" id="street" placeholder="Street name" ><br>
+                <span class="error"></span>
+                <div class="erro"></div>
+            </div>
+
+            <div class="input-line">
+                <label for="loc">Building</label>
+                <input type="text" name="building" id="building" placeholder="Building No." ><br>
+                <span class="error"></span>
+                <div class="erro"></div>
+            </div>
+
+            <div class="input-line">
                 <label for="loc">Address</label>
-                <input type="text" name="address" id="address" placeholder="enter your address" >
+                <input type="text" name="address" id="address" placeholder="enter your address" ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
            
             <div class="input-line">
                 <label for="cardName">Name on card</label>
-                <input type="text" name="c" id="cardN" placeholder="enter your card name" >
+                <input type="text" name="c" id="cardN" placeholder="enter your card name" ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
             <div class="input-line">
                 <label for="card">Card number</label>
-                <input type="text" name="card" id="card" placeholder="1111-2222-3333-4444" >
+                <input type="text" name="card" id="card" placeholder="1010-2320-4343-5646" ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
             <div class="input-container">
                 <div class="input-line">
                     <label for="date">Expiring date</label>
-                    <input type="text" name="date" id="date" placeholder="09-21" >
+                    <input type="text" name="date" id="date" placeholder="09-21" ><br>
                     <span class="error"></span>
                     <div class="erro"></div>
                 </div>
                 <div class="input-line">
-                    <label for="cvc">CVC</label>
-                    <input type="text" name="cvc" id="cvc" placeholder="***" >
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="cvv" id="cvV" placeholder="***" ><br>
                     <span class="error"></span>
                     <div class="erro"></div>
                 </div>
@@ -76,6 +104,7 @@
     </div>
     <button class="button">Complete purchase</button>
 </form>
+<%- include("./partials/footer.ejs") %>
 </main>
 </body>
 </html>
