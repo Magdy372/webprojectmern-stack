@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import session from 'express-session';
-//import { initializeLanguageSelector } from '../controllers/lange.js';
+import  initializeLanguageSelector  from '../controller/languageSelector.js';
 
 const router = Router();
 
@@ -14,6 +14,8 @@ router.get('/test', function(req, res, next) {
     res.send('Test Route');
 });
 
-//initializeLanguageSelector(); // Call the initialization function here
+router.post('/',initializeLanguageSelector)
+
+//initializeLanguageSelector; // Call the initialization function here
 
 export default router;

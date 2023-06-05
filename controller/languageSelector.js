@@ -32,4 +32,4 @@ function initializeLanguageSelector() {
   };
 }
 
-module.exports = initializeLanguageSelector;
+export default initializeLanguageSelector;
