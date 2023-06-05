@@ -449,4 +449,170 @@ table th {
     color: #3f8188;
     font-weight: 900;
 }
- 
+ /* Default styles for all screen sizes */
+/* ... */
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    /* Adjust the layout for small screens */
+    .filter {
+      flex-direction: column;
+    }
+    #category-select, #brand-select, button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .pro-container {
+      flex-direction: column;
+    }
+    .pro {
+      width: 100%;
+    }
+  }
+  
+  /* Media query for medium screens */
+  @media screen and (min-width: 601px) and (max-width: 900px) {
+    /* Adjust the layout for medium screens */
+    .pro-container {
+      flex-wrap: wrap;
+    }
+    .pro {
+      width: 48%;
+      margin-right: 2%;
+    }
+    .pro:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+  
+  /* Media query for large screens */
+  @media screen and (min-width: 901px) {
+    /* Adjust the layout for large screens */
+    .pro-container {
+      flex-wrap: wrap;
+    }
+    .pro {
+      width: 30%;
+      margin-right: 3.33%;
+    }
+    .pro:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  /* Default styles for all screen sizes */
+/* ... */
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    /* Adjust the layout for small screens */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 80%;
+      height: 100%;
+      z-index: 9999;
+      transition: all 0.3s ease-in;
+    }
+    .sidebar.active {
+      left: 0;
+    }
+    .sidebar-brand h2 {
+      font-size: 1.5rem;
+    }
+    .sidebar-menu {
+      height: calc(100% - 50px);
+      overflow-y: auto;
+    }
+    .main-content header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .main-content header h1 {
+      font-size: 1.2rem;
+    }
+    .user-wrapper {
+      display: none;
+    }
+  }
+  
+  /* Media query for medium and large screens */
+  @media screen and (min-width: 601px) {
+    /* Adjust the layout for medium and large screens */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #f4f4f4;
+      z-index: 9999;
+      overflow-y: auto;
+      transition: all 0.3s ease-in;
+    }
+    .sidebar-brand {
+      padding: 1rem;
+    }
+    .sidebar-brand h2 {
+      font-size: 2rem;
+    }
+    .sidebar-menu {
+      padding: 1rem;
+    }
+    .sidebar-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-menu li {
+      margin-bottom: 1rem;
+    }
+    .sidebar-menu a {
+      display: block;
+      padding: 0.5rem;
+      color: #333;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: all 0.3s ease-in;
+    }
+    .sidebar-menu a:hover {
+      background-color: #ccc;
+    }
+    .main-content {
+      margin-left: 250px;
+    }
+    .main-content header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      padding: 0 1rem;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .main-content header h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .user-wrapper {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+    }
+    .user-wrapper img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    .user-wrapper h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    .user-wrapper small {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+  }

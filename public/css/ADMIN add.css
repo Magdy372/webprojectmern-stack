@@ -449,5 +449,37 @@ table th {
     color: #3f8188;
     font-weight: 900;
 }
- 
+ /* Mobile devices */
+@media screen and (max-width: 480px) {
+    form {
+        width: 100%;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"], textarea, select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    input[type="submit"] {
+        width: 100%;
+    }
+}
+
+/* Tablets and small desktops */
+@media screen and (max-width: 768px) {
+    form {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Large desktops */
+@media screen and (min-width: 1200px) {
+    form {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
 

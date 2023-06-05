@@ -898,6 +898,39 @@ main{
            height: 45px;
            
           }
+/* Mobile devices */
+@media screen and (max-width: 480px) {
+  /* Adjust form container */
+  form {
+    width: 90%;
+    margin: 0 auto;
+  }
+  /* Center form inputs */
+  .in {
+    width: 100%;
+  }
+  /* Adjust button */
+  .submit-btn button {
+    width: 100%;
+  }
+}
 
+/* Tablets and small desktops */
+@media screen and (max-width: 768px) {
+  /* Adjust form container */
+  form {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/* Large desktops */
+@media screen and (min-width: 1200px) {
+  /* Adjust form container */
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
           
           
