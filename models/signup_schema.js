@@ -43,12 +43,6 @@ const SignupSchema = new Schema({
   wishlist:[{
       type: String
 }],
-  orderlist:[{
-
-    order_id: {
-      type: String
-    }
-}],
 }, { timestamps: true });
 
 
