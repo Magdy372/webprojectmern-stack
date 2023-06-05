@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="x-icon" href="../images/4151901.png">
         <!-- <link rel="stylesheet" href="../css/homepage.css"> -->
         <link rel="stylesheet" href="/css/checkout.css">
@@ -34,7 +34,7 @@
             </div> 
             <div class="input-line">
                 <label for="phone">Phone number</label>
-                <input type="text" name="phone" id="phone" placeholder="enter your number" ><br>
+                <input type="text" name="phone" id="phone" placeholder="enter your number"  ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
@@ -81,14 +81,14 @@
             </div>
             <div class="input-line">
                 <label for="card">Card number</label>
-                <input type="text" name="card" id="card" placeholder="1010-2320-4343-5646" ><br>
+                <input type="text" name="card" id="card" placeholder="1010-2320-4343-5646"  ><br>
                 <span class="error"></span>
                 <div class="erro"></div>
             </div>
             <div class="input-container">
                 <div class="input-line">
                     <label for="date">Expiring date</label>
-                    <input type="text" name="date" id="date" placeholder="09-21" ><br>
+                    <input type="text" name="date" id="date" placeholder="09-21"  ><br>
                     <span class="error"></span>
                     <div class="erro"></div>
                 </div>
@@ -100,10 +100,13 @@
                 </div>
               
             </div>
-        
+            <button type="submit" class="button">Complete purchase</button>
+        </form>
     </div>
-    <button class="button">Complete purchase</button>
-</form>
+    
+
+
+
 <%- include("./partials/footer.ejs") %>
 </main>
 </body>

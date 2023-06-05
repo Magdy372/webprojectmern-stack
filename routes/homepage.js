@@ -2,7 +2,9 @@ import { Router } from 'express';
 import product11 from '../models/product_schema.js'
 import product12 from '../models/product_schema.js'
 import session from 'express-session';
+import signin from '../models/signup_schema.js'
 var router = Router();
+
 
 /* GET /about page. */
 // router.get('/', function(req, res, next) {
@@ -16,7 +18,20 @@ router.get('/homepage', function(req, res, next) {
   /*req.session.Email = req.query.email;
   req.session.psw = req.query.psw;
   req.session.x = 'x';*/
-  res.render("homepage", { user: (req.session.user === undefined ? "" : req.session.user) });
+
+  //signin.find()
+  
+    if (req.session && req.session.user && req.session.user.Type === 'user')
+    {
+  res.render("homepage",{ User: (req.session.user === undefined ? "" : req.session.user) });
+    }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+    }
+  
+
+
+ // res.render("homepage", { user: (req.session.user === undefined ? "" : req.session.user) });
 });
 
 
@@ -26,6 +41,8 @@ router.get('/', function(req, res, next) {
   threshold_date = current_date - datetime.timedelta(days=2)
   query = {"arrivalDate": {"$gte": threshold_date}}
 */
+
+if (req.session && req.session.user && req.session.user.Type === 'user'){
 const currentDate = new Date();
   const thresholdDate = new Date(currentDate.getTime() - (30* 24 * 60 * 60 * 1000));
   const query = { createdAt: { $gte: thresholdDate },  hasoffer:  "false"  };
@@ -54,7 +71,10 @@ const currentDate = new Date();
   .catch(err => {
     console.log(err);
   });
-
+}
+else{
+  res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+}
 
 });
 
@@ -66,6 +86,10 @@ const currentDate = new Date();
    .catch((err)=> { console.log(err)});*/
    
 
+   /*router.post('/',function(req, res, next) {
+    console.log("ahmmeddddddddddd")
+    res.render("homepage", { user: (req.session.user === undefined ? "" : req.session.user) });
+  });*/
 
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
