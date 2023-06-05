@@ -9,6 +9,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/edititem/:id', function(req, res, next) {
+  if (req.session && req.session.user && req.session.user.Type === 'admin'){
     product1.findById(req.params.id)
     .then(result=>{
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
@@ -23,10 +24,15 @@ router.get('/edititem/:id', function(req, res, next) {
     .catch((err)=>{
       console.log(err);
     });
+  }
     
+  else{
+    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
 });
 
 router.post('/edititem/:id', function(req, res, next) {
+  if (req.session && req.session.user && req.session.user.Type === 'admin'){
     let imgFile;
     let uploadPath;
     console.log(__dirname + '/public/images/');
@@ -72,7 +78,10 @@ router.post('/edititem/:id', function(req, res, next) {
           console.log(err);
         });
     });
-   
+  }
+  else{
+    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
 });
 
 /* GET /about/test page. */
