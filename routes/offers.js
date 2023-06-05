@@ -11,10 +11,10 @@ var router = Router();
 /* GET /about page. */
 
 router.get('/offers', function(req, res, next) {
-  Promise.all([    product1.find(),    product2.find()  ])
+    product1.find({hasoffer:"true"})
     .then((result) => {
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
-        res.render('offers', { product: result[0], product1: result[1], user: (req.session.user === undefined ? "" : req.session.user) });
+        res.render('offers', { product: result, user: (req.session.user === undefined ? "" : req.session.user) });
       } else {
         res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
       }
@@ -26,21 +26,11 @@ router.get('/offers', function(req, res, next) {
 });
 
 router.get("/offers/:id",function(req,res,next){
-  product1.findByIdAndDelete(req.params.id)
+  product1.findByIdAndUpdate(req.params.id,{hasoffer: false})
       .then(result=>{
         if (req.session && req.session.user && req.session.user.Type === 'admin') {
-        const imagePath = path.join(__dirname, '/public/images/', result.image);
-        console.log(imagePath)
-        fs.unlink(imagePath, (err) => {
-          if (err) {
-            console.error('Error deleting image:', err);
-          } else {
-            console.log('Image deleted:', imagePath);
-          }
-        console.log(req.params.id);
-        console.log(result);
-       res.redirect("/offers",{ user: (req.session.user === undefined ? "" : req.session.user) })
-      })
+          const userQuery = encodeURIComponent(JSON.stringify(req.session.user));
+          res.redirect(`/offers?user=${userQuery}`);
     }
     else{
       res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
@@ -51,18 +41,6 @@ router.get("/offers/:id",function(req,res,next){
       });
 })  
 
-
-
-
-router.get('/offers', (req, res) => {
-  Product.find()
-    .then((products) => {
-      res.render('offers', { products: products, user: (req.session.user === undefined ? "" : req.session.user) });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
 
 router.post('/offers/filter', (req, res) => {
   const category = req.body.category;
