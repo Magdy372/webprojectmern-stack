@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import signin from '../models/signup_schema.js'
 import product1 from '../models/product_schema.js'
+import order from '../models/order.js'
 
 var router = Router();
 
@@ -13,14 +14,23 @@ router.get('/', function(req, res, next) {
     // Handle the first query result here
     signin.find()
       .then(result2 => {
-        // Handle the second query result here
-        console.log(result2);
-        console.log(result1);
-        res.render("dashborad", {
-          product: result1,
-          user1: result2 ,
-          user: (req.session.user === undefined ? "" : req.session.user)
+
+        order.find()
+        .then(result3=>{
+          console.log(result3)
+          res.render("dashborad", {
+            product: result1,
+            user1: result2 ,
+            order:result3,
+            user: (req.session.user === undefined ? "" : req.session.user)
+          });
+
+        })
+        .catch(err => {
+          console.log(err);
         });
+        // Handle the second query result here
+        
       })
       .catch(err => {
         console.log(err);
