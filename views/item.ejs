@@ -56,7 +56,16 @@
             <div class="product-info">
               <h2 class="product-title"><%=item.title%></h2>
               <p class="product-description"><%=item.description%></p>
+              
+                <%if( item.hasoffer==="true"){%>
+                  <%let newprice=item.Price-item.Price*(item.offervalue/100)%>
+                  <br>
+                  <p class="product-price"><s style="color: red;">$<%=item.Price%></s><br>$<%=newprice%></p>
+                  <br>
+              <%}else{%>
+
               <p class="product-price">$<%=item.Price%></p>
+                <%}%>
 
               <% if(user==="" ) {%>
 

@@ -37,6 +37,7 @@
                                 <h5><s style="color: red;">$<%=product.Price%></s><br>$<%=newprice%></h5>
                                 <%sum1=sum1+ product.Price-product.Price*(product.offervalue/100);%>
                                 <%dis=dis+product.Price*(product.offervalue/100)%>
+                                <br>
                             <%}else{%>
                                 <p class="product-price">$<%=product.Price%></p>
                                 <%sum1=sum1+product.Price ;%>

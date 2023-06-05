@@ -32,6 +32,8 @@
              <%} else {%>
                 <a href="/item/<%=product.id%>">
                 <div class="pro">
+                    <h3><%=product.offervalue%>%</h3>
+
                     <img src="../images/<%=product.image%>" alt=" photo">
                       <div class="des">
                       <span><%=product.category%></span>
@@ -41,7 +43,7 @@
                          <i class="fas fa-star"></i>
                          <i class="fas fa-star"></i>
                          <i class="fas fa-star"></i>
-            
+
                          <% let sp = (product.offervalue / 100) * product.Price; %>
                          <% let newprice = product.Price - sp; %>
             

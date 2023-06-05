@@ -289,6 +289,12 @@ transition: 0.02s;
       width: 100%;
       border-radius: 20px;
   }
+  #product1 .pro h3{
+    color: rgb(255, 255, 255);
+    border: red;
+    background-color: red;
+  
+  }
   
   
   
