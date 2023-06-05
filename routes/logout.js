@@ -5,6 +5,7 @@ var router = Router();
 router.get('/', function(req, res, next) {
     req.session.destroy();
     res.redirect('/');
+  
 });
 
 /* GET /about/test page. */

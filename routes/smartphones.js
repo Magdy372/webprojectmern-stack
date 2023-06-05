@@ -5,6 +5,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/smartphones', (req, res) => {
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   product1.find({ category: { $in: "smartphone" } })
     .then((results) => {
     res.render('smartphones', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
@@ -12,9 +13,14 @@ router.get('/smartphones', (req, res) => {
    .catch((err) => {
    console.log(err);
 });
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 router.post('/smartphones/filter', (req, res) => {
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   const brand = req.body.brand;
   console.log(brand);
   if(brand==="All"){
@@ -35,7 +41,10 @@ router.post('/smartphones/filter', (req, res) => {
       console.log(err);
     });
   }
-  
+}
+else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
 });
 
 

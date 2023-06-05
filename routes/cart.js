@@ -5,18 +5,23 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/cart', function(req, res, next) {
-  const arr=req.session.user.cart;
 
+  if ( req.session.user.Type === 'user'){
+  const arr=req.session.user.cart;
 
   product11.find({ _id: { $in: arr } })
   .then( result=> { console.log(result); res.render("cart",{ product: result , user: (req.session.user === undefined ? "" : req.session.user) });})
   .catch((err)=> { console.log(err)});
   
-
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
     
 });
 
 router.get("/cart/:id",function(req,res,next){
+  if ( req.session.user.Type === 'user'){
 
   const id1= req.session.user._id;
   const itemId = req.params.id;
@@ -41,10 +46,14 @@ router.get("/cart/:id",function(req,res,next){
   .catch( err => {
       console.log(err)
   })
+}
+else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
 }) 
 router.get("/add/:id",function(req, res, next) {
   
-   
+  if ( req.session.user.Type === 'user'){
   const id1= req.session.user._id;
   const itemId = req.params.id;
  
@@ -89,10 +98,15 @@ router.get("/add/:id",function(req, res, next) {
   }
     
     //("/");
+}
+else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
 });
 
 router.get("/cart/addcart/:id",function(req, res, next) {
   
+  if ( req.session.user.Type === 'user'){
    
   const id1= req.session.user._id;
   const itemId = req.params.id;
@@ -138,6 +152,10 @@ router.get("/cart/addcart/:id",function(req, res, next) {
   }
     
     //("/");
+}
+else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
 });
 
 /* GET /about/test page. */

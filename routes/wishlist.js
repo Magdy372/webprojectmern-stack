@@ -5,6 +5,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/wishlist', function(req, res, next) {
+  if ( req.session.user.Type === 'user'){
 
   const arr=req.session.user.wishlist;
 
@@ -13,13 +14,16 @@ router.get('/wishlist', function(req, res, next) {
   .then( result=> { console.log(result); res.render("wishlist",{ product: result , user: (req.session.user === undefined ? "" : req.session.user) });})
   .catch((err)=> { console.log(err)});
   
-
-
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 
     
 });
 
 router.get("/wishlist/addwish/:id",function(req, res, next) {
+  if ( req.session.user.Type === 'user'){
   
   const id1= req.session.user._id;
    const itemId = req.params.id;
@@ -66,12 +70,17 @@ router.get("/wishlist/addwish/:id",function(req, res, next) {
    
    
    //("/");
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 
 
 router.get("/wishlist/:id",function(req,res,next){
 
+  if ( req.session.user.Type === 'user'){
   const id1= req.session.user._id;
   const itemId = req.params.id;
 
@@ -96,6 +105,11 @@ router.get("/wishlist/:id",function(req,res,next){
   .catch( err => {
       console.log(err)
   })
+}
+ else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
+
 }) 
 
 /* GET /about/test page. */
