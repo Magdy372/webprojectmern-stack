@@ -8,7 +8,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   res.render('checkout',{ user: (req.session.user === undefined ? "" : req.session.user) })
   }
   else {
@@ -93,11 +93,7 @@ router.post('/', function(req, res, next) {
       console.log(err);
       res.status(500).send("Error while retrieving products.");
     });
-  }
-  else {
-    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
-  }
-});
+  });
 
 
 router.get('/test', function(req, res, next) {

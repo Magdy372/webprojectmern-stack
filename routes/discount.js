@@ -3,7 +3,7 @@ import product1 from '../models/product_schema.js';
 var router = Router();
 
 router.get('/', (req, res) => {
-  if (req.session && req.session.user && req.session.user.Type === 'admin'){
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   product1.find({ hasoffer: { $in: "true" } })
     .then((results) => {
     res.render('discount', { product1: results ,  user: (req.session.user === undefined ? "" : req.session.user) });

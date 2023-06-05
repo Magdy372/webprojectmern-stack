@@ -6,7 +6,7 @@ var router = Router();
 /* GET /about page. */
 router.get('/cart', function(req, res, next) {
 
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   const arr=req.session.user.cart;
 
   product11.find({ _id: { $in: arr } })
@@ -21,7 +21,7 @@ router.get('/cart', function(req, res, next) {
 });
 
 router.get("/cart/:id",function(req,res,next){
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
 
   const id1= req.session.user._id;
   const itemId = req.params.id;
@@ -53,7 +53,7 @@ else {
 }) 
 router.get("/add/:id",function(req, res, next) {
   
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   const id1= req.session.user._id;
   const itemId = req.params.id;
  
@@ -106,7 +106,7 @@ else {
 
 router.get("/cart/addcart/:id",function(req, res, next) {
   
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
    
   const id1= req.session.user._id;
   const itemId = req.params.id;

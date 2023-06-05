@@ -5,7 +5,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/wishlist', function(req, res, next) {
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
 
   const arr=req.session.user.wishlist;
 
@@ -23,7 +23,7 @@ router.get('/wishlist', function(req, res, next) {
 });
 
 router.get("/wishlist/addwish/:id",function(req, res, next) {
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   
   const id1= req.session.user._id;
    const itemId = req.params.id;
@@ -80,7 +80,7 @@ router.get("/wishlist/addwish/:id",function(req, res, next) {
 
 router.get("/wishlist/:id",function(req,res,next){
 
-  if ( req.session.user.Type === 'user'){
+  if ( !req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   const id1= req.session.user._id;
   const itemId = req.params.id;
 
