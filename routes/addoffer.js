@@ -9,7 +9,7 @@ var router = Router();
 /* GET /about page. */
 
 router.get('/addoffer', function(req, res, next) {
-  if (req.session && req.session.user && req.session.user.Type === 'admin'){
+  
   Promise.all([    product1.find(),    product2.find()  ])
     .then((result) => {
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
@@ -22,15 +22,12 @@ router.get('/addoffer', function(req, res, next) {
       console.log(err);
       res.status(500).send("Internal Server Error");
     });
-  }
-  else{
-    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
-  }
+ 
 });
 
 
 router.get('/addoffer/:id', function(req, res, next) {
-  if (req.session && req.session.user && req.session.user.Type === 'admin'){
+  
   product1.findById(req.params.id)
   .then(result=>{
     if (req.session && req.session.user && req.session.user.Type === 'admin') {
@@ -45,10 +42,6 @@ router.get('/addoffer/:id', function(req, res, next) {
   .catch((err)=>{
     console.log(err);
   });
-}
-else{
-  res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
-}
   
 });
 
@@ -86,7 +79,7 @@ router.post('/addoffer/filter', (req, res) => {
 });
 
 router.post('/',async function(req, res, next) {
-  if (req.session && req.session.user && req.session.user.Type === 'admin'){
+  
   console.log("hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii Ahmeddddd")
 
   if (req.session && req.session.user && req.session.user.Type === 'admin') {
@@ -117,10 +110,6 @@ router.post('/',async function(req, res, next) {
   else{
     res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
   }
-}
-else{
-  res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
-}
   
 });
 

@@ -72,12 +72,11 @@ router.post('/', async function(req, res, next) {
           res.status(500).send('Server error');
         }
       }
+     
+      }
       else{
         res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
       }
-      }
-      
-      
 });
 
 
