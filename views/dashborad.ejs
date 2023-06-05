@@ -39,7 +39,7 @@
 
             <div class="card-single">
                 <div>
-                    <h1>54</h1>
+                    <h1><%=order.length%></h1>
                     <span>Orders</span>
                 </div>
                 <div>
@@ -49,7 +49,12 @@
 
             <div class="card-single">
                 <div>
-                    <h1>$54</h1>
+                    <%let sum=0; %>
+                    <%order.forEach(order=>{%>
+                       <%sum=sum+order.totalPrice;%>
+                   <% })%>
+
+                    <h1>$<%=sum%></h1>
                     <span>Income</span>
                 </div>
                 <div>
