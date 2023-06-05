@@ -69,14 +69,14 @@ searchResults.innerHTML='';
     
     <div class="menu">
     
-    <li><a href="/">Home</a></li>
+    <li><a href="/" data-i18n="home">Home</a></li>
     
-    <li><a href="/smartphones">Smartphone</a></li>
+    <li><a href="/smartphones" data-i18n="Smartphone">Smartphone</a></li>
     
     <li class="services">
 
        
-    <a href="/labtops">Laptop</a>
+    <a href="/labtops" data-i18n="Laptop" >Laptop</a>
     
    <!-- DROPDOWN MENU -->
     
@@ -106,8 +106,12 @@ searchResults.innerHTML='';
         <li><a  href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></li>
 
         <li><a href="/wishlist" id="heart"><i class="fa-solid fa-heart"></i></a></li>
+
+        <li><a  href="/tran"><i class="fa-solid fa-user"></i></a></li>
         
         <li><a  href="/sign"><i class="fa-solid fa-user"></i></a></li>
+
+      
         <% } %>
         <% } %>
 
@@ -117,7 +121,8 @@ searchResults.innerHTML='';
     </div>
     
     </ul>
-    
+    <script src="../controller/lang.js" type="module"></script>
     </nav>
+    
 
    

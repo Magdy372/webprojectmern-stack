@@ -11,6 +11,10 @@ import form2 from './controller/filter.js'
 
 
 
+
+
+
+
 //import { Signup } from '../models/signup_schema';
 //const Signup = require('./models/signup_schema');
 //import Signup from './models/signup_schema.js';
@@ -51,7 +55,7 @@ import editUseradmin_route from "./routes/editUseradmin_route.js";
 import checkout_router from "./routes/checkout.js";
 import checkusersdata_router from "./routes/checkusersdata.js";
 import editUseradminform_route from "./routes/editUseradminform_route.js";
-
+import language_route from "./routes/lange.js";
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -97,6 +101,8 @@ app.use('/',cart_router);
 app.use('/',wishlist_router);
 
 app.use('/discount', discount_router);
+
+app.use('/tran', language_route);
 
 app.use('/sign', sign_router);
 
