@@ -8,7 +8,12 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
+  if ( req.session.user.Type === 'user'){
   res.render('checkout',{ user: (req.session.user === undefined ? "" : req.session.user) })
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 router.post('/', function(req, res, next) {
@@ -88,6 +93,10 @@ router.post('/', function(req, res, next) {
       console.log(err);
       res.status(500).send("Error while retrieving products.");
     });
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 

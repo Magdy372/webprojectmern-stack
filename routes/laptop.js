@@ -5,6 +5,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/labtops', (req, res) => {
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   product1.find({ category: { $in: "laptop" } })
     .then((results) => {
     res.render('labtops', { product: results ,  user: (req.session.user === undefined ? "" : req.session.user) });
@@ -12,9 +13,14 @@ router.get('/labtops', (req, res) => {
    .catch((err) => {
    console.log(err);
 });
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 router.post('/labtops/filter', (req, res) => {
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user'){
   const brand = req.body.brand;
   console.log(brand);
   if(brand==="All"){
@@ -36,6 +42,10 @@ router.post('/labtops/filter', (req, res) => {
     });
   }
   
+}
+else {
+  res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+}
 });
 
 
