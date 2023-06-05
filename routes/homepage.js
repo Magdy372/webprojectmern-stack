@@ -27,11 +27,12 @@ router.get('/', function(req, res, next) {
   query = {"arrivalDate": {"$gte": threshold_date}}
 */
 const currentDate = new Date();
-  const thresholdDate = new Date(currentDate.getTime() - (7* 24 * 60 * 60 * 1000));
-  const query = { createdAt: { $gte: thresholdDate } };
+  const thresholdDate = new Date(currentDate.getTime() - (30* 24 * 60 * 60 * 1000));
+  const query = { createdAt: { $gte: thresholdDate },  hasoffer:  "false"  };
+  const query1={ hasoffer:  "false" } ;
 
 
-  product11.find()
+  product11.find(query1)
   .then(result1 => {
     // Handle the first query result here
     product12.find(query)
