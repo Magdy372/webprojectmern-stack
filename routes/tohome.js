@@ -4,12 +4,10 @@ var router = Router();
 /* GET /about page. */
 router.get('/', function(req, res, next) {
 
-  if (req.session && req.session.user && req.session.user.Type === 'user')
-  {
-res.render("homepage",{ User: (req.session.user === undefined ? "" : req.session.user) });
-  }
-  else{
-    res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user') {
+    res.render("homepage", { User: (req.session.user === undefined ? "" : req.session.user) });
+  } else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
   }
 
    // res.render("homepage");

@@ -21,13 +21,11 @@ router.get('/homepage', function(req, res, next) {
 
   //signin.find()
   
-    if (req.session && req.session.user && req.session.user.Type === 'user')
-    {
-  res.render("homepage",{ User: (req.session.user === undefined ? "" : req.session.user) });
-    }
-    else{
-      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
-    }
+  if (!req.session || req.session.user === undefined || req.session.user.Type === 'user') {
+    res.render("homepage", { User: (req.session.user === undefined ? "" : req.session.user) });
+  } else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
   
 
 
@@ -42,7 +40,7 @@ router.get('/', function(req, res, next) {
   query = {"arrivalDate": {"$gte": threshold_date}}
 */
 
-if (req.session && req.session.user && req.session.user.Type === 'user'){
+if (!req.session || req.session.user === undefined || req.session.user.Type === 'user') {
 const currentDate = new Date();
   const thresholdDate = new Date(currentDate.getTime() - (30* 24 * 60 * 60 * 1000));
   const query = { createdAt: { $gte: thresholdDate },  hasoffer:  "false"  };
