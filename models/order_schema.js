@@ -19,6 +19,10 @@ const order_schema = new Schema({
         building:{
             type: String,
             required: [true, "Building No. is required"]
+        },
+        floor:{
+            type: String,
+            required: [true, "Floor No. is required"]
         }
     },
     order_total: {

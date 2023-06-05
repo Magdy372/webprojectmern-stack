@@ -4,7 +4,12 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
+  if ( req.session.user.Type === 'user'){
     res.render("checkout",{ user: (req.session.user === undefined ? "" : req.session.user) });
+  }
+  else {
+    res.render("noaccess", { user: (req.session.user === undefined ? "" : req.session.user) });
+  }
 });
 
 /* GET /about/test page. */

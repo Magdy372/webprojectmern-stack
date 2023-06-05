@@ -10,7 +10,7 @@ var router = Router();
 
 
 router.post("/",function(req, res, next){
-
+  
   var query = { mail: req.body.mail };
   Signup.find(query)
     .then(result => {
