@@ -24,7 +24,7 @@ function isValidPhoneNumber(phone) {
   const city = req.body.city;
   const street = req.body.street;
   const building = req.body.building;
-  const address = req.body.address;
+  const floor = req.body.floor;
   const cardN = req.body.cardN;
   const card = req.body.card;
   const date = req.body.date;
@@ -64,8 +64,8 @@ function isValidPhoneNumber(phone) {
         errors.building = "Building number is required";
       }
     
-      if (!address) {
-        errors.address = "Address is required";
+      if (!floor) {
+        errors.address = "Floor number is required";
       }
     
       if (!cardN) {
