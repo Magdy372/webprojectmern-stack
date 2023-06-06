@@ -67,7 +67,7 @@ router.post('/', function(req, res, next) {
               phone: req.body.phone,
               status: req.body.status,
               totalPrice: sumprice,
-              user: req.session.user
+              customer: req.session.user
             });
 
             order.save()

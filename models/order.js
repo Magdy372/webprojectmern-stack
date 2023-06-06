@@ -32,14 +32,15 @@ const orderSchema = mongoose.Schema({
     status: {
         type: String,
         required: true,
-        default: 'Pending',
+        default: 'Confirmed',
     },
     totalPrice: {
         type: Number,
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Signup',
+    customer: {
+        type:String,
+        required:true
+       
     },
     dateOrdered: {
         type: Date,
