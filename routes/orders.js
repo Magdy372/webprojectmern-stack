@@ -7,7 +7,7 @@ var router = Router();
 
 
 /* GET /about page. */
-router.get('/', function(req, res, next) {
+router.get('/ordes', function(req, res, next) {
   if (req.session && req.session.user && req.session.user.Type === 'admin') {
     var orderarr = [];
 var orderitemarr = [];
@@ -77,8 +77,25 @@ order.find()
     }
 });
 
+router.get('/ordes/:id',function(req, res, next){
+  order.updateOne({_id: req.params.id},{status:'confirmed'})
+  .then(result =>{
+     res.redirect('/ordes')
+  })
+})
 
-
+router.get('/ordes/delete/:id',function(req, res, next){
+  order.findByIdAndDelete(req.params.id)
+  .then(result =>{
+     res.redirect('/ordes')
+  })
+})
+router.get('/ordes/paused/:id',function(req, res, next){
+  order.updateOne({_id: req.params.id},{status:'paused'})
+  .then(result =>{
+     res.redirect('/ordes')
+  })
+})
 /* GET /about/test page. */
 router.get('/test', function(req, res, next) {
     res.send('Test Route');

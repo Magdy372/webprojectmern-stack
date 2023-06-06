@@ -34,7 +34,6 @@ import dashborad_router from "./routes/dashborad.js";
 import customers_router from "./routes/customer.js";
 import ordes_router from "./routes/orders.js";
 import inventory_router from "./routes/inventory.js";
-import task_router from "./routes/tasks.js";
 import offers_router from "./routes/offers.js";
 import addoffer_router from "./routes/addoffer.js";
 import ADMIN_ADD_router from "./routes/ADMIN_ADD.js";
@@ -114,13 +113,11 @@ app.use('/logout', logout_router);
 
 app.use('/customers', customers_router);
 
-app.use('/ordes', ordes_router);
+app.use('/', ordes_router);
 
 app.use('/uploadphoto', uploadphoto_router);
 
 app.use('/Inventory', inventory_router);
-
-app.use('/Task', task_router);
 
 app.use('/', offers_router);
 

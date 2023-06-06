@@ -88,9 +88,19 @@
                                 <td><%=element._id%></td>
                                 <td><%=element.totalPrice%></td>
                                 <td>
-                                    <span class="status-done"></span>
-                                    <%=element.status%>
-                                </td>
+                                <%if(element.status==='Pending'){%>
+                                    <span class="status-pending"></span>
+                                   <%=element.status %>
+                                     </td>
+                                   <%}else if(element.status==='paused'){%>
+                                     <span class="status-not"></span>
+                                    <%=element.status %>
+                                      </td>
+                                    <%}else if(element.status==='confirmed'){%>
+                                     <span class="status-done"></span>
+                                    <%=element.status %>
+                                      </td>
+                                    <%}%>
                               </tr>
                             <%})%>
                            </tbody>

@@ -24,6 +24,7 @@
                 <th>Order Date</th>
                 <th>Price</th>
                 <th>Delivery Status</th>
+                <th>action</th>
               </tr>
               <tr class="small-screen">
                 <th><h3>List of Orders</h3></th>
@@ -38,8 +39,28 @@
                   <td><%=order.dateOrdered %></td>
                   <td><%=order.totalPrice %></td>
                   <td>
-                    <span class="status-done"></span>
+                   
+                    <%if(order.status==='Pending'){%>
+                     <span class="status-pending"></span>
                     <%=order.status %>
+                      </td>
+                    <%}else if(order.status==='paused'){%>
+                      <span class="status-not"></span>
+                     <%=order.status %>
+                       </td>
+                     <%}else if(order.status==='confirmed'){%>
+                      <span class="status-done"></span>
+                     <%=order.status %>
+                       </td>
+                     <%}%>
+                  <td>
+                    <%if(order.status!=='confirmed'){%>
+                    <a href="/ordes/<%=order.id%>"><button>confirm</button></a>
+                    <%}%>
+                    <% if(order.status!=='paused'||order.status==='Pending'){%>
+                    <a href="/ordes/paused/<%=order.id%>"><button>pause</button></a>
+                    <% }%>
+                    <a href="/ordes/delete/<%=order.id%>"><button>cancel</button></a>
                   </td>
                 </tr>
               <% }); %>

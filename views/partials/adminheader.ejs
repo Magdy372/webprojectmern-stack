@@ -23,10 +23,6 @@
             </li>
 
             <li>
-                <a href="/Task" id="Task"  onclick="Task()"><span class="las la-clipboard-list"></span><span> Tasks</span></a>
-            </li>
-
-            <li>
                 <a href="/offers" id="offers"  onclick="offers()"><span class="las la-tag"></span><span> Offers</span></a>
             </li>
 
@@ -49,10 +45,9 @@
 
 
        <div class="user-wrapper">
-         <a href="/profile"><img width="40px" height="40px" src="../image/blank-profile-picture-973460_1280.webp" alt=""></a>
          <div>
-            <h4>Admin name</h4>
-            <small>Super admin</small>
+            <h4><%=user.fullname%></h4>
+            <small><%=user.Type%></small>
          </div>      
         </div>
 
