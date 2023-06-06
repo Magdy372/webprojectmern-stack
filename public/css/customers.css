@@ -198,6 +198,10 @@ main{
     background-color: #c6c5c5;
   }
   
+  .small-screen
+{
+    display: none;
+}
 @media  screen and (max-width: 1200px )
 {
  .sidebar 
@@ -235,14 +239,40 @@ main{
    left: 70px;
 }
 
+.sidebar
+{
+    left:0;
+    z-index: 100;
+    width: 360px;
+}
+
+
+ .sidebar .sidebar-brand,
+ .sidebar li   
+{
+padding-left: 2rem;
+text-align: left;
+}
+
+ .sidebar li a  
+{
+padding-left: 1rem;
 
 }
 
+ .sidebar .sidebar-brand h2 span:last-child,
+ .sidebar li a span:last-child
+{
+display:inline;
+}
+
+ .main-content{
+margin-left: 0rem;
+}
+}
+
 @media screen and (max-width: 960px) {
-   .cards
-    {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  
     
     .recent-grid
     {
@@ -250,11 +280,23 @@ main{
     }
 }
 @media  screen and (max-width: 768px) {
-    .cards
+  
+    .large-screen
     {
-        grid-template-columns: repeat(2, 1fr);
+        display: none;
     }
-    
+    .small-screen
+    {
+        display: grid;
+        place-items: center;
+        background-color: var(--main-color);
+        color: white;
+    }
+    th{
+        display: grid;
+        place-items: center;
+        width: 100%;
+    }
     .recent-grid
     {
         grid-template-columns: 100%;
@@ -339,13 +381,28 @@ main{
     margin-left: 0rem;
 
 }
+  
+  /* Display the table rows as block elements to stack them vertically */
+  td {
+    display: block;
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  
+  /* Add a before pseudo-element with the content of the table header */
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 8px;
+    font-weight: bold;
+  }
 }
 
 @media  screen and (max-width: 568px) {
-    .cards
-    {
-        grid-template-columns: 100%;
-    }
+   
     
     
 }

@@ -13,7 +13,8 @@
 <body>
    
     <%- include("./partials/adminheader.ejs") %>
-<div  class="search_customer">
+  <main>
+    <div  class="search_customer">
       <form onsubmit=" " id="" action="/editUseradmin" method="post">
 
 
@@ -27,22 +28,20 @@
          
       </form>     
     </div>
-
-
-
-    
-  <main>
     <div class="card-body">
         <div class="table-responsive"> 
           <table width="100%">
              <thead>
-               <tr>
+               <tr class="large-screen">
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>Address</th>
                   <th>type</th>
                </tr>
+               <tr class="small-screen">
+                <th><h3>List of customers</h3></th>
+              </tr>
              </thead>
              <tbody>
               <% user.forEach(element => { %>

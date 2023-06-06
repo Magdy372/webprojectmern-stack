@@ -8,7 +8,7 @@ var router = Router();
 
 /* GET /about page. */
 router.get('/', function(req, res, next) {
-  
+  if (req.session && req.session.user && req.session.user.Type === 'admin') {
   product1.find()
   .then(result1 => {
     // Handle the first query result here
@@ -35,10 +35,15 @@ router.get('/', function(req, res, next) {
       .catch(err => {
         console.log(err);
       });
+   
   })
   .catch(err => {
     console.log(err);
   });
+   }
+    else{
+      res.render("noaccess",{ user: (req.session.user === undefined ? "" : req.session.user) })
+   }
 
   // signin.find()
   //   .then(result => {

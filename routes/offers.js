@@ -49,11 +49,11 @@ router.post('/offers/filter', (req, res) => {
   let query = {};
 
   if (category !== 'All' && brand !== 'All') {
-    query = { category: category, brand: { $regex: new RegExp(brand, "i") } };
+    query = { category: category, brand: { $regex: new RegExp(brand, "i") } ,hasoffer:"true"};
   } else if (category !== 'All') {
-    query = { category: category };
+    query = { category: category ,hasoffer:"true"};
   } else if (brand !== 'All') {
-    query = { brand: { $regex: new RegExp(brand, "i") } };
+    query = { brand: { $regex: new RegExp(brand, "i") } ,hasoffer:"true"};
   }
 
   Promise.all([

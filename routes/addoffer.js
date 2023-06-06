@@ -10,7 +10,7 @@ var router = Router();
 
 router.get('/addoffer', function(req, res, next) {
   
-  Promise.all([    product1.find(),    product2.find()  ])
+  Promise.all([    product1.find({hasoffer:"false"}),    product2.find({hasoffer:"false"})  ])
     .then((result) => {
       if (req.session && req.session.user && req.session.user.Type === 'admin') {
         res.render('addoffer', { product: result[0], product1: result[1], user: (req.session.user === undefined ? "" : req.session.user) });
@@ -54,11 +54,11 @@ router.post('/addoffer/filter', (req, res) => {
   let query = {};
 
   if (category !== 'All' && brand !== 'All') {
-    query = { category: category, brand: { $regex: new RegExp(brand, "i") } };
+    query = { category: category, brand: { $regex: new RegExp(brand, "i"), hasoffer:"false" } };
   } else if (category !== 'All') {
-    query = { category: category };
+    query = { category: category , hasoffer:"false"};
   } else if (brand !== 'All') {
-    query = { brand: { $regex: new RegExp(brand, "i") } };
+    query = { brand: { $regex: new RegExp(brand, "i") } , hasoffer:"false"};
   }
 
   Promise.all([
