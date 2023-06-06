@@ -132,63 +132,6 @@
   
   }
   
-  /* DROPDOWN MENU */
-  /*
-  .services {
-  
-  position: relative; 
-  
-  }
-  
-  .dropdown {
-  
-  background-color: rgb(0, 0, 0);
-  
-  padding: 1em 0;
-  
-  position: absolute; /*WITH RESPECT TO PARENT*/
-  /*
-  display: none;
-  
-  border-radius: 8px;
-  
-  top: 35px;
-
-  overflow-y: auto;
-
-  
-  }
-  
-  .dropdown li + li {
-  
-  margin-top: 10px;
-  
-  }
-  
-  .dropdown li {
-  
-  padding: 0.5em 1em;
-  
-  width: 8em;
-  
-  text-align: center;
-  
-  }
-  
-  .dropdown li:hover {
-  
-  background-color: #4c9e9e;
-  
-  }
-  
-  .services:hover .dropdown {
-  
-  display: block;
-  
-  }
-*/
-
-
   input[type=checkbox]{
 
       display: none;
@@ -210,10 +153,11 @@
       /* APPLYING MEDIA QUERIES */
       
       @media (max-width: 768px) {
+        #searchin{
+          width: 100px;
+        }
       
       .menu { 
-
-      width: 100%;  
       
       display:none;
       
@@ -228,7 +172,7 @@
       text-align: center;
       
       padding: 16px 0;
-      position:sticky;
+      z-index: 10;
       
       }
       
@@ -260,67 +204,10 @@
       
       }
       
-      .dropdown {
-      
-      left: 50%;
-      
-      top: 30px;
-      
-      transform: translateX(35%);
-      
-      }
-      
-      .dropdown li:hover {
-      
-      background-color: #4c9e9e;
-      
-      }
       
       }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: #646363;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-.sidenav.pro-container{
-  padding-left: 15px;
-}
 
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #a5c9f1;
-}
-.sidenav a:active{
-  color: #a5c9f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  
-}
-.sidenav .closebtn:hover {
-  color:red
-}
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -330,89 +217,7 @@
 }
 
 
-
-
-
-
-
-
-
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-/* The popup form - hidden by default */
-.form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 300px;
-  padding: 10px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-.form-container input[type=text], .form-container input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
-}
-
-/* When the inputs get focus, do something */
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Set a style for the submit/login button */
-.form-container .btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-  background-color: red;
-}
-
-/* Add some hover effects to buttons */
-.form-container .btn:hover, .open-button:hover {
-  opacity: 1;
-}
-
-
-
-
   /*this is for items*/
-
-
-
-
-
 
   #product1{
     text-align: center;
@@ -587,66 +392,7 @@ background-color: #04AA6D;
 
 
 
-#sm-banner{
 
-  display: flex;
-  justify-content:space-between ;
-  flex-wrap: wrap;
-  margin: 40px;
-  margin-left: 120px;
-}
-
-#sm-banner .banner-box{ 
-display: flex;
-flex-direction: column; 
-justify-content: center;
-align-items:flex-start;
-background-image: ur1("img/banner/b17.jpg");
-min-width: 580px;
-height: 50vh;
-background-size: cover;
-background-position:center;
-padding: 30px;
-background-color: #c57d00;
-
-margin-right: 30px;
-}
-
-#sm-banner .banner-box2{ 
-  display: flex;
-  flex-direction: column; 
-  justify-content: center;
-  align-items:flex-start;
-  background-image: ur1("img/banner/b17.jpg");
-  min-width: 580px;
-  height: 50vh;
-  background-size: cover;
-  background-position:center;
-  padding: 30px;
-  background-color: #c57d00;
-  }
-
-#sm-banner h4{
-
-  color: white;
-  font-size: 20px;
-  font-weight: 300;
-}
-
-#sm-banner h2{
-
-  color: white;
-  font-size: 28px;
-  font-weight: 800;
-}
-
-#sm-banner span{
-
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  padding-bottom: 15px;
-}
 
 @media (min-width:1200px){
   #sm-banner .banner-box2{
@@ -706,18 +452,6 @@ border: 1px solid #fff;
 outline: none;
 transition:0.2s;
 }
-
-#sm-banner .banner-box:hover button{
-
-background: #04AA6D;
-border: 1px solid #04AA6D;
-}
-
-#sm-banner .banner-box2:hover button{
-
-  background: #04AA6D;
-  border: 1px solid #04AA6D;
-  }
 
 
   #banner3 .banner-box{ 
@@ -862,6 +596,7 @@ div.container-footer.w-container {
   padding-bottom: 40px;
   padding-top: 70px;
   padding-left: 60px;
+  
 }
 
 div.container-footer.w-container:after {
@@ -1143,151 +878,55 @@ strong.link-email-footer {
   font-weight: 700;
 }
 
-#bg-modal {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-  overflow: hidden;
-  position: fixed;
-}
-#signup
-{
-  position: relative;
-  color: #1d3557;
-  
-}
-.modal-content {
-  width: 500px;
-  height: 350px;
-  background-color: #dbe1ea;
-  border-radius:4;
-  text-align: center;
-  padding: 20px;
-  position: relative;
-  border-radius: 10%;
-  border: 8px solid #1d3557  ;
-}
+
 
 .lab
 {
   font-weight: bold;
   font-size: large;
 }
-.btn-modal
-{
-  padding: 5px;
-  border: 3px solid #1d3557 ;
-  border-radius: 15%;
-}
-.modal-content input{
-  width: 50%;
-  display: block;
-  margin: 15px auto;
-  padding: 5px;
-}
-.close{
-position: absolute;
-top: 0;
-right: 14px; 
-font-size: 42px;
-transform: rotate (45deg);
-cursor:pointer;
-}
-
-/*regestration form*/
-
-.close2{
-  position: absolute;
-  top: 0;
-  right: 14px; 
-  font-size: 42px;
-  transform: rotate (45deg);
-  cursor:pointer;
-  }
 
 
-  .content {
-    width: 500px;
-    height: 600px;
-    background-color: #dbe1ea;
-    border-radius:4;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    border-radius: 12%;
-  border: 8px solid #1d3557 ;
-  justify-content: space-between;
-  }
-  input{
-    border: 5px solid #1d3557  ;
-    margin: 5px;
-    background-color:  #fcfcfc;
-  }
-  #big-container {
-    background-color: #4c9e9e;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
-    top: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: none;
-    position: fixed;
-    
-  }
-
-  #formreg{
-    text-align: left;
+@media (max-width: 768px) {
+  div.container-footer.w-container {
     padding-left: 20px;
-    justify-content: space-between;
+    padding-right: 20px;
+    overflow-x: hidden;
   }
 
-  .fl{
-    float: left;
-    width: 110px;
-    line-height: 35px;
-  }
   
-  .fontLabel{
-    color: rgb(0, 0, 0);
+  div.footer-column.w-clearfix.w-col.w-col-8,
+  div.w-col.w-col-8,
+  div.w-col.w-col-7.w-col-small-6.w-col-tiny-7,
+  div.w-col.w-col-5.w-col-small-6.w-col-tiny-5,
+  div.column-center-mobile.w-col.w-col-4 {
+    width: 100% !important;
+    float: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    left:20px;
   }
-  
-  
-  .textBox{
-    height: 35px;
-    width: 190px;
-    border: none;
-    padding-left: 20px;
-    padding-bottom: 10px;
+
+  h3.footer-titles,
+  h3.footer-failory-name {
+    font-size: 18px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
   }
-  
-  .new{
-    float: left;
+
+  p.footer-description,
+  p.footer-description-failory,
+  p.footer-links {
+    font-size: 15px;
+    padding-left: 0;
   }
-  
-  .radio{
-    color: white;
-    background: #2d3e3f;
-    line-height: 38px;
-  }
-  
-  .submit{
-    float: right;
-    border: none;
-    color: white;
-    width: 110px;
-    height: 35px;
-    background: #ff6600;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
- 
+
+  /* Additional styles specific to smaller screens */
+  /* Add your custom styles here */
+}
 
 
 
@@ -1321,89 +960,7 @@ cursor:pointer;
 
 
 
-/*items in cart */
 
-
-#productcart{
-  text-align: center;
-}
-#carth{
-  text-align: center;
-}
-
-#productcart .pro{
-
-  width: 23px;
-  min-width: 250px;
-  padding: 10px 12px ;
-  border: 1px solid #fff2e5;
-
-  border-radius: 25px;
-  cursor: pointer;
-  box-shadow: 20px 20px 30px rgb(0,0,0,0.02);
-  margin: 15px 0;
-  transition: 0.2s ease;
-  position: relative;
-}
-#productcart .pro:hover{
-
-  box-shadow: 20px 20px 30px rgb(0,0,0,0.15);
-
-}
-#productcart .pro .des{
-text-align: start;
-}
-
-#productcart .pro span{
-
-  color: #606063;
-  font-size: 12px;
-
-}
-#productcart .pro .des h5{
-
-  padding-top: 7px;
-  color: black;
-  font-size: 14px;
-  
-
-
-
-}
-#productcart .pro .des i{
-  font-size: 12px;
-  color: goldenrod;
-}
-
-
-#productcart .pro-container{
-display: flex;
-justify-content: space-between;
-padding-top: 20px;
-flex-wrap: wrap;
-padding-left: 15px;
-
-}
-
-#productcart .pro img{
-
-  width: 100%;
-  border-radius: 20px;
-  height: 250px;
-}
-
-.checkout-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-
-.checkout-button:hover {
-  background-color: #3e8e41;
-}
 body{
   background-color: #f1f1f1;
 }

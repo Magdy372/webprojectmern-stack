@@ -132,7 +132,7 @@ app.use('/addUser', addUser_router);
 
 app.use('/profile', profile_router);
 
-app.use("/map",map_router);
+app.use("/",map_router);
 
 app.use("/signupform",Signup_router);
 

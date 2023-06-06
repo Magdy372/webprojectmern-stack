@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../css/item.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container11 {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .container11 {
+    padding: 10px;
+    width: 300px;
+  }
+}
+    </style>
+    <title>About US!</title>
+</head>
+<body>
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/chat.ejs") %>
+    <div class="container11">
+        <h1>About Us</h1>
+        <p>Welcome to our online store specializing in laptops and smartphones. We are dedicated to providing high-quality electronic devices to our customers at competitive prices.</p>
+        <p>With a wide range of laptops and smartphones from top brands, we aim to fulfill your tech needs. Whether you're a student, a professional, or an avid gamer, we have the perfect device for you.</p>
+        <p>Our team consists of tech enthusiasts who stay up-to-date with the latest trends and advancements in the industry. We carefully select each product to ensure that they meet our quality standards.</p>
+        <p>Customer satisfaction is our top priority. We strive to provide excellent customer service and a seamless shopping experience. If you have any questions or need assistance, feel free to contact our support team.</p>
+        <p>Thank you for choosing our online store. We look forward to serving you and helping you find the perfect laptop or smartphone.</p>
+      </div>
+      <%- include("./partials/footer.ejs") %>
+</body>
+</html>
