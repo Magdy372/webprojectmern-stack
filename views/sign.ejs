@@ -36,6 +36,7 @@
             <% if(user==="" ) {%> 
 
                 <%- include("./partials/header.ejs") %>
+                <%- include("./partials/tran.ejs") %>
                 <form id="signin" action="/signinform" method="post" >
                     <label class="lab" for="email"><b>Email</b></label>
                     <input class="in" type="text" placeholder="Email" name="mail" required>
@@ -116,7 +117,9 @@
 
           <% }else { %>
             <form action="/logout" method="get">
+             
             <%- include("./partials/header.ejs") %>
+             <%- include("./partials/tran.ejs") %>
             <h2>name:<%= user.fullname %></h2>
             <br>
             <br>
