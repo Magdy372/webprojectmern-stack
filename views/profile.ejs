@@ -12,13 +12,11 @@
 <body>
     <%- include("./partials/adminheader.ejs") %>
      <main>
-        <div class="profile-picture ">
-            <div class="upload">
-              <img id="image" src="../image/blank-profile-picture-973460_1280.webp" alt="profile-picture"> 
-             <form method="post" onsubmit="return changephoto(this)">
-              <div class="round"> <input type="file" class="hidden" name="profile"> <span class="las la-camera "></span> </div>
-             </form>
-           </div>
+        <div class="profile-picture">
+
+                <div class="logos"><a href="/"><img src="/images/cyber-mart-high-resolution-logo-black-on-transparent-background.png" alt="logos"></a></div>
+                <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+           
         </div>
         <div class="account-info">
             <p class="info">name:<%= user.fullname %></p>

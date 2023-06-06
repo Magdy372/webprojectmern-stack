@@ -263,6 +263,12 @@ svg{
   opacity: 0;
 }
 
+.logos {
+    font-size: 32px;
+    width: 100px;
+    height: 150px;
+  }
+
 @media  screen and (max-width: 1200px )
 {
  .sidebar 
