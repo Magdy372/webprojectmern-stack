@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pagination Example</title>
+  <style>
+    .page {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="pagination">
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+
+  <div class="page">Page 1</div>
+  <div class="page">Page 2</div>
+  <div class="page">Page 3</div>
+  <div class="page">Page 4</div>
+  <div class="page">Page 5</div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    let currentPage = 0; // Set the initial page to 0
+  
+    function showPage(pageIndex) {
+      pages.forEach((page) => { page.style.display = 'none'; });
+      pages[pageIndex].style.display = 'block';
+    }
+  
+    function goToPrevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+  
+    function goToNextPage() {
+      if (currentPage <  totalPages  - 1) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+  
+    prevButton.addEventListener('click', goToPrevPage);
+    nextButton.addEventListener('click', goToNextPage);
+  
+    showPage(currentPage);
+  </script>
+</body>
+</html>

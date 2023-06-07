@@ -55,6 +55,7 @@ import checkout_router from "./routes/checkout.js";
 import checkusersdata_router from "./routes/checkusersdata.js";
 import editUseradminform_route from "./routes/editUseradminform_route.js";
 import language_route from "./routes/lange.js";
+import paginated_router from "./routes/paginated.js";
 import newselter_route from "./routes/newselter.js";
 import newselterad_route from "./routes/newselterad.js";
 
@@ -104,6 +105,8 @@ app.use('/', laptop_router);
 app.use('/',cart_router);
 
 app.use('/',wishlist_router);
+
+app.use('/',paginated_router);
 
 app.use('/discount', discount_router);
 
