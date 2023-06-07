@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import product11 from '../models/product_schema.js'
 import product12 from '../models/product_schema.js'
+import news from '../models/newselter.js'
 import session from 'express-session';
 import signin from '../models/signup_schema.js'
 var router = Router();
@@ -90,8 +91,10 @@ else{
   });*/
 
 /* GET /about/test page. */
-router.get('/test', function(req, res, next) {
+
+  router.get('/test', function(req, res, next) {
     res.send('Test Route');
   });
+
 
 export default router;

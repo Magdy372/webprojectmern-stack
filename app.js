@@ -55,6 +55,8 @@ import checkout_router from "./routes/checkout.js";
 import checkusersdata_router from "./routes/checkusersdata.js";
 import editUseradminform_route from "./routes/editUseradminform_route.js";
 import language_route from "./routes/lange.js";
+import newselter_route from "./routes/newselter.js";
+import newselterad_route from "./routes/newselterad.js";
 
 
 export const __filename = fileURLToPath(import.meta.url);
@@ -82,6 +84,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/', homepage_router);
+
+app.use('/', newselter_route);
+
+app.use('/', newselterad_route);
 
 app.use('/homepage', tohome_router);
 
