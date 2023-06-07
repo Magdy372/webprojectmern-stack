@@ -33,7 +33,11 @@
           <button type="submit">Apply</button>
         </form>
       
-
+        <div>
+          <% for (let i = 1; i <= pagination.totalPages; i++) { %>
+            <a href="/labtops?page=<%= i %>"><%= i %></a>
+          <% } %>
+        </div>
 <section  id="product1" class="section-p1">
 <h2>featured products</h2>
 <div class="pro-container">
