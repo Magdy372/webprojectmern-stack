@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../scripts/forgetpasword.js"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/e390cab89c.css">
+    <script src="https://kit.fontawesome.com/e390cab89c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/sign.css">
+    <title>reset password</title>
+    <style>
+       
+        #forgetform{
+            display: grid;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/tran.ejs") %>
+    <form action="/sign/update/<%=reset._id%>" onsubmit="return validateform1(this)" id="forgetform" method="post">
+        <label for="password"  class="lab">NEW Password</label>
+              <input type="password"  id="password" class="in" placeholder="Password" name="password" required class="textBox" >
+              <label id="errorpassword"></label>
+              <label for="cpassword"  class="lab">confirm Password</label>
+              <input type="password" id="cpassword" class="in" placeholder="confirmPassword" name="cpassword" required class="textBox" >
+              <p id="pwcErr"></p>
+              <button type="submit"  class="btn-modal">reset password</button>
+      </form>
+      <%- include("./partials/footer.ejs") %>
+</body>
+</html>
