@@ -103,7 +103,7 @@ app.use('/discount', discount_router);
 
 app.use('/tran', language_route);
 
-app.use('/sign', sign_router);
+app.use('/', sign_router);
 
 app.use('/', item_router);
 
