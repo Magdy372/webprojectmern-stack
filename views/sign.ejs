@@ -122,16 +122,12 @@
              
             <%- include("./partials/header.ejs") %>
              <%- include("./partials/tran.ejs") %>
-            <h2>name:<%= user.fullname %></h2>
-            <br>
-            <br>
-          <h2>mail:<%= user.mail %></h2>
-          <br>
-          <br>
-          <h2>age:<%= user.Age %></h2>
-            <br>
-            <br>
-          <h2>gender:<%= user.gender %></h2>
+             <div class="container">
+              <h2 class="fullname">name: <%= user.fullname %></h2>
+              <h2 class="mail">mail: <%= user.mail %></h2>
+              <h2 class="age">age: <%= user.Age %></h2>
+              <h2 class="gender">gender: <%= user.gender %></h2>
+            </div>
 
           <table>
             <tr>
@@ -140,23 +136,37 @@
             <th>totalPrice</th>
             </tr>
             <%order.forEach(element =>{%>
+              <%const timestamp = element.dateOrdered;%>
+
+                <%const date = new Date(timestamp); %>
+               
+                <%const year = date.getFullYear();%> 
+                <% const month = date.getMonth() + 1;%> 
+                <%const day = date.getDate(); %>
+               
+               
+               <%const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;%>
+               
             <tr>
               <td><%=element.id%></td>
-              <td><%=element.dateOrdered%></td>
+              <td><%=formattedDate%></td>
               <td>$<%=element.totalPrice%></td>
             </tr>
             <%})%>
           </table>
-
-          <button id="left" class="btn-modal" type="submit">Logout</button>
+         
         </form>
-
-        <form action="/edituserr" method="get">
+        <div style="display: flex;
+        justify-content: center;">
+        <button id="left" class="btn-modal" type="submit" style=" margin: 0 10px;">Logout</button>
+        </div>
+        <form action="/edituserr" method="get" style="display: flex;
+        justify-content: center; margin: 0 11px;">
           <button id="left1" class="btn-modal" type="submit">Edit data</button>
         </form>
          
           <% } %>
-        
+          
                
           
       </main>

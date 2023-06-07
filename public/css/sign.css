@@ -195,6 +195,7 @@ input[type=checkbox] {
   }
 }
 
+
 .btn-modal {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -782,4 +783,38 @@ th {
     font-size: 14px;
     padding: 5px;
   }
+}
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.label {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.value {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
 }
