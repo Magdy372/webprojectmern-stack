@@ -33,23 +33,11 @@
             </thead>
             <tbody>
               <% Order.forEach((order, index) => { %>
-                <%const timestamp = order.dateOrdered;%>
-
-                <%const date = new Date(timestamp); %>
-               
-                <%const year = date.getFullYear();%> 
-                <% const month = date.getMonth() + 1;%> 
-                <%const day = date.getDate(); %>
-               
-               
-               <%const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;%>
-               
-               <%console.log(formattedDate);%>
                 <tr>
                   <td><%=customer[index].fullname %></td>
                   <td><%=product[index].title %></td>
                   <td><%=order._id %></td>
-                  <td><%=formattedDate %></td>
+                  <td><%=order.dateOrdered %></td>
                   <td><%=order.totalPrice %></td>
                   <td>
                    

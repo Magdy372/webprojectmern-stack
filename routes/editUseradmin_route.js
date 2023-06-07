@@ -29,7 +29,7 @@ router.post("/",function(req, res, next){
          
            // res.render('/eitUseradmin',data);
           
-        res.render("editUseradmin",{data});
+        res.render("editUseradmin",{data, user: (req.session.user === undefined ? "" : req.session.user) });
                          // return true;
         
 
