@@ -53,7 +53,7 @@ const currentDate = new Date();
     // Handle the first query result here
     product12.find(query)
      .sort({_id:-1})
-     .limit(3)
+     .limit(6)
       .then(result2 => {
         // Handle the second query result here
         console.log(result2);
